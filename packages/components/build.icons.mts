@@ -36,6 +36,12 @@ const icons: Record<string, string[]> = {
     'x-bold',
     'lock-simple-bold',
     'lock-simple-open-bold',
+    'envelope-simple-bold',
+    'package-bold',
+    'puzzle-piece-bold',
+    'shopping-cart-simple-bold',
+    'storefront-bold',
+    'wrench-bold',
   ],
 }
 
