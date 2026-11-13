@@ -132,6 +132,7 @@ describe('published package contract', () => {
       'dev:nuxt:build',
       'test',
       'prepublishOnly',
+      'changelog',
       'clean',
       'typecheck',
     ])
@@ -483,6 +484,34 @@ void _buttonLabelNotNullOnly
     expect(workflow).not.toContain('bun publish')
   })
 
+  it('publishes only from the tag that matches the package version', () => {
+    const workflow = readFileSync(
+      join(rootDir, '.github/workflows/publish.yml'),
+      'utf8',
+    )
+
+    expect(workflow).toMatch(/^ {4}environment: npm-publish$/m)
+    expect(workflow).toContain('workflow_dispatch:')
+    expect(workflow).toContain('types: [published]')
+
+    // The check runs for both triggers (no `if:`) and before anything is built or published.
+    const check = workflow.indexOf('name: Check that the tag matches the package version')
+    expect(check).toBeGreaterThan(-1)
+    expect(check).toBeLessThan(workflow.indexOf('name: Install'))
+    expect(check).toBeLessThan(workflow.indexOf('npm publish'))
+    const step = workflow.slice(check, workflow.indexOf('- name:', check + 1))
+    expect(step).not.toMatch(/^\s+if:/m)
+    expect(step).toContain('"$GITHUB_REF_TYPE" != "tag"')
+    expect(step).toContain('"$GITHUB_REF_NAME" != "v$version"')
+    expect(step).toContain('jq -r .version package.json')
+  })
+
+  it('generates later changelogs from the previous release tag', () => {
+    expect(pkg.scripts.changelog).toBe('bun scripts/changelog.ts')
+    const changelog = readFileSync(join(rootDir, 'CHANGELOG.md'), 'utf8')
+    expect(changelog).toMatch(/^## v0\.1\.0$/m)
+  })
+
   it('runs lint, build, and test on pull requests', () => {
     const workflow = readFileSync(
       join(rootDir, '.github/workflows/ci.yml'),
@@ -538,6 +567,23 @@ describe('packed install exports', () => {
       const packedFiles = execFileSync('tar', ['-tzf', tarball], { encoding: 'utf8' })
         .split('\n')
         .filter(Boolean)
+
+      expect(new Set(packedFiles.map(file => file.split('/')[1]))).toEqual(
+        new Set(['dist', 'LICENSE', 'README.md', 'package.json']),
+      )
+      const extracted = join(dir, 'extracted')
+      mkdirSync(extracted)
+      execFileSync('tar', ['-xzf', tarball, '-C', extracted])
+      const oldName = ['f', 'y', 'r', 's', 't'].join('')
+      let hits = ''
+      try {
+        hits = execFileSync('grep', ['-ril', oldName, extracted], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim()
+      }
+      catch (error) {
+        // grep exits 1 when nothing matches.
+        if ((error as { status?: number }).status !== 1) throw error
+      }
+      expect(hits, 'packed files must not contain the old package name').toBe('')
 
       expect(packedFiles).toContain('package/dist/style.css')
       expect(packedFiles).toContain('package/dist/panda/lib.json')

@@ -120,6 +120,7 @@
     "dev:nuxt:build": "bun run dev:nuxt:prepare && bun run --filter='@webflare/ui-nuxt' dev:build",
     "test": "bun run link:package && bun run --filter='@webflare/ui-components' test && bun run --filter='@webflare/ui-nuxt' test",
     "prepublishOnly": "bun run build",
+    "changelog": "bun scripts/changelog.ts",
     "clean": "rm -rf packages/*/dist dist",
     "typecheck": "bun run --filter='@webflare/design-preset' typecheck && bun run --filter='@webflare/ui-components' typecheck"
   },

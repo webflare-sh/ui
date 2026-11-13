@@ -179,31 +179,34 @@ The Panda CSS migration skill lives in the git repository (not in the npm tarbal
 
 ## Publishing
 
-Publish the root package only. The GitHub Action uses [npm trusted publishing](https://docs.npmjs.com/trusted-publishers/) (OIDC). There is no `NPM_TOKEN`.
+Publish the root package only. The GitHub Action uses [npm trusted publishing](https://docs.npmjs.com/trusted-publishers/) (OIDC) in the `npm-publish` environment. There is no `NPM_TOKEN`.
 
 `prepublishOnly` runs `bun run build`. The Action already builds and tests with Bun, then runs `npm publish --ignore-scripts` so that script does not rebuild. `bun publish` cannot authenticate with OIDC.
 
-### First publish (bootstrap)
+The Action runs on a published GitHub Release or a manual start, and only from the tag `v<version>` that matches `package.json`.
 
-Trusted publishing can only be attached to a package that already exists.
+### First publish (0.1.0)
 
-1. Create the public `@webflare` org on npm (or request access) and enable 2FA.
-2. `npm login` in a browser session (interactive 2FA). Do not create a bypass-2FA granular token.
-3. From the repo root:
+Trusted publishing can only be attached to a package that already exists, so 0.1.0 is published by hand.
+
+1. `npm login` in a browser session (interactive 2FA). Do not create a bypass-2FA granular token.
+2. Tag `v0.1.0` on the release commit, then from a clean checkout of that tag:
 
 ```bash
+bun install --frozen-lockfile
 bun run build
 bun run test
 npm publish --access public --ignore-scripts
 ```
 
+3. Do not create a GitHub Release for 0.1.0. It would start the Action, which fails because the version is already on npm.
 4. On npmjs.com → `@webflare/ui` → Settings → Trusted Publisher → GitHub Actions:
    - Organization or user: `webflare-sh`
    - Repository: `ui`
    - Workflow filename: `publish.yml` (filename only, including `.yml`)
-   - Environment name: leave empty
+   - Environment name: `npm-publish`
    - Allowed actions: `npm publish`
 
 ### Later publishes
 
-Run the **Publish to npm** GitHub Action (`workflow_dispatch`) or publish a GitHub Release. After the first OIDC publish succeeds, you can set the package to require 2FA and disallow tokens.
+Bump the version in all four `package.json` files and run `bun run changelog`. It adds the entry generated from the previous release tag. After the pull request is merged, tag `v<version>` on `master` and publish a GitHub Release for that tag (or start the **Publish to npm** Action from the tag). After the first OIDC publish succeeds, you can set the package to require 2FA and disallow tokens.

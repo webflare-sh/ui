@@ -8,12 +8,27 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: npm-publish
     permissions:
       contents: read
       id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+
+      # A release and a manual start must both run from the tag `v<version>`.
+      # A manual start from a branch fails here.
+      - name: Check that the tag matches the package version
+        run: |
+          if [ "$GITHUB_REF_TYPE" != "tag" ]; then
+            echo "::error::Run this workflow from a tag (v<version>), not from the $GITHUB_REF_TYPE $GITHUB_REF_NAME."
+            exit 1
+          fi
+          version="$(jq -r .version package.json)"
+          if [ "$GITHUB_REF_NAME" != "v$version" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match the package version v$version."
+            exit 1
+          fi
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2

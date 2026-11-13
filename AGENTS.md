@@ -41,6 +41,7 @@ bun run dev:nuxt:prepare    # Link @webflare/ui, panda lib, then stub/prepare th
 bun run dev:nuxt:build      # Link @webflare/ui, then build the Nuxt playground (dev check, not publish)
 bun run typecheck           # tsc on the preset, vue-tsc on the components
 bun run clean               # Clean all dist folders
+bun run changelog           # Add the CHANGELOG entry for the package.json version (from the previous v* tag)
 ```
 
 ## Lint Commands
@@ -196,9 +197,27 @@ Do not export `Control*` from `@webflare/ui`. Bare controls stay under `src/inte
 
 ### Release Process (maintainers)
 
-Publish the root `@webflare/ui` package with `.github/workflows/publish.yml`. The Action authenticates with npm trusted publishing (OIDC). Do not add `NPM_TOKEN` or a bypass-2FA granular token.
+Publish the root `@webflare/ui` package with `.github/workflows/publish.yml`. The Action authenticates with npm trusted publishing (OIDC) in the `npm-publish` environment. Do not add `NPM_TOKEN` or a bypass-2FA granular token.
 
-The first version must be published locally with `npm login` + 2FA, then attach the trusted publisher on npmjs.com (`webflare-sh` / `ui` / `publish.yml`).
+Agents never tag, create a GitHub Release, or publish. Each of those needs the maintainer's explicit approval.
+
+`publish.yml` runs on a published GitHub Release and on a manual start. Both must run from the tag `v<version>` that matches `package.json`; the first step fails on a branch or on any other tag. Keep `packages/nuxt/test/consumer-contract.test.ts` in sync with the workflow.
+
+**Changelog.** The `v0.1.0` entry in `CHANGELOG.md` is written by hand. For every later release, bump the version in all four `package.json` files, then run `bun run changelog` (or `bun run changelog --dry` to preview). It generates the entry with `changelogen` from the previous `v*` release tag to `HEAD`. It refuses to run for 0.1.0, before `v0.1.0` exists, or from a tag that does not contain the imported history, so the imported commits never show up.
+
+**Package check.** `npm pack --dry-run` lists only `dist/`, `LICENSE`, `README.md`, and `package.json`. The contract test packs the package and checks this.
+
+**First release (0.1.0), after approval:**
+
+1. From a clean checkout of the release commit on `master`, run `bun install --frozen-lockfile`, `bun run build`, and `bun run test`.
+2. Tag `v0.1.0` on that commit and push the tag.
+3. `npm login` (interactive 2FA), then `npm publish --access public --ignore-scripts`. This first publish has no npm provenance.
+4. Do **not** create a GitHub Release for 0.1.0. It would start `publish.yml`, which fails because 0.1.0 is already on npm.
+5. On npmjs.com → `@webflare/ui` → Settings → Trusted Publisher → GitHub Actions: organization `webflare-sh`, repository `ui`, workflow `publish.yml`, environment `npm-publish`. This works only after 0.1.0 exists.
+
+**Later releases (0.1.1 or later):** bump the versions, run `bun run changelog`, merge through a pull request, tag `v<version>` on `master`, and publish a GitHub Release for that tag. CI builds, tests, and publishes with provenance.
+
+Optional hardening, at any time: require 2FA and a second owner for the npm organization, and require a reviewer for the `npm-publish` environment.
 
 ## Key Dependencies
 
