@@ -29,7 +29,7 @@ function linkWorkspacePanda(consumerDir: string) {
 }
 
 describe('panda lib consumer fixture', () => {
-  const dir = mkdtempSync(join(tmpdir(), 'fyrst-ui-panda-lib-'))
+  const dir = mkdtempSync(join(tmpdir(), 'webflare-ui-panda-lib-'))
   const consumer = join(dir, 'consumer')
   let tarball = ''
 
@@ -44,12 +44,12 @@ describe('panda lib consumer fixture', () => {
     })
 
     const { version } = JSON.parse(readFileSync(rootPackagePath, 'utf8')) as { version: string }
-    tarball = join(dir, `fyrst-ui-${version}.tgz`)
+    tarball = join(dir, `webflare-ui-${version}.tgz`)
     expect(existsSync(tarball)).toBe(true)
 
     mkdirSync(consumer)
     writeFileSync(join(consumer, 'package.json'), JSON.stringify({
-      name: 'fyrst-ui-panda-lib-consumer',
+      name: 'webflare-ui-panda-lib-consumer',
       private: true,
       type: 'module',
     }))
@@ -73,18 +73,18 @@ describe('panda lib consumer fixture', () => {
     const appSrc = readFileSync(join(consumer, 'src/app.ts'), 'utf8')
     const pandaConfig = readFileSync(join(consumer, 'panda.config.ts'), 'utf8')
 
-    expect(appSrc).toContain('@fyrst/ui/vue/Button')
-    expect(appSrc).toContain('@fyrst/ui/vue/CardRoot')
-    expect(appSrc).toContain('@fyrst/ui/vue/FieldInput')
+    expect(appSrc).toContain('@webflare/ui/vue/Button')
+    expect(appSrc).toContain('@webflare/ui/vue/CardRoot')
+    expect(appSrc).toContain('@webflare/ui/vue/FieldInput')
     expect(appSrc).not.toMatch(/\bcva\s*\(/)
     expect(appSrc).not.toMatch(/\bsva\s*\(/)
     expect(appSrc).not.toMatch(/\bcss\s*\(/)
-    expect(pandaConfig).toContain('designSystem: \'@fyrst/ui\'')
+    expect(pandaConfig).toContain('designSystem: \'@webflare/ui\'')
     expect(pandaConfig).not.toContain('presets:')
-    expect(pandaConfig).not.toContain('@fyrst/ui/preset')
-    expect(pandaConfig).not.toContain('@fyrst/ui/design-preset')
+    expect(pandaConfig).not.toContain('@webflare/ui/preset')
+    expect(pandaConfig).not.toContain('@webflare/ui/design-preset')
     expect(pandaConfig).not.toContain('panda.buildinfo')
-    expect(pandaConfig).not.toContain('include: [\'@fyrst/ui')
+    expect(pandaConfig).not.toContain('include: [\'@webflare/ui')
 
     const result = runPanda(['cssgen', '--outfile', 'styles.css'], consumer)
     const output = `${result.stdout}\n${result.stderr}`
@@ -105,7 +105,7 @@ describe('panda lib consumer fixture', () => {
   }, 120_000)
 
   it('re-extracts published JS when buildinfo is stale', () => {
-    const installedRoot = join(consumer, 'node_modules/@fyrst/ui')
+    const installedRoot = join(consumer, 'node_modules/@webflare/ui')
     const buildinfoPath = join(installedRoot, 'dist/panda/buildinfo.json')
     expect(existsSync(buildinfoPath)).toBe(true)
     writeFileSync(buildinfoPath, '{ "this": "is-not-valid-panda-buildinfo" }\n')

@@ -17,7 +17,7 @@ describe('preset tokens', () => {
     expect(semanticFonts.body?.value).toBe('{fonts.sans}')
   })
 
-  it('matches the v0.2.0 color tokens', () => {
+  it('matches the color tokens', () => {
     expect(colors.brand.pale).toEqual({ value: '{colors.brand.100}' })
     expect(colors.primary).toEqual({
       value: { base: '{colors.brand.pale}', _light: '{colors.brand.day}' },

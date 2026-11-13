@@ -20,7 +20,7 @@ export default defineConfig(({ command }) => ({
   plugins: [
     vue(),
     {
-      name: 'fyrst-nuxt-entries',
+      name: 'webflare-nuxt-entries',
       closeBundle() {
         writeFileSync(
           resolve(root, 'dist/nuxt-entries.json'),
@@ -35,7 +35,7 @@ export default defineConfig(({ command }) => ({
     minify: false,
     lib: {
       entry,
-      name: 'fyrst-ui',
+      name: 'webflare-ui',
       cssFileName: 'ui-components',
       formats: ['es', 'cjs'],
       fileName: (format, entryName) => {
@@ -49,13 +49,13 @@ export default defineConfig(({ command }) => ({
         '@pandacss/dev',
         'reka-ui',
         styledSystem,
-        /^@fyrst\/ui\/(?:css|helpers|tokens|patterns|types)(?:\/|$)/,
+        /^@webflare\/ui\/(?:css|helpers|tokens|patterns|types)(?:\/|$)/,
       ],
       output: {
         exports: 'named',
         // Published code imports the runtime `panda lib` ships with the package
-        // (`@fyrst/ui/css`, …), not the local codegen folder.
-        paths: id => id.replace(styledSystem, '@fyrst/ui/$1'),
+        // (`@webflare/ui/css`, …), not the local codegen folder.
+        paths: id => id.replace(styledSystem, '@webflare/ui/$1'),
       },
     },
     cssCodeSplit: false,

@@ -9,17 +9,17 @@
                 Default hero section with headline and description. Size: "md" (default).
             </p>
             
-            <FyrstHeroLead
-                headline="Welcome to <mark>Fyrst</mark> UI"
+            <WfHeroLead
+                headline="Welcome to <mark>Webflare</mark> UI"
                 description="A modern, type-safe design system built with Vue 3 and PandaCSS. Create beautiful interfaces with confidence."
             >
                 <template #actions>
                     <div :class="css({ display: 'flex', gap: 'md', flexWrap: 'wrap' })">
-                        <FyrstButton label="Get Started" color="primary" size="md" />
-                        <FyrstButton label="View Documentation" color="secondary" size="md" />
+                        <WfButton label="Get Started" color="primary" size="md" />
+                        <WfButton label="View Documentation" color="secondary" size="md" />
                     </div>
                 </template>
-            </FyrstHeroLead>
+            </WfHeroLead>
         </div>
 
         <!-- Small Hero -->
@@ -31,15 +31,15 @@
                 Compact hero section with size="sm" for smaller sections or secondary pages.
             </p>
             
-            <FyrstHeroLead
+            <WfHeroLead
                 size="sm"
                 headline="Small Section Hero"
                 description="Perfect for sub-pages or sections that need less visual weight."
             >
                 <template #actions>
-                    <FyrstButton label="Learn More" color="primary" size="sm" />
+                    <WfButton label="Learn More" color="primary" size="sm" />
                 </template>
-            </FyrstHeroLead>
+            </WfHeroLead>
         </div>
 
         <!-- Large Hero -->
@@ -51,18 +51,18 @@
                 Large, impactful hero section with size="lg" for landing pages and main sections.
             </p>
             
-            <FyrstHeroLead
+            <WfHeroLead
                 size="lg"
                 headline="Build <strong>Amazing</strong> Products"
                 description="The complete design system for modern web applications. Fully responsive, theme-aware, and built with developer experience in mind."
             >
                 <template #actions>
                     <div :class="css({ display: 'flex', gap: 'md', flexWrap: 'wrap' })">
-                        <FyrstButton label="Start Building" color="primary" size="lg" />
-                        <FyrstButton label="Explore Components" color="secondary" size="lg" />
+                        <WfButton label="Start Building" color="primary" size="lg" />
+                        <WfButton label="Explore Components" color="secondary" size="lg" />
                     </div>
                 </template>
-            </FyrstHeroLead>
+            </WfHeroLead>
         </div>
 
         <!-- Center Aligned Hero -->
@@ -74,18 +74,18 @@
                 Hero section with center alignment using alignItems="center".
             </p>
             
-            <FyrstHeroLead
+            <WfHeroLead
                 align-items="center"
                 headline="Centered <mark>Hero</mark> Section"
                 description="Perfect for landing pages and marketing content where you want to draw attention to the center."
             >
                 <template #actions>
                     <div :class="css({ display: 'flex', gap: 'md', justifyContent: 'center', flexWrap: 'wrap' })">
-                        <FyrstButton label="Get Started" color="primary" size="md" />
-                        <FyrstButton label="Learn More" color="secondary" size="md" />
+                        <WfButton label="Get Started" color="primary" size="md" />
+                        <WfButton label="Learn More" color="secondary" size="md" />
                     </div>
                 </template>
-            </FyrstHeroLead>
+            </WfHeroLead>
         </div>
 
         <!-- End Aligned Hero -->
@@ -97,15 +97,15 @@
                 Hero section with end (right) alignment using alignItems="end".
             </p>
             
-            <FyrstHeroLead
+            <WfHeroLead
                 align-items="end"
                 headline="Right-Aligned Content"
                 description="Useful for specific layouts or directional design patterns."
             >
                 <template #actions>
-                    <FyrstButton label="Take Action" color="primary" size="md" />
+                    <WfButton label="Take Action" color="primary" size="md" />
                 </template>
-            </FyrstHeroLead>
+            </WfHeroLead>
         </div>
 
         <!-- Hero with Custom Headline Tag -->
@@ -117,15 +117,15 @@
                 Hero using headlineTag="h2" for proper semantic hierarchy in sub-sections.
             </p>
             
-            <FyrstHeroLead
+            <WfHeroLead
                 headline-tag="h2"
                 headline="Semantic <mark>HTML</mark> Structure"
                 description="Control the headline tag for proper document structure and accessibility."
             >
                 <template #actions>
-                    <FyrstButton label="Explore" color="primary" size="md" />
+                    <WfButton label="Explore" color="primary" size="md" />
                 </template>
-            </FyrstHeroLead>
+            </WfHeroLead>
         </div>
 
         <!-- Hero with Custom Slots -->
@@ -137,7 +137,7 @@
                 Hero using custom slot content instead of props for maximum flexibility.
             </p>
             
-            <FyrstHeroLead>
+            <WfHeroLead>
                 <template #headline>
                     <h1 :class="css({ 
                         fontSize: { base: '2xl', xl: '3xl' },
@@ -167,14 +167,14 @@
                 
                 <template #actions>
                     <div :class="css({ display: 'flex', gap: 'sm', flexWrap: 'wrap', alignItems: 'center' })">
-                        <FyrstButton label="Primary Action" color="primary" size="md" />
-                        <FyrstButton label="Secondary Action" color="secondary" size="md" />
+                        <WfButton label="Primary Action" color="primary" size="md" />
+                        <WfButton label="Secondary Action" color="secondary" size="md" />
                         <span :class="css({ fontSize: 'sm', color: 'grey.300', _light: { color: 'grey.700' } })">
                             or <a href="#" :class="css({ textDecoration: 'underline', color: 'primary' })">learn more</a>
                         </span>
                     </div>
                 </template>
-            </FyrstHeroLead>
+            </WfHeroLead>
         </div>
 
         <!-- Hero in a Card -->
@@ -186,9 +186,9 @@
                 Hero component can be composed with other components like Card for enhanced layouts.
             </p>
             
-            <FyrstCardRoot>
-                <FyrstCardBody>
-                    <FyrstHeroLead
+            <WfCardRoot>
+                <WfCardBody>
+                    <WfHeroLead
                         size="sm"
                         align-items="center"
                         headline="Featured <strong>Announcement</strong>"
@@ -196,13 +196,13 @@
                     >
                         <template #actions>
                             <div :class="css({ display: 'flex', gap: 'sm', justifyContent: 'center', flexWrap: 'wrap' })">
-                                <FyrstButton label="Read More" color="primary" size="sm" />
-                                <FyrstButton label="Dismiss" color="secondary" size="sm" />
+                                <WfButton label="Read More" color="primary" size="sm" />
+                                <WfButton label="Dismiss" color="secondary" size="sm" />
                             </div>
                         </template>
-                    </FyrstHeroLead>
-                </FyrstCardBody>
-            </FyrstCardRoot>
+                    </WfHeroLead>
+                </WfCardBody>
+            </WfCardRoot>
         </div>
 
         <!-- Full-Width Hero with Background -->
@@ -222,7 +222,7 @@
                 borderColor: 'lucid.100',
                 _light: { borderColor: 'lucid.300', bg: 'lucid.100' }
             })">
-                <FyrstHeroLead
+                <WfHeroLead
                     size="lg"
                     align-items="center"
                     headline="Transform Your <mark>Development</mark> Experience"
@@ -230,11 +230,11 @@
                 >
                     <template #actions>
                         <div :class="css({ display: 'flex', gap: 'md', justifyContent: 'center', flexWrap: 'wrap' })">
-                            <FyrstButton label="Start Free Trial" color="primary" size="lg" />
-                            <FyrstButton label="View Pricing" color="secondary" size="lg" />
+                            <WfButton label="Start Free Trial" color="primary" size="lg" />
+                            <WfButton label="View Pricing" color="secondary" size="lg" />
                         </div>
                     </template>
-                </FyrstHeroLead>
+                </WfHeroLead>
             </div>
         </div>
 
@@ -247,16 +247,16 @@
                 Hero with multiple action buttons and additional information.
             </p>
             
-            <FyrstHeroLead
+            <WfHeroLead
                 headline="Ready to <strong>Get Started</strong>?"
                 description="Choose the plan that's right for you and start building amazing products today."
             >
                 <template #actions>
                     <div :class="css({ display: 'flex', flexDirection: 'column', gap: 'md' })">
                         <div :class="css({ display: 'flex', gap: 'md', flexWrap: 'wrap' })">
-                            <FyrstButton label="Start Free" color="primary" size="md" />
-                            <FyrstButton label="Contact Sales" color="secondary" size="md" />
-                            <FyrstButton label="View Demo" color="transparent" size="md" />
+                            <WfButton label="Start Free" color="primary" size="md" />
+                            <WfButton label="Contact Sales" color="secondary" size="md" />
+                            <WfButton label="View Demo" color="transparent" size="md" />
                         </div>
                         <p :class="css({ 
                             fontSize: 'xs', 
@@ -267,7 +267,7 @@
                         </p>
                     </div>
                 </template>
-            </FyrstHeroLead>
+            </WfHeroLead>
         </div>
     </ShowcaseContainer>
 </template>

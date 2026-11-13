@@ -8,13 +8,13 @@
         Modal dialog built on reka-ui Dialog primitives.
       </p>
 
-      <FyrstButton
+      <WfButton
         label="Open dialog"
         color="primary"
         @click="open = true"
       />
 
-      <FyrstDialogRoot
+      <WfDialogRoot
         v-model:open="open"
         title="Example dialog"
         description="This is a sample description for the dialog."
@@ -24,13 +24,13 @@
           Dialog body content goes here. Forms, text, or any slot content.
         </p>
         <div :class="css({ marginTop: 'lg' })">
-          <FyrstButton
+          <WfButton
             label="Done"
             color="primary"
             @click="open = false"
           />
         </div>
-      </FyrstDialogRoot>
+      </WfDialogRoot>
     </div>
   </ShowcaseContainer>
 </template>

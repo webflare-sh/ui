@@ -32,7 +32,7 @@ export const colors = defineTokens.colors({
     },
     400: {
       value: '#05C260',
-      description: 'The fyrst brand color, referenced as brand.brand',
+      description: 'The Webflare brand color, referenced as brand.brand',
     },
     600: {
       value: '#0E8543',

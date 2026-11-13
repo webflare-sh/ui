@@ -1,28 +1,28 @@
 {
-  "name": "@fyrst/design-preset",
-  "version": "0.5.0",
+  "name": "@webflare/design-preset",
+  "version": "0.1.0",
   "private": true,
-  "description": "Panda CSS preset with fyrst.dev design tokens",
+  "description": "Panda CSS preset with Webflare design tokens",
   "license": "MIT",
-  "author": "fyrst.dev",
+  "author": "Webflare OÜ",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "homepage": "https://github.com/fyrst-dev/ui#readme",
+  "homepage": "https://github.com/webflare-sh/ui#readme",
   "bugs": {
-    "url": "https://github.com/fyrst-dev/ui/issues"
+    "url": "https://github.com/webflare-sh/ui/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fyrst-dev/ui.git",
+    "url": "git+https://github.com/webflare-sh/ui.git",
     "directory": "packages/preset"
   },
   "keywords": [
     "pandacss",
     "design-tokens",
     "design-system",
-    "fyrst"
+    "webflare"
   ],
   "files": [
     "dist",

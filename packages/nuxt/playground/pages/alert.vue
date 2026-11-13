@@ -1,26 +1,26 @@
 <template>
     <ShowcaseContainer>
-        <FyrstAlertRoot 
+        <WfAlertRoot 
             :messages="[{
                 title: 'test',
                 description: 'this is a test alert'
             }]"
         />
-        <FyrstAlertRoot 
+        <WfAlertRoot 
             variant="danger"
             :messages="[{
                 title: 'test',
                 description: 'this is a test alert'
             }]"
         />
-        <FyrstAlertRoot 
+        <WfAlertRoot 
             variant="success"
             :messages="[{
                 title: 'test',
                 description: 'this is a test alert'
             }]"
         />
-        <FyrstAlertRoot 
+        <WfAlertRoot 
             variant="warning"
             border-size="xl"
             :messages="[{
@@ -28,7 +28,7 @@
                 description: 'this is a test alert'
             }]"
         />
-        <FyrstAlertRoot
+        <WfAlertRoot
             hide-icon
             variant="info"
             :messages="[{

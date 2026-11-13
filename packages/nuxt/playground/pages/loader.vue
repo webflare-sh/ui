@@ -9,7 +9,7 @@
                 Default loader with default size (40px) and label.
             </p>
             
-            <FyrstLoader />
+            <WfLoader />
         </div>
 
         <!-- Loader Sizes -->
@@ -23,42 +23,42 @@
             
             <div :class="css({ display: 'flex', gap: 'xl', alignItems: 'center', flexWrap: 'wrap' })">
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="24" />
+                    <WfLoader :size="24" />
                     <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
                         24px
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="32" />
+                    <WfLoader :size="32" />
                     <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
                         32px
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="40" />
+                    <WfLoader :size="40" />
                     <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
                         40px (default)
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="56" />
+                    <WfLoader :size="56" />
                     <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
                         56px
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="80" />
+                    <WfLoader :size="80" />
                     <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
                         80px
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="120" />
+                    <WfLoader :size="120" />
                     <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
                         120px
                     </span>
@@ -77,21 +77,21 @@
             
             <div :class="css({ display: 'flex', gap: 'xl', alignItems: 'center', flexWrap: 'wrap' })">
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader label="Processing..." />
+                    <WfLoader label="Processing..." />
                     <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
                         Processing...
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader label="Uploading files" />
+                    <WfLoader label="Uploading files" />
                     <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
                         Uploading files
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader label="Please wait" />
+                    <WfLoader label="Please wait" />
                     <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
                         Please wait
                     </span>
@@ -108,8 +108,8 @@
                 Loader used in a card layout to indicate loading state.
             </p>
             
-            <FyrstCardRoot>
-                <FyrstCardBody>
+            <WfCardRoot>
+                <WfCardBody>
                     <div :class="css({ 
                         display: 'flex', 
                         flexDirection: 'column', 
@@ -119,13 +119,13 @@
                         padding: 'xl',
                         minHeight: '200px'
                     })">
-                        <FyrstLoader :size="60" label="Loading content" />
+                        <WfLoader :size="60" label="Loading content" />
                         <p :class="css({ fontSize: 'md', color: 'grey.300', _light: { color: 'grey.700' } })">
                             Loading content...
                         </p>
                     </div>
-                </FyrstCardBody>
-            </FyrstCardRoot>
+                </WfCardBody>
+            </WfCardRoot>
         </div>
 
         <!-- Centered Loader -->
@@ -146,7 +146,7 @@
                 _light: { bg: 'lucid.100' },
                 borderRadius: 'xl'
             })">
-                <FyrstLoader :size="80" label="Loading page" />
+                <WfLoader :size="80" label="Loading page" />
             </div>
         </div>
 
@@ -161,17 +161,17 @@
             
             <div :class="css({ display: 'flex', flexDirection: 'column', gap: 'md' })">
                 <div :class="css({ display: 'flex', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="16" />
+                    <WfLoader :size="16" />
                     <span :class="css({ fontSize: 'sm' })">Processing your request...</span>
                 </div>
                 
                 <div :class="css({ display: 'flex', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="20" />
+                    <WfLoader :size="20" />
                     <span :class="css({ fontSize: 'md' })">Saving changes...</span>
                 </div>
                 
                 <div :class="css({ display: 'flex', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="24" />
+                    <WfLoader :size="24" />
                     <span :class="css({ fontSize: 'lg' })">Loading data...</span>
                 </div>
             </div>
@@ -213,11 +213,11 @@
                             })"
                             disabled
                         >
-                            <FyrstLoader :size="16" />
+                            <WfLoader :size="16" />
                             <span>Loading...</span>
                         </button>
                         
-                        <FyrstButton label="Not Loading" color="secondary" size="sm" />
+                        <WfButton label="Not Loading" color="secondary" size="sm" />
                     </div>
                 </div>
 
@@ -247,11 +247,11 @@
                             })"
                             disabled
                         >
-                            <FyrstLoader :size="20" />
+                            <WfLoader :size="20" />
                             <span>Processing...</span>
                         </button>
                         
-                        <FyrstButton label="Ready" color="secondary" size="md" />
+                        <WfButton label="Ready" color="secondary" size="md" />
                     </div>
                 </div>
 
@@ -281,11 +281,11 @@
                             })"
                             disabled
                         >
-                            <FyrstLoader :size="24" />
+                            <WfLoader :size="24" />
                             <span>Uploading...</span>
                         </button>
                         
-                        <FyrstButton label="Complete" color="secondary" size="lg" />
+                        <WfButton label="Complete" color="secondary" size="lg" />
                     </div>
                 </div>
             </div>
@@ -301,8 +301,8 @@
             </p>
             
             <div :class="css({ display: 'grid', gridTemplateColumns: { base: '1', md: '2', lg: '3' }, gap: 'lg' })">
-                <FyrstCardRoot>
-                    <FyrstCardBody>
+                <WfCardRoot>
+                    <WfCardBody>
                         <div :class="css({ 
                             display: 'flex', 
                             flexDirection: 'column', 
@@ -312,16 +312,16 @@
                             minHeight: '150px',
                             justifyContent: 'center'
                         })">
-                            <FyrstLoader :size="40" label="Loading user data" />
+                            <WfLoader :size="40" label="Loading user data" />
                             <span :class="css({ fontSize: 'sm', color: 'grey.300', _light: { color: 'grey.700' } })">
                                 Loading user data...
                             </span>
                         </div>
-                    </FyrstCardBody>
-                </FyrstCardRoot>
+                    </WfCardBody>
+                </WfCardRoot>
 
-                <FyrstCardRoot>
-                    <FyrstCardBody>
+                <WfCardRoot>
+                    <WfCardBody>
                         <div :class="css({ 
                             display: 'flex', 
                             flexDirection: 'column', 
@@ -331,16 +331,16 @@
                             minHeight: '150px',
                             justifyContent: 'center'
                         })">
-                            <FyrstLoader :size="40" label="Loading statistics" />
+                            <WfLoader :size="40" label="Loading statistics" />
                             <span :class="css({ fontSize: 'sm', color: 'grey.300', _light: { color: 'grey.700' } })">
                                 Loading statistics...
                             </span>
                         </div>
-                    </FyrstCardBody>
-                </FyrstCardRoot>
+                    </WfCardBody>
+                </WfCardRoot>
 
-                <FyrstCardRoot>
-                    <FyrstCardBody>
+                <WfCardRoot>
+                    <WfCardBody>
                         <div :class="css({ 
                             display: 'flex', 
                             flexDirection: 'column', 
@@ -350,13 +350,13 @@
                             minHeight: '150px',
                             justifyContent: 'center'
                         })">
-                            <FyrstLoader :size="40" label="Loading activities" />
+                            <WfLoader :size="40" label="Loading activities" />
                             <span :class="css({ fontSize: 'sm', color: 'grey.300', _light: { color: 'grey.700' } })">
                                 Loading activities...
                             </span>
                         </div>
-                    </FyrstCardBody>
-                </FyrstCardRoot>
+                    </WfCardBody>
+                </WfCardRoot>
             </div>
         </div>
     </ShowcaseContainer>

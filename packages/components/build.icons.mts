@@ -4,7 +4,7 @@ import { locate } from '@iconify/json'
 import type { IconifyJSON } from '@iconify/types'
 import { getIconsCSS } from '@iconify/utils'
 
-/** Icons bundled into `@fyrst/ui/style.css`, per Iconify set prefix. */
+/** Icons bundled into `@webflare/ui/style.css`, per Iconify set prefix. */
 const icons: Record<string, string[]> = {
   ph: [
     'arrow-left',

@@ -63,7 +63,7 @@ describe('consumer styling contract', () => {
       styles?: { atomic?: unknown[] }
     }
 
-    expect(manifest.name).toBe('@fyrst/ui')
+    expect(manifest.name).toBe('@webflare/ui')
     expect(manifest.schemaVersion).toBe(1)
     expect(manifest.buildInfo).toBe('./buildinfo.json')
     expect(manifest.preset).toBe('./preset.mjs')
@@ -136,7 +136,7 @@ describe('published package contract', () => {
       'typecheck',
     ])
     expect(pkg.scripts.test).toContain('link:package')
-    expect(pkg.scripts.test).toContain('@fyrst/ui-components')
+    expect(pkg.scripts.test).toContain('@webflare/ui-components')
   })
 
   it('builds packages before assembling dist in the cloud install script', () => {
@@ -189,25 +189,25 @@ describe('published package contract', () => {
     }
     expect(nuxtPkg.scripts.prepack).toContain('nuxt-module-build prepare')
     expect(nuxtPkg.scripts.prepack).toContain('nuxt-module-build build')
-    expect(nuxtPkg.dependencies?.['@fyrst/design-preset']).toBeUndefined()
-    expect(nuxtPkg.dependencies?.['@fyrst/ui-components']).toBeUndefined()
+    expect(nuxtPkg.dependencies?.['@webflare/design-preset']).toBeUndefined()
+    expect(nuxtPkg.dependencies?.['@webflare/ui-components']).toBeUndefined()
   })
 
-  it('playground dogfoods designSystem: \'@fyrst/ui\'', () => {
+  it('playground dogfoods designSystem: \'@webflare/ui\'', () => {
     const pandaConfig = readFileSync(
       join(rootDir, 'packages/nuxt/playground/panda.config.ts'),
       'utf8',
     )
     const rootPandaConfig = readFileSync(join(rootDir, 'panda.config.ts'), 'utf8')
 
-    expect(pandaConfig).toContain('designSystem: \'@fyrst/ui\'')
+    expect(pandaConfig).toContain('designSystem: \'@webflare/ui\'')
     expect(pandaConfig).not.toContain('presets:')
-    expect(pandaConfig).not.toContain('@fyrst/ui/panda.buildinfo.json')
-    expect(pandaConfig).not.toContain('@fyrst/ui/design-preset')
-    expect(pandaConfig).not.toContain('@fyrst/ui/preset')
+    expect(pandaConfig).not.toContain('@webflare/ui/panda.buildinfo.json')
+    expect(pandaConfig).not.toContain('@webflare/ui/design-preset')
+    expect(pandaConfig).not.toContain('@webflare/ui/preset')
     expect(pandaConfig).not.toContain('require.resolve')
-    expect(pandaConfig).not.toContain('@fyrst/design-preset')
-    expect(pandaConfig).not.toContain('node_modules/@fyrst/ui/dist/panda.buildinfo.json')
+    expect(pandaConfig).not.toContain('@webflare/design-preset')
+    expect(pandaConfig).not.toContain('node_modules/@webflare/ui/dist/panda.buildinfo.json')
 
     expect(rootPandaConfig).toContain('outdir: \'dist/styled-system\'')
     expect(rootPandaConfig).toContain('./packages/preset/src/index.ts')
@@ -248,12 +248,12 @@ describe('published package contract', () => {
     expect(pkg.exports['./panda.buildinfo.json']).toBeUndefined()
     expect(pkg.exports['./panda/*']).toBe('./dist/panda/*')
     expect(pkg.exports['./css']).toBeDefined()
-    expect(moduleSrc).toContain('@fyrst/ui/nuxt-entries.json')
-    expect(moduleSrc).toContain('filePath: \'@fyrst/ui\'')
-    expect(moduleSrc).toContain('from: \'@fyrst/ui\'')
-    expect(moduleSrc).not.toContain('@fyrst/ui/vue/')
-    expect(moduleSrc).toContain('@fyrst/ui/panda/lib.json')
-    expect(moduleSrc).not.toContain('@fyrst/ui/panda.buildinfo.json')
+    expect(moduleSrc).toContain('@webflare/ui/nuxt-entries.json')
+    expect(moduleSrc).toContain('filePath: \'@webflare/ui\'')
+    expect(moduleSrc).toContain('from: \'@webflare/ui\'')
+    expect(moduleSrc).not.toContain('@webflare/ui/vue/')
+    expect(moduleSrc).toContain('@webflare/ui/panda/lib.json')
+    expect(moduleSrc).not.toContain('@webflare/ui/panda.buildinfo.json')
     expect(moduleSrc).toContain('warnIfPandaSetupLooksMissing')
     expect(moduleSrc).toContain('@pandacss/dev/postcss')
     expect(moduleSrc).not.toContain('findFileFromModule')
@@ -276,7 +276,7 @@ describe('published package contract', () => {
     const buttonJs = readFileSync(buttonPath, 'utf8')
     const buttonModule = readBuiltVueModule('Button')
     expect(buttonJs).not.toContain('AccordionRoot')
-    expect(buttonModule).toContain('@fyrst/ui/css')
+    expect(buttonModule).toContain('@webflare/ui/css')
     expect(buttonModule).not.toContain('styled-system/')
 
     const entries = JSON.parse(readFileSync(entriesPath, 'utf8')) as {
@@ -341,25 +341,25 @@ describe('published package contract', () => {
     expect(componentsPkg.scripts['generate:vue-entries']).toContain('write-vue-entry-modules.ts')
 
     const require = createRequire(import.meta.url)
-    const buttonJs = require.resolve('@fyrst/ui/vue/Button')
+    const buttonJs = require.resolve('@webflare/ui/vue/Button')
     expect(buttonJs).toMatch(/dist\/vue\/Button\.cjs$/)
     expect(existsSync(buttonJs.replace(/\.cjs$/, '.d.ts'))).toBe(true)
 
-    const dir = mkdtempSync(join(tmpdir(), 'fyrst-ui-vue-types-'))
+    const dir = mkdtempSync(join(tmpdir(), 'webflare-ui-vue-types-'))
 
     try {
       const consumerFile = join(dir, 'consumer.ts')
-      mkdirSync(join(dir, 'node_modules/@fyrst'), { recursive: true })
-      symlinkSync(rootDir, join(dir, 'node_modules/@fyrst/ui'), 'dir')
+      mkdirSync(join(dir, 'node_modules/@webflare'), { recursive: true })
+      symlinkSync(rootDir, join(dir, 'node_modules/@webflare/ui'), 'dir')
       writeFileSync(join(dir, 'package.json'), JSON.stringify({
-        name: 'fyrst-ui-vue-types-consumer',
+        name: 'webflare-ui-vue-types-consumer',
         private: true,
         type: 'module',
       }))
       writeFileSync(consumerFile, `
-import Button from '@fyrst/ui/vue/Button'
-import FieldInput from '@fyrst/ui/vue/FieldInput'
-import { useFormData } from '@fyrst/ui/vue/useFormData'
+import Button from '@webflare/ui/vue/Button'
+import FieldInput from '@webflare/ui/vue/FieldInput'
+import { useFormData } from '@webflare/ui/vue/useFormData'
 
 type PropsOf<C> = C extends abstract new (...args: never) => { $props: infer P } ? P : never
 
@@ -400,7 +400,7 @@ void _buttonLabelNotNullOnly
       }
       const host = ts.createCompilerHost(compilerOptions)
       const resolved = ts.resolveModuleName(
-        '@fyrst/ui/vue/Button',
+        '@webflare/ui/vue/Button',
         consumerFile,
         compilerOptions,
         host,
@@ -496,14 +496,14 @@ void _buttonLabelNotNullOnly
     expect(workflow).not.toContain('test:types')
   })
 
-  it('reads the published package version from @fyrst/ui/package.json', () => {
+  it('reads the published package version from @webflare/ui/package.json', () => {
     const moduleSrc = readFileSync(join(rootDir, 'packages/nuxt/src/module.ts'), 'utf8')
     const builtModule = readFileSync(join(rootDir, 'dist/nuxt/module.mjs'), 'utf8')
     const rootPkg = JSON.parse(readFileSync(rootPackagePath, 'utf8')) as { version: string }
 
-    expect(moduleSrc).toContain('@fyrst/ui/package.json')
+    expect(moduleSrc).toContain('@webflare/ui/package.json')
     expect(moduleSrc).not.toContain('new URL(\'../package.json\'')
-    expect(builtModule).toContain('@fyrst/ui/package.json')
+    expect(builtModule).toContain('@webflare/ui/package.json')
     expect(rootPkg.version).toMatch(/^\d+\.\d+\.\d+/)
   })
 
@@ -522,7 +522,7 @@ describe('packed install exports', () => {
     expect(existsSync(join(rootDir, 'dist/style.css'))).toBe(true)
     expect(existsSync(join(rootDir, 'dist/nuxt/module.mjs'))).toBe(true)
 
-    const dir = mkdtempSync(join(tmpdir(), 'fyrst-ui-pack-'))
+    const dir = mkdtempSync(join(tmpdir(), 'webflare-ui-pack-'))
 
     try {
       execFileSync('npm', ['pack', '--ignore-scripts', `--pack-destination=${dir}`], {
@@ -532,7 +532,7 @@ describe('packed install exports', () => {
       })
 
       const { version: packedVersion } = JSON.parse(readFileSync(rootPackagePath, 'utf8')) as { version: string }
-      const tarball = join(dir, `fyrst-ui-${packedVersion}.tgz`)
+      const tarball = join(dir, `webflare-ui-${packedVersion}.tgz`)
       expect(existsSync(tarball)).toBe(true)
 
       const packedFiles = execFileSync('tar', ['-tzf', tarball], { encoding: 'utf8' })
@@ -576,12 +576,12 @@ describe('packed install exports', () => {
       const packedModule = execFileSync('tar', ['-xOf', tarball, 'package/dist/nuxt/module.mjs'], {
         encoding: 'utf8',
       })
-      expect(packedModule).toContain('@fyrst/ui/package.json')
+      expect(packedModule).toContain('@webflare/ui/package.json')
 
       const consumer = join(dir, 'consumer')
       mkdirSync(consumer)
       writeFileSync(join(consumer, 'package.json'), JSON.stringify({
-        name: 'fyrst-ui-consumer',
+        name: 'webflare-ui-consumer',
         private: true,
         type: 'module',
       }))
@@ -593,16 +593,16 @@ describe('packed install exports', () => {
       })
 
       const specifiers = [
-        '@fyrst/ui',
-        '@fyrst/ui/components',
-        '@fyrst/ui/design-preset',
-        '@fyrst/ui/preset',
-        '@fyrst/ui/nuxt',
-        '@fyrst/ui/nuxt-entries.json',
-        '@fyrst/ui/vue/Button',
-        '@fyrst/ui/style.css',
-        '@fyrst/ui/panda/lib.json',
-        '@fyrst/ui/css',
+        '@webflare/ui',
+        '@webflare/ui/components',
+        '@webflare/ui/design-preset',
+        '@webflare/ui/preset',
+        '@webflare/ui/nuxt',
+        '@webflare/ui/nuxt-entries.json',
+        '@webflare/ui/vue/Button',
+        '@webflare/ui/style.css',
+        '@webflare/ui/panda/lib.json',
+        '@webflare/ui/css',
       ]
       writeFileSync(
         join(consumer, 'resolve.mjs'),
@@ -622,16 +622,16 @@ describe('packed install exports', () => {
           }),
       ) as Record<string, string>
 
-      expect(resolved['@fyrst/ui']).toMatch(/index\.(js|cjs)$/)
-      expect(resolved['@fyrst/ui/components']).toMatch(/index\.(js|cjs)$/)
-      expect(resolved['@fyrst/ui/design-preset']).toMatch(/index\.(js|cjs)$/)
-      expect(resolved['@fyrst/ui/preset']).toMatch(/index\.(js|cjs)$/)
-      expect(resolved['@fyrst/ui/nuxt']).toMatch(/module\.mjs$/)
-      expect(resolved['@fyrst/ui/nuxt-entries.json']).toMatch(/nuxt-entries\.json$/)
-      expect(resolved['@fyrst/ui/vue/Button']).toMatch(/vue\/Button\.js$/)
-      expect(resolved['@fyrst/ui/style.css']).toMatch(/style\.css$/)
-      expect(resolved['@fyrst/ui/panda/lib.json']).toMatch(/panda\/lib\.json$/)
-      expect(resolved['@fyrst/ui/css']).toMatch(/styled-system\/css/)
+      expect(resolved['@webflare/ui']).toMatch(/index\.(js|cjs)$/)
+      expect(resolved['@webflare/ui/components']).toMatch(/index\.(js|cjs)$/)
+      expect(resolved['@webflare/ui/design-preset']).toMatch(/index\.(js|cjs)$/)
+      expect(resolved['@webflare/ui/preset']).toMatch(/index\.(js|cjs)$/)
+      expect(resolved['@webflare/ui/nuxt']).toMatch(/module\.mjs$/)
+      expect(resolved['@webflare/ui/nuxt-entries.json']).toMatch(/nuxt-entries\.json$/)
+      expect(resolved['@webflare/ui/vue/Button']).toMatch(/vue\/Button\.js$/)
+      expect(resolved['@webflare/ui/style.css']).toMatch(/style\.css$/)
+      expect(resolved['@webflare/ui/panda/lib.json']).toMatch(/panda\/lib\.json$/)
+      expect(resolved['@webflare/ui/css']).toMatch(/styled-system\/css/)
     }
     finally {
       rmSync(dir, { recursive: true, force: true })

@@ -1,7 +1,7 @@
-import Button from '@fyrst/ui/vue/Button'
-import CardRoot from '@fyrst/ui/vue/CardRoot'
-import FieldInput from '@fyrst/ui/vue/FieldInput'
-import Loader from '@fyrst/ui/vue/Loader'
+import Button from '@webflare/ui/vue/Button'
+import CardRoot from '@webflare/ui/vue/CardRoot'
+import FieldInput from '@webflare/ui/vue/FieldInput'
+import Loader from '@webflare/ui/vue/Loader'
 
 export const components = {
   Button,

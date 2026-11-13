@@ -9,10 +9,10 @@
                 A simple carousel with navigation controls. Scroll mode: "item" (default).
             </p>
             
-            <FyrstCarouselRoot>
-                <FyrstCarouselItem v-for="i in 6" :key="i">
-                    <FyrstCardRoot>
-                        <FyrstCardBody>
+            <WfCarouselRoot>
+                <WfCarouselItem v-for="i in 6" :key="i">
+                    <WfCardRoot>
+                        <WfCardBody>
                             <div :class="css({ 
                                 minWidth: '250px',
                                 height: '200px',
@@ -24,14 +24,14 @@
                             })">
                                 Item {{ i }}
                             </div>
-                        </FyrstCardBody>
-                    </FyrstCardRoot>
-                </FyrstCarouselItem>
+                        </WfCardBody>
+                    </WfCardRoot>
+                </WfCarouselItem>
 
                 <template #carousel-after>
-                    <FyrstCarouselNavigation>
+                    <WfCarouselNavigation>
                         <template #action-prev="{ handlePrev, disabled }">
-                            <FyrstButton 
+                            <WfButton 
                                 label="← Previous"
                                 color="secondary"
                                 size="sm"
@@ -40,7 +40,7 @@
                             />
                         </template>
                         <template #action-next="{ handleNext, disabled }">
-                            <FyrstButton 
+                            <WfButton 
                                 label="Next →"
                                 color="primary"
                                 size="sm"
@@ -48,9 +48,9 @@
                                 @click="handleNext"
                             />
                         </template>
-                    </FyrstCarouselNavigation>
+                    </WfCarouselNavigation>
                 </template>
-            </FyrstCarouselRoot>
+            </WfCarouselRoot>
         </div>
 
         <!-- Viewport Scroll Mode Carousel -->
@@ -62,10 +62,10 @@
                 Carousel with scroll-mode="viewport" scrolls by viewport width instead of item width.
             </p>
             
-            <FyrstCarouselRoot scroll-mode="viewport">
-                <FyrstCarouselItem v-for="i in 8" :key="i">
-                    <FyrstCardRoot>
-                        <FyrstCardBody>
+            <WfCarouselRoot scroll-mode="viewport">
+                <WfCarouselItem v-for="i in 8" :key="i">
+                    <WfCardRoot>
+                        <WfCardBody>
                             <div :class="css({ 
                                 minWidth: '200px',
                                 height: '150px',
@@ -91,15 +91,15 @@
                                     Card {{ i }}
                                 </span>
                             </div>
-                        </FyrstCardBody>
-                    </FyrstCardRoot>
-                </FyrstCarouselItem>
+                        </WfCardBody>
+                    </WfCardRoot>
+                </WfCarouselItem>
 
                 <template #carousel-after>
                     <div :class="css({ display: 'flex', gap: 'sm', justifyContent: 'center', marginTop: 'md' })">
-                        <FyrstCarouselNavigation>
+                        <WfCarouselNavigation>
                             <template #action-prev="{ handlePrev, disabled }">
-                                <FyrstButton 
+                                <WfButton 
                                     label="←"
                                     color="secondary"
                                     size="sm"
@@ -108,7 +108,7 @@
                                 />
                             </template>
                             <template #action-next="{ handleNext, disabled }">
-                                <FyrstButton 
+                                <WfButton 
                                     label="→"
                                     color="primary"
                                     size="sm"
@@ -116,10 +116,10 @@
                                     @click="handleNext"
                                 />
                             </template>
-                        </FyrstCarouselNavigation>
+                        </WfCarouselNavigation>
                     </div>
                 </template>
-            </FyrstCarouselRoot>
+            </WfCarouselRoot>
         </div>
 
         <!-- Custom Styled Carousel -->
@@ -131,7 +131,7 @@
                 Carousel with custom styles through the <code>css</code> prop (<code>root</code> and <code>viewport</code> slots).
             </p>
             
-            <FyrstCarouselRoot 
+            <WfCarouselRoot 
                 :css="{ root: css.raw({ 
                     padding: 'xl', 
                     bg: 'lucid.50',
@@ -141,7 +141,7 @@
                     gap: 'xl',
                     padding: 'lg'
                 }) }">
-                <FyrstCarouselItem v-for="i in 5" :key="i">
+                <WfCarouselItem v-for="i in 5" :key="i">
                     <div :class="css({ 
                         minWidth: '300px',
                         height: '250px',
@@ -163,13 +163,13 @@
                                 This is a custom styled carousel item with more detailed content and styling.
                             </p>
                         </div>
-                        <FyrstButton 
+                        <WfButton 
                             label="Learn More"
                             color="primary"
                             size="sm"
                         />
                     </div>
-                </FyrstCarouselItem>
+                </WfCarouselItem>
 
                 <template #carousel-before>
                     <div :class="css({ marginBottom: 'md' })">
@@ -190,9 +190,9 @@
                         <span :class="css({ fontSize: 'sm', color: 'grey.300', _light: { color: 'grey.700' } })">
                             Swipe or use arrows to navigate
                         </span>
-                        <FyrstCarouselNavigation>
+                        <WfCarouselNavigation>
                             <template #action-prev="{ handlePrev, disabled }">
-                                <FyrstButton 
+                                <WfButton 
                                     label="Back"
                                     color="secondary"
                                     size="sm"
@@ -201,7 +201,7 @@
                                 />
                             </template>
                             <template #action-next="{ handleNext, disabled }">
-                                <FyrstButton 
+                                <WfButton 
                                     label="Next"
                                     color="primary"
                                     size="sm"
@@ -209,10 +209,10 @@
                                     @click="handleNext"
                                 />
                             </template>
-                        </FyrstCarouselNavigation>
+                        </WfCarouselNavigation>
                     </div>
                 </template>
-            </FyrstCarouselRoot>
+            </WfCarouselRoot>
         </div>
 
         <!-- Compact Carousel (Many Items) -->
@@ -224,8 +224,8 @@
                 A carousel with many smaller items, useful for tags, badges, or thumbnails.
             </p>
             
-            <FyrstCarouselRoot>
-                <FyrstCarouselItem v-for="i in 15" :key="i">
+            <WfCarouselRoot>
+                <WfCarouselItem v-for="i in 15" :key="i">
                     <div :class="css({ 
                         minWidth: '120px',
                         height: '80px',
@@ -240,13 +240,13 @@
                     })">
                         {{ i }}
                     </div>
-                </FyrstCarouselItem>
+                </WfCarouselItem>
 
                 <template #carousel-after>
                     <div :class="css({ display: 'flex', gap: 'sm', marginTop: 'md' })">
-                        <FyrstCarouselNavigation>
+                        <WfCarouselNavigation>
                             <template #action-prev="{ handlePrev, disabled }">
-                                <FyrstButton 
+                                <WfButton 
                                     label="←"
                                     color="secondary"
                                     size="sm"
@@ -255,7 +255,7 @@
                                 />
                             </template>
                             <template #action-next="{ handleNext, disabled }">
-                                <FyrstButton 
+                                <WfButton 
                                     label="→"
                                     color="primary"
                                     size="sm"
@@ -263,10 +263,10 @@
                                     @click="handleNext"
                                 />
                             </template>
-                        </FyrstCarouselNavigation>
+                        </WfCarouselNavigation>
                     </div>
                 </template>
-            </FyrstCarouselRoot>
+            </WfCarouselRoot>
         </div>
     </ShowcaseContainer>
 </template>

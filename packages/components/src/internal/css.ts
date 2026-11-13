@@ -9,7 +9,7 @@ import type { SystemStyleObject } from 'styled-system/types'
  * slot through `css.raw()` from the app's own `styled-system/css`:
  *
  * ```vue
- * <FyrstAlertRoot :css="{ root: css.raw({ maxWidth: 'md' }) }" />
+ * <WfAlertRoot :css="{ root: css.raw({ maxWidth: 'md' }) }" />
  * ```
  */
 export type CssMap<K extends string> = Partial<Record<K, SystemStyleObject>>

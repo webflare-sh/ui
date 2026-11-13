@@ -17,12 +17,12 @@ describe('Button', () => {
     const wrapper = mount(Button, {
       props: {
         label: 'Docs',
-        to: 'https://fyrst.dev',
+        to: 'https://example.com',
       },
     })
 
     expect(wrapper.element.tagName).toBe('A')
-    expect(wrapper.attributes('href')).toBe('https://fyrst.dev')
+    expect(wrapper.attributes('href')).toBe('https://example.com')
   })
 
   it('inherits the parent font and stays shrink-wrapped by default', () => {
@@ -56,13 +56,13 @@ describe('Button', () => {
   })
 
   it('opens external links in a new tab safely', () => {
-    const wrapper = mount(Button, { props: { label: 'Docs', to: 'https://fyrst.dev', external: true } })
+    const wrapper = mount(Button, { props: { label: 'Docs', to: 'https://example.com', external: true } })
     expect(wrapper.attributes('target')).toBe('_blank')
     expect(wrapper.attributes('rel')).toBe('noopener noreferrer')
   })
 
   it('disables a link by dropping href and exposing aria-disabled', () => {
-    const wrapper = mount(Button, { props: { label: 'Docs', to: 'https://fyrst.dev', disabled: true } })
+    const wrapper = mount(Button, { props: { label: 'Docs', to: 'https://example.com', disabled: true } })
 
     expect(wrapper.element.tagName).toBe('A')
     expect(wrapper.attributes('href')).toBeUndefined()

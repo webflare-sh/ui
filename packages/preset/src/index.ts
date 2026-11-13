@@ -6,7 +6,7 @@ import { colors as semanticColors, fonts as semanticFonts, opacity as semanticOp
 import { keyframes, animationStyles } from './animation'
 
 const preset: Preset = definePreset({
-  name: 'fyrst-design-preset',
+  name: 'webflare-design-preset',
   // Import the module so `panda lib` inlines it. A string preset is resolved
   // from the consuming app, which forced apps to install this package themselves.
   presets: [presetBase],

@@ -10,11 +10,11 @@
       </p>
 
       <div :class="css({ display: 'flex', flexDirection: 'column', gap: 'lg', maxWidth: '480px' })">
-        <FyrstProgressRoot :model-value="0" />
-        <FyrstProgressRoot :model-value="25" />
-        <FyrstProgressRoot :model-value="50" />
-        <FyrstProgressRoot :model-value="75" />
-        <FyrstProgressRoot :model-value="100" />
+        <WfProgressRoot :model-value="0" />
+        <WfProgressRoot :model-value="25" />
+        <WfProgressRoot :model-value="50" />
+        <WfProgressRoot :model-value="75" />
+        <WfProgressRoot :model-value="100" />
       </div>
     </div>
 
@@ -32,7 +32,7 @@
           <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' }, marginBottom: 'xs', display: 'block' })">
             sm
           </span>
-          <FyrstProgressRoot
+          <WfProgressRoot
             :model-value="60"
             size="sm"
           />
@@ -41,7 +41,7 @@
           <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' }, marginBottom: 'xs', display: 'block' })">
             md
           </span>
-          <FyrstProgressRoot
+          <WfProgressRoot
             :model-value="60"
             size="md"
           />
@@ -50,7 +50,7 @@
           <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' }, marginBottom: 'xs', display: 'block' })">
             lg
           </span>
-          <FyrstProgressRoot
+          <WfProgressRoot
             :model-value="60"
             size="lg"
           />
@@ -68,22 +68,22 @@
       </p>
 
       <div :class="css({ display: 'flex', flexDirection: 'column', gap: 'lg', maxWidth: '480px' })">
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="70"
           color="primary"
           show-value
         />
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="70"
           color="success"
           show-value
         />
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="70"
           color="danger"
           show-value
         />
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="70"
           color="info"
           show-value
@@ -101,11 +101,11 @@
       </p>
 
       <div :class="css({ display: 'flex', flexDirection: 'column', gap: 'lg', maxWidth: '480px' })">
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="42"
           show-value
         />
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="3"
           :max="10"
           show-value
@@ -113,7 +113,7 @@
           <template #value="{ modelValue, max, percentage }">
             {{ modelValue }} / {{ max }} ({{ percentage }}%)
           </template>
-        </FyrstProgressRoot>
+        </WfProgressRoot>
       </div>
     </div>
 
@@ -127,13 +127,13 @@
       </p>
 
       <div :class="css({ display: 'flex', flexDirection: 'column', gap: 'lg', maxWidth: '480px' })">
-        <FyrstProgressRoot :model-value="null" />
-        <FyrstProgressRoot
+        <WfProgressRoot :model-value="null" />
+        <WfProgressRoot
           :model-value="null"
           color="success"
           size="lg"
         />
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="null"
           color="info"
           size="sm"
@@ -151,7 +151,7 @@
       </p>
 
       <div :class="css({ display: 'flex', flexDirection: 'column', gap: 'md', maxWidth: '480px' })">
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="interactiveValue"
           color="primary"
           size="lg"

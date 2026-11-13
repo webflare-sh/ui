@@ -9,7 +9,7 @@
                 A simple accordion with multiple items that can be expanded and collapsed.
             </p>
             
-            <FyrstAccordionRoot :items="basicItems" :css="{
+            <WfAccordionRoot :items="basicItems" :css="{
                     icon: css.raw({ color: 'primary' })
                 }"/>
         </div>
@@ -23,7 +23,7 @@
                 Accordion items can contain HTML content for more complex layouts.
             </p>
             
-            <FyrstAccordionRoot 
+            <WfAccordionRoot 
                 orientation="horizontal"
                 :items="richContentItems"
                  />
@@ -38,7 +38,7 @@
                 A typical FAQ implementation using the accordion component.
             </p>
             
-            <FyrstAccordionRoot type="single" :items="faqItems" />
+            <WfAccordionRoot type="single" :items="faqItems" />
         </div>
 
         <!-- Multiple Items Accordion -->
@@ -50,7 +50,7 @@
                 Accordion with several items demonstrating scalability.
             </p>
             
-            <FyrstAccordionRoot :items="multipleItems" />
+            <WfAccordionRoot :items="multipleItems" />
         </div>
     </ShowcaseContainer>
 </template>

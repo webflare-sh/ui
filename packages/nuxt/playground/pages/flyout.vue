@@ -9,9 +9,9 @@
                 A simple flyout that opens on hover with default left alignment.
             </p>
             
-            <FyrstFlyoutRoot label="Hover me">
-                <FyrstCardRoot>
-                    <FyrstCardBody>
+            <WfFlyoutRoot label="Hover me">
+                <WfCardRoot>
+                    <WfCardBody>
                         <div :class="css({ minWidth: '250px' })">
                             <h3 :class="css({ fontSize: 'lg', fontWeight: 'bold', marginBottom: 'sm' })">
                                 Flyout Content
@@ -20,9 +20,9 @@
                                 This is a basic flyout that appears when you hover over the trigger.
                             </p>
                         </div>
-                    </FyrstCardBody>
-                </FyrstCardRoot>
-            </FyrstFlyoutRoot>
+                    </WfCardBody>
+                </WfCardRoot>
+            </WfFlyoutRoot>
         </div>
 
         <!-- Flyout with Custom Trigger -->
@@ -34,17 +34,17 @@
                 Flyout with a custom trigger button using the #trigger slot.
             </p>
             
-            <FyrstFlyoutRoot aria-label="User Menu">
+            <WfFlyoutRoot aria-label="User Menu">
                 <template #trigger="{ open }">
-                    <FyrstButton 
+                    <WfButton 
                         :label="open ? 'Menu Open ▲' : 'User Menu ▼'"
                         color="primary"
                         size="md"
                     />
                 </template>
 
-                <FyrstCardRoot>
-                    <FyrstCardBody>
+                <WfCardRoot>
+                    <WfCardBody>
                         <div :class="css({ minWidth: '200px' })">
                             <ul :class="css({ listStyle: 'none', padding: 0 })">
                                 <li :class="css({ 
@@ -73,9 +73,9 @@
                                 </li>
                             </ul>
                         </div>
-                    </FyrstCardBody>
-                </FyrstCardRoot>
-            </FyrstFlyoutRoot>
+                    </WfCardBody>
+                </WfCardRoot>
+            </WfFlyoutRoot>
         </div>
 
         <!-- Right-Aligned Flyout -->
@@ -88,11 +88,11 @@
                     Flyout dropdown aligned to the right using direction="right" on FlyoutDropdown.
                 </p>
                 
-                <FyrstFlyoutRoot label="Options ⚙">
+                <WfFlyoutRoot label="Options ⚙">
                     <template #dropdown>
-                        <FyrstFlyoutDropdown direction="right">
-                                <FyrstCardRoot>
-                                    <FyrstCardBody>
+                        <WfFlyoutDropdown direction="right">
+                                <WfCardRoot>
+                                    <WfCardBody>
                                         <div :class="css({ minWidth: '220px' })">
                                             <h4 :class="css({ fontSize: 'md', fontWeight: 'bold', marginBottom: 'sm' })">
                                                 Options
@@ -112,11 +112,11 @@
                                                 </label>
                                             </div>
                                         </div>
-                                    </FyrstCardBody>
-                                </FyrstCardRoot>
-                            </FyrstFlyoutDropdown>
+                                    </WfCardBody>
+                                </WfCardRoot>
+                            </WfFlyoutDropdown>
                     </template>
-                </FyrstFlyoutRoot>
+                </WfFlyoutRoot>
             </div>
         </div>
 
@@ -129,9 +129,9 @@
                 Flyout with complex content including images, text, and actions.
             </p>
             
-            <FyrstFlyoutRoot label="Product Info">
-                <FyrstCardRoot>
-                    <FyrstCardBody>
+            <WfFlyoutRoot label="Product Info">
+                <WfCardRoot>
+                    <WfCardBody>
                         <div :class="css({ width: '300px' })">
                             <div :class="css({ 
                                 width: '100%',
@@ -178,13 +178,13 @@
                                 </span>
                             </div>
                             <div :class="css({ display: 'flex', gap: 'sm' })">
-                                <FyrstButton label="Learn More" color="secondary" size="sm" />
-                                <FyrstButton label="Buy Now" color="primary" size="sm" />
+                                <WfButton label="Learn More" color="secondary" size="sm" />
+                                <WfButton label="Buy Now" color="primary" size="sm" />
                             </div>
                         </div>
-                    </FyrstCardBody>
-                </FyrstCardRoot>
-            </FyrstFlyoutRoot>
+                    </WfCardBody>
+                </WfCardRoot>
+            </WfFlyoutRoot>
         </div>
 
         <!-- Multiple Flyouts in a Row -->
@@ -197,9 +197,9 @@
             </p>
             
             <div :class="css({ display: 'flex', gap: 'md', flexWrap: 'wrap' })">
-                <FyrstFlyoutRoot label="File">
-                    <FyrstCardRoot>
-                        <FyrstCardBody>
+                <WfFlyoutRoot label="File">
+                    <WfCardRoot>
+                        <WfCardBody>
                             <div :class="css({ minWidth: '150px' })">
                                 <ul :class="css({ listStyle: 'none', padding: 0, fontSize: 'sm' })">
                                     <li :class="css({ 
@@ -225,13 +225,13 @@
                                     </li>
                                 </ul>
                             </div>
-                        </FyrstCardBody>
-                    </FyrstCardRoot>
-                </FyrstFlyoutRoot>
+                        </WfCardBody>
+                    </WfCardRoot>
+                </WfFlyoutRoot>
 
-                <FyrstFlyoutRoot label="Edit">
-                    <FyrstCardRoot>
-                        <FyrstCardBody>
+                <WfFlyoutRoot label="Edit">
+                    <WfCardRoot>
+                        <WfCardBody>
                             <div :class="css({ minWidth: '150px' })">
                                 <ul :class="css({ listStyle: 'none', padding: 0, fontSize: 'sm' })">
                                     <li :class="css({ 
@@ -257,13 +257,13 @@
                                     </li>
                                 </ul>
                             </div>
-                        </FyrstCardBody>
-                    </FyrstCardRoot>
-                </FyrstFlyoutRoot>
+                        </WfCardBody>
+                    </WfCardRoot>
+                </WfFlyoutRoot>
 
-                <FyrstFlyoutRoot label="View">
-                    <FyrstCardRoot>
-                        <FyrstCardBody>
+                <WfFlyoutRoot label="View">
+                    <WfCardRoot>
+                        <WfCardBody>
                             <div :class="css({ minWidth: '150px' })">
                                 <ul :class="css({ listStyle: 'none', padding: 0, fontSize: 'sm' })">
                                     <li :class="css({ 
@@ -289,13 +289,13 @@
                                     </li>
                                 </ul>
                             </div>
-                        </FyrstCardBody>
-                    </FyrstCardRoot>
-                </FyrstFlyoutRoot>
+                        </WfCardBody>
+                    </WfCardRoot>
+                </WfFlyoutRoot>
 
-                <FyrstFlyoutRoot label="Help">
-                    <FyrstCardRoot>
-                        <FyrstCardBody>
+                <WfFlyoutRoot label="Help">
+                    <WfCardRoot>
+                        <WfCardBody>
                             <div :class="css({ minWidth: '150px' })">
                                 <ul :class="css({ listStyle: 'none', padding: 0, fontSize: 'sm' })">
                                     <li :class="css({ 
@@ -321,9 +321,9 @@
                                     </li>
                                 </ul>
                             </div>
-                        </FyrstCardBody>
-                    </FyrstCardRoot>
-                </FyrstFlyoutRoot>
+                        </WfCardBody>
+                    </WfCardRoot>
+                </WfFlyoutRoot>
             </div>
         </div>
 
@@ -336,7 +336,7 @@
                 Flyout with custom trigger styling through the <code>css</code> prop (<code>trigger</code> slot).
             </p>
             
-            <FyrstFlyoutRoot 
+            <WfFlyoutRoot 
                 label="Styled Trigger"
                 :css="{ trigger: css.raw({
                     padding: 'md lg',
@@ -350,8 +350,8 @@
                         opacity: 0.9
                     }
                 }) }">
-                <FyrstCardRoot>
-                    <FyrstCardBody>
+                <WfCardRoot>
+                    <WfCardBody>
                         <div :class="css({ minWidth: '250px' })">
                             <h3 :class="css({ fontSize: 'lg', fontWeight: 'bold', marginBottom: 'sm' })">
                                 Custom Trigger Style
@@ -360,9 +360,9 @@
                                 The trigger button has custom styling applied via the classTrigger prop.
                             </p>
                         </div>
-                    </FyrstCardBody>
-                </FyrstCardRoot>
-            </FyrstFlyoutRoot>
+                    </WfCardBody>
+                </WfCardRoot>
+            </WfFlyoutRoot>
         </div>
     </ShowcaseContainer>
 </template>

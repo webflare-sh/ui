@@ -1,26 +1,26 @@
-# Agent Instructions for @fyrst/ui
+# Agent Instructions for @webflare/ui
 
-Monorepo for the fyrst.dev design system. Publish **one** npm package: `@fyrst/ui`.
+Monorepo for the Webflare design system. Publish **one** npm package: `@webflare/ui`.
 
 Workspace packages (private, not published):
-- `@fyrst/design-preset` - Panda CSS preset (`@fyrst/ui/design-preset`)
-- `@fyrst/ui-components` - Vue 3 UI components (`@fyrst/ui` / `@fyrst/ui/components`)
-- `@fyrst/ui-nuxt` - Nuxt module (`@fyrst/ui/nuxt`)
+- `@webflare/design-preset` - Panda CSS preset (`@webflare/ui/design-preset`)
+- `@webflare/ui-components` - Vue 3 UI components (`@webflare/ui` / `@webflare/ui/components`)
+- `@webflare/ui-nuxt` - Nuxt module (`@webflare/ui/nuxt`)
 
 Uses Bun as package manager and build tool, full TypeScript support.
 
-First-party agent skills live in `.agents/skills/<name>/SKILL.md`. Consumer apps on `@fyrst/ui` 0.2.x (`panda.buildinfo.json` in `include`) or still on Panda CSS 1.x should follow [`.agents/skills/panda-v2-migration/SKILL.md`](.agents/skills/panda-v2-migration/SKILL.md). Consumer apps on 0.3.x / 0.4.x upgrading to 0.5.x should follow [`.agents/skills/fyrst-ui-0.5-migration/SKILL.md`](.agents/skills/fyrst-ui-0.5-migration/SKILL.md). Every breaking change to the public API needs a matching section in a migration skill.
+First-party agent skills live in `.agents/skills/<name>/SKILL.md`. A consumer app that is still on Panda CSS 1.x, still lists `panda.buildinfo.json` in `include`, or still adds the preset by hand instead of setting `designSystem: '@webflare/ui'` should follow [`.agents/skills/panda-v2-migration/SKILL.md`](.agents/skills/panda-v2-migration/SKILL.md). Every breaking change to the public API needs a matching section in a migration skill.
 
 ## Package Structure
 
 ```
 packages/
-├── preset/              # @fyrst/design-preset - Panda CSS Preset
+├── preset/              # @webflare/design-preset - Panda CSS Preset
 │   └── src/
-│       ├── index.ts           # Token preset (`@fyrst/ui/design-preset`)
+│       ├── index.ts           # Token preset (`@webflare/ui/design-preset`)
 │       └── tokens/            # Base & semantic tokens
-├── components/          # @fyrst/ui-components - Vue 3 UI Components
-└── nuxt/               # @fyrst/ui-nuxt - Nuxt Module
+├── components/          # @webflare/ui-components - Vue 3 UI Components
+└── nuxt/               # @webflare/ui-nuxt - Nuxt Module
     ├── src/runtime/         # Module runtime
     └── test/             # E2E tests
 ```
@@ -28,17 +28,17 @@ packages/
 ## Build Commands
 
 ```bash
-bun run build              # Clean root dist, link @fyrst/ui, build preset/components/nuxt, assemble dist, panda lib
+bun run build              # Clean root dist, link @webflare/ui, build preset/components/nuxt, assemble dist, panda lib
 bun run build:preset        # Panda CSS preset
 bun run build:components    # Vue components + root dist exports
 bun run build:nuxt          # Nuxt module (prepack only; does not build playground)
 bun run panda:lib           # panda codegen + panda lib (manifest under dist/panda/, syncs generated exports)
-bun run link:package        # Symlink the root package to node_modules/@fyrst/ui (dev only)
+bun run link:package        # Symlink the root package to node_modules/@webflare/ui (dev only)
 bun run watch:preset        # Preset watch mode
 bun run dev:components      # Components dev server
-bun run dev:nuxt            # Link @fyrst/ui, panda lib, then Nuxt module playground
-bun run dev:nuxt:prepare    # Link @fyrst/ui, panda lib, then stub/prepare the Nuxt module + playground
-bun run dev:nuxt:build      # Link @fyrst/ui, then build the Nuxt playground (dev check, not publish)
+bun run dev:nuxt            # Link @webflare/ui, panda lib, then Nuxt module playground
+bun run dev:nuxt:prepare    # Link @webflare/ui, panda lib, then stub/prepare the Nuxt module + playground
+bun run dev:nuxt:build      # Link @webflare/ui, then build the Nuxt playground (dev check, not publish)
 bun run typecheck           # tsc on the preset, vue-tsc on the components
 bun run clean               # Clean all dist folders
 ```
@@ -48,21 +48,21 @@ bun run clean               # Clean all dist folders
 ```bash
 bun run lint               # ESLint on sources, tests, and build scripts
 bun run lint:fix            # Auto-fix lint issues
-bun run --filter='@fyrst/ui-nuxt' lint   # Lint specific package
+bun run --filter='@webflare/ui-nuxt' lint   # Lint specific package
 ```
 
 ## Test Commands
 
-`@fyrst/ui-components` has Vitest unit/SSR tests. `@fyrst/ui-nuxt` has Vitest tests with `@nuxt/test-utils` (needs a prior `bun run build` for dist + `panda lib` artifacts).
+`@webflare/ui-components` has Vitest unit/SSR tests. `@webflare/ui-nuxt` has Vitest tests with `@nuxt/test-utils` (needs a prior `bun run build` for dist + `panda lib` artifacts).
 
 ```bash
-bun run test                              # Link @fyrst/ui, then run all tests
-bun run --filter='@fyrst/ui-components' test   # Component unit + SSR tests
-bun run --filter='@fyrst/ui-nuxt' test    # Nuxt package tests (needs `bun run link:package`)
-bun run --filter='@fyrst/ui-nuxt' test:watch   # Watch mode
-bun run --filter='@fyrst/ui-nuxt' test -- basic.test.ts   # Single file
-bun run --filter='@fyrst/ui-nuxt' test -t "test name"    # By name
-bun run --filter='@fyrst/ui-nuxt' test:types             # Type checking
+bun run test                              # Link @webflare/ui, then run all tests
+bun run --filter='@webflare/ui-components' test   # Component unit + SSR tests
+bun run --filter='@webflare/ui-nuxt' test    # Nuxt package tests (needs `bun run link:package`)
+bun run --filter='@webflare/ui-nuxt' test:watch   # Watch mode
+bun run --filter='@webflare/ui-nuxt' test -- basic.test.ts   # Single file
+bun run --filter='@webflare/ui-nuxt' test -t "test name"    # By name
+bun run --filter='@webflare/ui-nuxt' test:types             # Type checking
 ```
 
 ## Code Style Guidelines
@@ -79,9 +79,9 @@ bun run --filter='@fyrst/ui-nuxt' test:types             # Type checking
 **Path Aliases:**
 ```json
 {
-  "@fyrst/ui/*": "./packages/*/src/index.ts",
-  "@fyrst/design-preset": "./packages/preset/src/index.ts",
-  "@fyrst/ui-components": "./packages/components/src/index.ts"
+  "@webflare/ui/*": "./packages/*/src/index.ts",
+  "@webflare/design-preset": "./packages/preset/src/index.ts",
+  "@webflare/ui-components": "./packages/components/src/index.ts"
 }
 ```
 
@@ -94,7 +94,7 @@ bun run --filter='@fyrst/ui-nuxt' test:types             # Type checking
   ```typescript
   import type { Component } from 'vue'
   import { useSlots } from 'vue'
-  import type { ButtonProps } from '@fyrst/ui-components'
+  import type { ButtonProps } from '@webflare/ui-components'
   ```
 
 ### Naming
@@ -172,7 +172,7 @@ export default { Root: BadgeRoot }
 
 Register the entry in `vue-entries.ts` (`vueLibEntries`; `nuxtComponents` is derived) and the named export in `vue-components.ts`. `Button` / `Loader` export the SFC by those names and do not use a `{ Root }` namespace.
 
-Do not export `Control*` from `@fyrst/ui`. Bare controls stay under `src/internal/controls/` and share `useFieldControl()` (id, ARIA links, validity from the Field context). Public form API is `Field.*` / `FyrstField*`; composed fields use `FieldSharedProps` and `FieldFooter`. Re-export `FieldOption` from Field.
+Do not export `Control*` from `@webflare/ui`. Bare controls stay under `src/internal/controls/` and share `useFieldControl()` (id, ARIA links, validity from the Field context). Public form API is `Field.*` / `WfField*`; composed fields use `FieldSharedProps` and `FieldFooter`. Re-export `FieldOption` from Field.
 
 ### Panda CSS
 
@@ -196,9 +196,9 @@ Do not export `Control*` from `@fyrst/ui`. Bare controls stay under `src/interna
 
 ### Release Process (maintainers)
 
-Publish the root `@fyrst/ui` package with `.github/workflows/publish.yml`. The Action authenticates with npm trusted publishing (OIDC). Do not add `NPM_TOKEN` or a bypass-2FA granular token.
+Publish the root `@webflare/ui` package with `.github/workflows/publish.yml`. The Action authenticates with npm trusted publishing (OIDC). Do not add `NPM_TOKEN` or a bypass-2FA granular token.
 
-The first version must be published locally with `npm login` + 2FA, then attach the trusted publisher on npmjs.com (`fyrst-dev` / `ui` / `publish.yml`).
+The first version must be published locally with `npm login` + 2FA, then attach the trusted publisher on npmjs.com (`webflare-sh` / `ui` / `publish.yml`).
 
 ## Key Dependencies
 
@@ -236,6 +236,6 @@ describe('ssr', async () => {
 1. Token changes: add to both `tokens.ts` and `semantic-tokens.ts`
 2. New packages: register in root `package.json` under `workspaces`
 3. Build order: Nuxt module requires preset built first (automatic)
-4. Peer dependencies: `vue`, `reka-ui`, and `@pandacss/dev` are required. `@pandacss/preset-base` is a published `dependency` (the design-system preset inlines the module; apps on `designSystem` do not install it). `nuxt` and `@nuxt/kit` are optional (only `@fyrst/ui/nuxt`). Do not put `@nuxt/kit` in published `dependencies`.
+4. Peer dependencies: `vue`, `reka-ui`, and `@pandacss/dev` are required. `@pandacss/preset-base` is a published `dependency` (the design-system preset inlines the module; apps on `designSystem` do not install it). `nuxt` and `@nuxt/kit` are optional (only `@webflare/ui/nuxt`). Do not put `@nuxt/kit` in published `dependencies`.
 5. No Prettier: ESLint used for formatting (stylistic rules)
-6. Do not ship compiled Panda CSS (`panda cssgen`, `styles.css`, `panda.css`). Publish only the root `@fyrst/ui` package. Consuming apps must depend on `@pandacss/dev`, keep their own `panda.config.ts`, and set `designSystem: '@fyrst/ui'` (no fyrst preset, no `include` into the package). The library build runs `panda lib --outdir dist --files './**/*.{js,mjs}' --panda '^2.4.0'` after assembling `dist/`. That command owns `./panda/*`, `./css`, `./tokens`, `./types`, and other generated subpaths — do not hand-edit them. Custom exports (`./design-preset`, `./preset`, `./nuxt`, `./vue/*`, `./style.css`) stay in `package.json`. `@fyrst/ui/style.css` is Iconify icons only: do not add `<style>` blocks to components. The root `panda.config.ts` sets `forceImportExtension: true` so the published runtime loads in plain Node. Pack root `dist/` only (assembled from workspace build outputs, including `dist/panda/` and `dist/styled-system/`) — do not include nested `packages/*/dist`.
+6. Do not ship compiled Panda CSS (`panda cssgen`, `styles.css`, `panda.css`). Publish only the root `@webflare/ui` package. Consuming apps must depend on `@pandacss/dev`, keep their own `panda.config.ts`, and set `designSystem: '@webflare/ui'` (no Webflare preset, no `include` into the package). The library build runs `panda lib --outdir dist --files './**/*.{js,mjs}' --panda '^2.4.0'` after assembling `dist/`. That command owns `./panda/*`, `./css`, `./tokens`, `./types`, and other generated subpaths — do not hand-edit them. Custom exports (`./design-preset`, `./preset`, `./nuxt`, `./vue/*`, `./style.css`) stay in `package.json`. `@webflare/ui/style.css` is Iconify icons only: do not add `<style>` blocks to components. The root `panda.config.ts` sets `forceImportExtension: true` so the published runtime loads in plain Node. Pack root `dist/` only (assembled from workspace build outputs, including `dist/panda/` and `dist/styled-system/`) — do not include nested `packages/*/dist`.

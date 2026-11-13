@@ -1,4 +1,4 @@
-// Implementation sources for the published `@fyrst/ui/vue/<Name>` modules.
+// Implementation sources for the published `@webflare/ui/vue/<Name>` modules.
 // `write-vue-entry-modules.ts` generates `src/vue/<Name>.ts` from this catalog
 // so Vite and vue-tsc compile the same entry (JS + .d.ts at `dist/vue/<Name>`).
 export const vueLibEntries = {

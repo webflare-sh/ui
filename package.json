@@ -1,17 +1,17 @@
 {
-  "name": "@fyrst/ui",
-  "version": "0.5.0",
-  "description": "fyrst.dev design system: Panda CSS preset, Vue components, and Nuxt module",
+  "name": "@webflare/ui",
+  "version": "0.1.0",
+  "description": "Webflare design system: Panda CSS preset, Vue components, and Nuxt module",
   "license": "MIT",
-  "author": "fyrst.dev",
+  "author": "Webflare OÜ",
   "type": "module",
-  "homepage": "https://github.com/fyrst-dev/ui#readme",
+  "homepage": "https://github.com/webflare-sh/ui#readme",
   "bugs": {
-    "url": "https://github.com/fyrst-dev/ui/issues"
+    "url": "https://github.com/webflare-sh/ui/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fyrst-dev/ui.git"
+    "url": "git+https://github.com/webflare-sh/ui.git"
   },
   "keywords": [
     "vue",
@@ -19,7 +19,7 @@
     "ui",
     "components",
     "design-system",
-    "fyrst",
+    "webflare",
     "pandacss"
   ],
   "publishConfig": {
@@ -108,20 +108,20 @@
     "lint": "eslint packages/*/src packages/*/test packages/components/*.ts packages/components/*.mts scripts --cache",
     "lint:fix": "eslint packages/*/src packages/*/test packages/components/*.ts packages/components/*.mts scripts --fix --cache",
     "build": "rm -rf dist && bun run link:package && bun run build:preset && bun run build:components && bun run build:nuxt && bun scripts/assemble-dist.ts && bun run panda:lib",
-    "build:preset": "bun run --filter='@fyrst/design-preset' build",
-    "build:components": "bun run --filter='@fyrst/ui-components' build && mkdir -p dist && cp packages/components/dist/ui-components.css dist/style.css && rm -f packages/components/dist/ui-components.css && bun scripts/assemble-dist.ts",
-    "build:nuxt": "bun run --filter='@fyrst/ui-nuxt' prepack",
+    "build:preset": "bun run --filter='@webflare/design-preset' build",
+    "build:components": "bun run --filter='@webflare/ui-components' build && mkdir -p dist && cp packages/components/dist/ui-components.css dist/style.css && rm -f packages/components/dist/ui-components.css && bun scripts/assemble-dist.ts",
+    "build:nuxt": "bun run --filter='@webflare/ui-nuxt' prepack",
     "panda:lib": "panda codegen --clean && panda lib --outdir dist --files './**/*.{js,mjs}' --panda '^2.4.0'",
-    "link:package": "mkdir -p node_modules/@fyrst && ln -sfn ../.. node_modules/@fyrst/ui",
-    "watch:preset": "bun run --filter='@fyrst/design-preset' watch",
-    "dev:components": "bun run --filter='@fyrst/ui-components' dev",
-    "dev:nuxt": "bun run link:package && bun scripts/assemble-dist.ts && bun run panda:lib && bun run --filter='@fyrst/ui-nuxt' dev",
-    "dev:nuxt:prepare": "bun run link:package && bun scripts/assemble-dist.ts && bun run panda:lib && bun run --filter='@fyrst/ui-nuxt' dev:prepare",
-    "dev:nuxt:build": "bun run dev:nuxt:prepare && bun run --filter='@fyrst/ui-nuxt' dev:build",
-    "test": "bun run link:package && bun run --filter='@fyrst/ui-components' test && bun run --filter='@fyrst/ui-nuxt' test",
+    "link:package": "mkdir -p node_modules/@webflare && ln -sfn ../.. node_modules/@webflare/ui",
+    "watch:preset": "bun run --filter='@webflare/design-preset' watch",
+    "dev:components": "bun run --filter='@webflare/ui-components' dev",
+    "dev:nuxt": "bun run link:package && bun scripts/assemble-dist.ts && bun run panda:lib && bun run --filter='@webflare/ui-nuxt' dev",
+    "dev:nuxt:prepare": "bun run link:package && bun scripts/assemble-dist.ts && bun run panda:lib && bun run --filter='@webflare/ui-nuxt' dev:prepare",
+    "dev:nuxt:build": "bun run dev:nuxt:prepare && bun run --filter='@webflare/ui-nuxt' dev:build",
+    "test": "bun run link:package && bun run --filter='@webflare/ui-components' test && bun run --filter='@webflare/ui-nuxt' test",
     "prepublishOnly": "bun run build",
     "clean": "rm -rf packages/*/dist dist",
-    "typecheck": "bun run --filter='@fyrst/design-preset' typecheck && bun run --filter='@fyrst/ui-components' typecheck"
+    "typecheck": "bun run --filter='@webflare/design-preset' typecheck && bun run --filter='@webflare/ui-components' typecheck"
   },
   "devDependencies": {
     "@nuxt/devtools": "^4.0.0",
