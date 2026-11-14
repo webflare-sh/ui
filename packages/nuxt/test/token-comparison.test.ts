@@ -15,7 +15,15 @@ const colorPaths = (tokens: FlatTokens) => Object.keys(tokens).filter(path => pa
 const isStatus = (path: string) => /^colors\.(?:danger|success|warning|info)(?:\.|$)/.test(path)
 
 /** Library roles that stay without a website counterpart. */
-const libraryRoles = ['colors.neutral.inverse', 'colors.border.hover', 'colors.text.muted']
+const libraryRoles = [
+  'colors.neutral.inverse',
+  'colors.neutral.subtle',
+  'colors.border.hover',
+  'colors.border.card',
+  'colors.text.muted',
+  'colors.text.placeholder',
+  'colors.loader.track',
+]
 
 const inventoryColors = inventory.filter(token => token.path.startsWith('colors.') && token.action !== 'skip')
 const published = new Map(inventoryColors.map(token => [token.publishedAs ?? token.path, token]))

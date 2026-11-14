@@ -10,11 +10,7 @@ export const loaderStyles = cva({
     boxSizing: 'border-box',
     borderRadius: '50%',
     borderStyle: 'solid',
-    borderColor: {
-      base: 'black/17.5',
-      _dark: 'white/17.5',
-      _osDark: 'white/17.5',
-    },
+    borderColor: 'loader.track',
     borderTopColor: 'primary',
     animationDuration: '1000ms',
     animationTimingFunction: 'linear',
