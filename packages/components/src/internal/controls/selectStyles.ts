@@ -35,10 +35,7 @@ export const selectStyles = sva({
       'userSelect': 'none',
       'position': 'relative',
       '&[data-highlighted]': {
-        backgroundColor: {
-          base: 'grey.night',
-          _light: 'grey.100',
-        },
+        backgroundColor: 'neutral.subtle',
       },
       '&[data-disabled]': {
         opacity: '0.5',

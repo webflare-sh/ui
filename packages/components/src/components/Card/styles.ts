@@ -40,7 +40,7 @@ export const cardStyles = sva({
       lineHeight: '1.25',
     },
     headerSubtitle: {
-      color: 'grey.dawn',
+      color: 'text.muted',
       fontSize: 'md',
     },
   },
@@ -48,13 +48,14 @@ export const cardStyles = sva({
     colorStrategy: {
       default: {
         root: {
-          background: 'var(--card-bg-overlay) padding-box, var(--card-bg) padding-box',
+          // `[…]` marks a raw value: a layered shorthand built from CSS variables.
+          background: '[var(--card-bg-overlay) padding-box, var(--card-bg) padding-box]',
           borderColor: 'var(--card-border-color)',
         },
       },
       image: {
         root: {
-          background: 'var(--card-bg-overlay) padding-box, var(--card-bg) padding-box, var(--card-border-color) border-box',
+          background: '[var(--card-bg-overlay) padding-box, var(--card-bg) padding-box, var(--card-border-color) border-box]',
         },
       },
     },
@@ -67,12 +68,8 @@ export const cardStyles = sva({
       },
       'default': {
         root: {
-          '--card-bg': 'linear-gradient(token(colors.grey.deep))',
-          '--card-border-color': 'token(colors.grey.700)',
-          '_light': {
-            '--card-bg': 'linear-gradient(token(colors.white))',
-            '--card-border-color': 'token(colors.grey.100)',
-          },
+          '--card-bg': 'linear-gradient(token(colors.surface.raised))',
+          '--card-border-color': 'token(colors.border.card)',
         },
       },
       'primary': {
@@ -102,7 +99,7 @@ export const cardStyles = sva({
       },
       'lucid-deep': {
         root: {
-          '--card-bg': 'linear-gradient(rgb(from token(colors.black) r g b / 10%))',
+          '--card-bg': 'linear-gradient(token(colors.black/10))',
         },
       },
     },

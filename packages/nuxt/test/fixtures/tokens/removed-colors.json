@@ -1,0 +1,20 @@
+{
+  "$comment": "Color tokens removed in 0.1.0 and what to use instead. `light` / `dark` give a different replacement per mode. A null replacement means the token was unused.",
+  "removed": [
+    { "path": "colors.brand.pale", "replacement": "colors.primary-pale", "note": "Pale brand fill. Use the role." },
+    { "path": "colors.brand.day", "replacement": "colors.primary", "note": "Brand color on light backgrounds. Use the role." },
+    { "path": "colors.brand.brand", "replacement": "colors.primary", "note": "The brand color. Use the role." },
+    { "path": "colors.brand.dawn", "replacement": "colors.brand.600", "note": "Darker brand shade. No role has it in both modes." },
+    { "path": "colors.grey.dawn", "replacement": "colors.grey.300", "note": "Same value." },
+    { "path": "colors.grey.dusk", "replacement": "colors.grey.600", "note": "Same value." },
+    { "path": "colors.grey.night", "replacement": "colors.grey.800", "note": "Same value." },
+    { "path": "colors.grey.deep", "replacement": "colors.grey.900", "note": "Same value." },
+    { "path": "colors.grey.black", "replacement": "colors.grey.950", "note": "Same value." },
+    { "path": "colors.grey.75", "replacement": null, "note": "Not used." },
+    { "path": "colors.lucid.50", "replacement": { "light": "colors.black/10", "dark": "colors.white/10" } },
+    { "path": "colors.lucid.100", "replacement": { "light": "colors.black/17.5", "dark": "colors.white/17.5" }, "note": "The opacity modifier accepts 17.5." },
+    { "path": "colors.lucid.200", "replacement": { "light": "colors.black/25", "dark": "colors.white/25" } },
+    { "path": "colors.lucid.400", "replacement": { "light": "colors.black/50", "dark": "colors.white/50" } },
+    { "path": "colors.lucid.600", "replacement": { "light": "colors.black/75", "dark": "colors.white/75" } }
+  ]
+}

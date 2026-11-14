@@ -49,7 +49,7 @@ export const urlStyles = sva({
       'margin': '0',
       'border': 'none',
       'borderRadius': '0',
-      'backgroundColor': 'grey.night',
+      'backgroundColor': 'neutral.subtle',
       'color': 'inherit',
       'font': 'inherit',
       'fontWeight': '450',
@@ -87,7 +87,7 @@ export const urlStyles = sva({
       fontWeight: '450',
       lineHeight: '1.5',
       _placeholder: {
-        color: 'lucid.600',
+        color: 'text.placeholder',
       },
       _disabled: {
         cursor: 'not-allowed',
@@ -171,7 +171,7 @@ export const urlStyles = sva({
       false: {
         protocol: {
           '& .icon': {
-            color: 'lucid.600',
+            color: 'text.placeholder',
           },
         },
       },

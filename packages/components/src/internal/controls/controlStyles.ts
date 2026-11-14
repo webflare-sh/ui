@@ -22,7 +22,7 @@ export const controlStyles = cva({
     color: 'neutral',
     transition: 'all 300ms',
     _placeholder: {
-      color: 'lucid.600',
+      color: 'text.placeholder',
     },
     _hover: {
       borderColor: 'border.hover',

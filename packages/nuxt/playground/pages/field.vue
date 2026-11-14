@@ -1,6 +1,6 @@
 <template>
   <ShowcaseContainer>
-    <FyrstFieldInput
+    <WfFieldInput
       name="emailAddress"
       label="E-Mail Adresse"
       placeholder="Gib deine E-Mail Adresse ein"
@@ -10,7 +10,7 @@
       :required="true"
     />
 
-    <FyrstFieldInput
+    <WfFieldInput
       id="login-password"
       name="password"
       label="Password"
@@ -21,7 +21,7 @@
       :required="true"
     />
 
-    <FyrstFieldInput
+    <WfFieldInput
       v-model="numberValue"
       name="quantity"
       label="Quantity"
@@ -29,14 +29,14 @@
       :required="true"
     />
 
-    <FyrstFieldInput
+    <WfFieldInput
       v-model="dateValue"
       name="date"
       label="Date"
       type="date"
     />
 
-    <FyrstFieldUrl
+    <WfFieldUrl
       v-model="urlValue"
       name="website"
       label="Website"
@@ -44,7 +44,7 @@
       :required="true"
     />
 
-    <FyrstFieldTextarea
+    <WfFieldTextarea
       v-model="textareaValue"
       name="message"
       label="Message"
@@ -53,7 +53,7 @@
       :required="true"
     />
 
-    <FyrstFieldSelect
+    <WfFieldSelect
       v-model="selectValue"
       name="topic"
       label="Topic"
@@ -62,14 +62,14 @@
       :required="true"
     />
 
-    <FyrstFieldCheckbox
+    <WfFieldCheckbox
       v-model="checkboxValue"
       name="terms"
       label="I accept the terms"
       :required="true"
     />
 
-    <FyrstFieldRadioGroup
+    <WfFieldRadioGroup
       v-model="radioValue"
       name="contact"
       label="Preferred contact"
@@ -77,13 +77,13 @@
       :required="true"
     />
 
-    <FyrstFieldSwitch
+    <WfFieldSwitch
       v-model="switchValue"
       name="notifications"
       label="Enable notifications"
     />
 
-    <FyrstFormPrompt
+    <WfFormPrompt
       id="formPrompt"
       action="/submit"
       method="post"
@@ -93,9 +93,9 @@
       @submit="onSubmit"
     >
       <template #footer>
-        <FyrstFormPromptFooter>
+        <WfFormPromptFooter>
           <template #inputs>
-            <FyrstFieldInput
+            <WfFieldInput
               id="name"
               name="name"
               label="Name"
@@ -110,7 +110,7 @@
               })"
             />
 
-            <FyrstFieldInput
+            <WfFieldInput
               name="email"
               label="E-Mail"
               placeholder="Your E-Mail address"
@@ -124,7 +124,7 @@
           </template>
 
           <template #action>
-            <FyrstButton
+            <WfButton
               label="Submit"
               type="submit"
               color="primary"
@@ -136,9 +136,9 @@
               })"
             />
           </template>
-        </FyrstFormPromptFooter>
+        </WfFormPromptFooter>
       </template>
-    </FyrstFormPrompt>
+    </WfFormPrompt>
   </ShowcaseContainer>
 </template>
 

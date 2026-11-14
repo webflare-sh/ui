@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>basic</div>
-    <FyrstButton label="Publish" />
+    <WfButton label="Publish" />
   </div>
 </template>
 

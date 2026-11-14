@@ -1,6 +1,7 @@
 // @ts-check
 import { createConfigForNuxt } from '@nuxt/eslint-config/flat'
 import unusedImports from 'eslint-plugin-unused-imports'
+import webflare from './scripts/eslint/no-mode-block.mjs'
 
 export default createConfigForNuxt({
   features: {
@@ -27,8 +28,12 @@ export default createConfigForNuxt({
   .append({
     plugins: {
       'unused-imports': unusedImports,
+      webflare,
     },
     rules: {
+      // One key per property with the mode inside it, so `css` overrides
+      // replace dark values too (see scripts/eslint/no-mode-block.mjs).
+      'webflare/no-mode-block': 'error',
       // Content props render as HTML on purpose. Sanitizing untrusted strings
       // is the consuming app's job (see README "Text and HTML content").
       'vue/no-v-html': 'off',

@@ -5,16 +5,16 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Colors
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Color variants: default, primary, success, info, and danger.
       </p>
 
       <div :class="css({ display: 'flex', gap: 'md', flexWrap: 'wrap', alignItems: 'center' })">
-        <FyrstBadgeRoot label="Default" color="default" />
-        <FyrstBadgeRoot label="Primary" color="primary" />
-        <FyrstBadgeRoot label="Success" color="success" />
-        <FyrstBadgeRoot label="Info" color="info" />
-        <FyrstBadgeRoot label="Danger" color="danger" />
+        <WfBadgeRoot label="Default" color="default" />
+        <WfBadgeRoot label="Primary" color="primary" />
+        <WfBadgeRoot label="Success" color="success" />
+        <WfBadgeRoot label="Info" color="info" />
+        <WfBadgeRoot label="Danger" color="danger" />
       </div>
     </div>
 
@@ -23,14 +23,14 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Sizes
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Three size variants: sm, md (default), and lg.
       </p>
 
       <div :class="css({ display: 'flex', gap: 'md', flexWrap: 'wrap', alignItems: 'center' })">
-        <FyrstBadgeRoot label="Small" size="sm" color="primary" />
-        <FyrstBadgeRoot label="Medium" size="md" color="primary" />
-        <FyrstBadgeRoot label="Large" size="lg" color="primary" />
+        <WfBadgeRoot label="Small" size="sm" color="primary" />
+        <WfBadgeRoot label="Medium" size="md" color="primary" />
+        <WfBadgeRoot label="Large" size="lg" color="primary" />
       </div>
     </div>
 
@@ -39,26 +39,26 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         With icon
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Use the icon slot to prepend an Iconify icon.
       </p>
 
       <div :class="css({ display: 'flex', gap: 'md', flexWrap: 'wrap', alignItems: 'center' })">
-        <FyrstBadgeRoot label="Info" color="info">
+        <WfBadgeRoot label="Info" color="info">
           <template #icon>
             <span class="icon icon-info-bold" />
           </template>
-        </FyrstBadgeRoot>
-        <FyrstBadgeRoot label="Success" color="success">
+        </WfBadgeRoot>
+        <WfBadgeRoot label="Success" color="success">
           <template #icon>
             <span class="icon icon-check-bold" />
           </template>
-        </FyrstBadgeRoot>
-        <FyrstBadgeRoot label="Danger" color="danger">
+        </WfBadgeRoot>
+        <WfBadgeRoot label="Danger" color="danger">
           <template #icon>
             <span class="icon icon-x-bold" />
           </template>
-        </FyrstBadgeRoot>
+        </WfBadgeRoot>
       </div>
     </div>
   </ShowcaseContainer>

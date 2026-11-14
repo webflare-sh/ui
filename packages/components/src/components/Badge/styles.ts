@@ -17,36 +17,39 @@ export const badgeStyles = cva({
   variants: {
     color: {
       default: {
-        backgroundColor: 'grey.night',
+        backgroundColor: 'neutral.subtle',
         color: 'neutral',
-        borderColor: 'grey.dusk',
+        borderColor: 'border',
       },
       primary: {
         backgroundColor: 'primary',
-        color: 'grey.night',
+        color: 'grey.800',
         borderColor: 'primary',
       },
       success: {
         backgroundColor: 'success.subtle',
         color: {
-          base: 'white',
-          _light: 'success.text',
+          base: 'success.text',
+          _dark: 'white',
+          _osDark: 'white',
         },
         borderColor: 'success.subtle.light',
       },
       info: {
         backgroundColor: 'info.subtle',
         color: {
-          base: 'white',
-          _light: 'info.text',
+          base: 'info.text',
+          _dark: 'white',
+          _osDark: 'white',
         },
         borderColor: 'info.subtle.light',
       },
       danger: {
         backgroundColor: 'danger.subtle',
         color: {
-          base: 'white',
-          _light: 'danger.text',
+          base: 'danger.text',
+          _dark: 'white',
+          _osDark: 'white',
         },
         borderColor: 'danger.subtle.light',
       },

@@ -5,16 +5,16 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Basic Progress
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Determinate progress values from 0 to 100.
       </p>
 
       <div :class="css({ display: 'flex', flexDirection: 'column', gap: 'lg', maxWidth: '480px' })">
-        <FyrstProgressRoot :model-value="0" />
-        <FyrstProgressRoot :model-value="25" />
-        <FyrstProgressRoot :model-value="50" />
-        <FyrstProgressRoot :model-value="75" />
-        <FyrstProgressRoot :model-value="100" />
+        <WfProgressRoot :model-value="0" />
+        <WfProgressRoot :model-value="25" />
+        <WfProgressRoot :model-value="50" />
+        <WfProgressRoot :model-value="75" />
+        <WfProgressRoot :model-value="100" />
       </div>
     </div>
 
@@ -23,34 +23,34 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Sizes
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Three size variants: sm, md (default), and lg.
       </p>
 
       <div :class="css({ display: 'flex', flexDirection: 'column', gap: 'lg', maxWidth: '480px' })">
         <div>
-          <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' }, marginBottom: 'xs', display: 'block' })">
+          <span :class="css({ fontSize: 'xs', color: 'text.muted', marginBottom: 'xs', display: 'block' })">
             sm
           </span>
-          <FyrstProgressRoot
+          <WfProgressRoot
             :model-value="60"
             size="sm"
           />
         </div>
         <div>
-          <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' }, marginBottom: 'xs', display: 'block' })">
+          <span :class="css({ fontSize: 'xs', color: 'text.muted', marginBottom: 'xs', display: 'block' })">
             md
           </span>
-          <FyrstProgressRoot
+          <WfProgressRoot
             :model-value="60"
             size="md"
           />
         </div>
         <div>
-          <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' }, marginBottom: 'xs', display: 'block' })">
+          <span :class="css({ fontSize: 'xs', color: 'text.muted', marginBottom: 'xs', display: 'block' })">
             lg
           </span>
-          <FyrstProgressRoot
+          <WfProgressRoot
             :model-value="60"
             size="lg"
           />
@@ -63,27 +63,27 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Colors
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Color variants: primary, success, danger, and info.
       </p>
 
       <div :class="css({ display: 'flex', flexDirection: 'column', gap: 'lg', maxWidth: '480px' })">
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="70"
           color="primary"
           show-value
         />
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="70"
           color="success"
           show-value
         />
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="70"
           color="danger"
           show-value
         />
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="70"
           color="info"
           show-value
@@ -96,16 +96,16 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Value Label
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Use show-value for a percentage label, or the value slot for custom text.
       </p>
 
       <div :class="css({ display: 'flex', flexDirection: 'column', gap: 'lg', maxWidth: '480px' })">
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="42"
           show-value
         />
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="3"
           :max="10"
           show-value
@@ -113,7 +113,7 @@
           <template #value="{ modelValue, max, percentage }">
             {{ modelValue }} / {{ max }} ({{ percentage }}%)
           </template>
-        </FyrstProgressRoot>
+        </WfProgressRoot>
       </div>
     </div>
 
@@ -122,18 +122,18 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Indeterminate
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Pass null or omit model-value for an animated indeterminate bar.
       </p>
 
       <div :class="css({ display: 'flex', flexDirection: 'column', gap: 'lg', maxWidth: '480px' })">
-        <FyrstProgressRoot :model-value="null" />
-        <FyrstProgressRoot
+        <WfProgressRoot :model-value="null" />
+        <WfProgressRoot
           :model-value="null"
           color="success"
           size="lg"
         />
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="null"
           color="info"
           size="sm"
@@ -146,12 +146,12 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Interactive
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Drive progress with a range input.
       </p>
 
       <div :class="css({ display: 'flex', flexDirection: 'column', gap: 'md', maxWidth: '480px' })">
-        <FyrstProgressRoot
+        <WfProgressRoot
           :model-value="interactiveValue"
           color="primary"
           size="lg"

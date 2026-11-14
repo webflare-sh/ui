@@ -1,7 +1,7 @@
 ---
 name: nuxt-verifier
 description: >-
-  Runs @fyrst/ui-nuxt tests and checks auto-import wiring. Use proactively
+  Runs @webflare/ui-nuxt tests and checks auto-import wiring. Use proactively
   after Nuxt module, vue-entries.ts, nuxt-entries.json, auto-import, or
   consumer-contract.test.ts changes. Do not use for token-only or
   playground-copy-only work.
@@ -20,19 +20,19 @@ From the repo root:
 bun run test
 ```
 
-(`bun run test` links `@fyrst/ui` then runs the `@fyrst/ui-nuxt` Vitest suite.) Tests live in `packages/nuxt/test/*.test.ts` (e2e via `@nuxt/test-utils` plus `consumer-contract.test.ts`). Output is noisy; summarize.
+(`bun run test` links `@webflare/ui` then runs the `@webflare/ui-nuxt` Vitest suite.) Tests live in `packages/nuxt/test/*.test.ts` (e2e via `@nuxt/test-utils` plus `consumer-contract.test.ts`). Output is noisy; summarize.
 
 If dist artifacts are missing and consumer-contract fails for that reason, report that a root `bun run build` is required. Do not start a publish. Do not run the playground unless needed to explain a failure.
 
 ## Module wiring (when entries/module changed)
 
-`packages/nuxt/src/module.ts` does **not** list components by hand. It resolves `@fyrst/ui/nuxt-entries.json` and registers `Fyrst${name}` as the named export `${name}` from `@fyrst/ui`. The module must not walk `packages/components/dist` on disk.
+`packages/nuxt/src/module.ts` does **not** list components by hand. It resolves `@webflare/ui/nuxt-entries.json` and registers `Wf${name}` as the named export `${name}` from `@webflare/ui`. The module must not walk `packages/components/dist` on disk.
 
 If `vue-entries.ts` or the module changed, confirm:
 
-- `vueLibEntries` / `nuxtComponents` / `nuxtComposables` in `packages/components/vue-entries.ts` still match what the module expects (`components` map keys and composable names are `@fyrst/ui` named exports).
-- Resolution uses `@fyrst/ui` package exports (`nuxt-entries.json`, `.`, `style.css`). Linked installs still need Vite `server.fs.allow` and unimport `transform.exclude` for the resolved dist directory.
-- Prefix default remains `Fyrst`; icons CSS is optional via `icons`.
+- `vueLibEntries` / `nuxtComponents` / `nuxtComposables` in `packages/components/vue-entries.ts` still match what the module expects (`components` map keys and composable names are `@webflare/ui` named exports).
+- Resolution uses `@webflare/ui` package exports (`nuxt-entries.json`, `.`, `style.css`). Linked installs still need Vite `server.fs.allow` and unimport `transform.exclude` for the resolved dist directory.
+- Prefix default remains `Wf`; icons CSS is optional via `icons`.
 
 ## Coverage honesty
 

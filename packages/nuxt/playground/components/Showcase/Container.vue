@@ -11,14 +11,15 @@
         )">
 
         <div 
-            v-for="theme in ['dark', 'light']" 
+            v-for="theme in ['light', 'dark']" 
             :key="theme"
-            :class="[theme,
+            :class="[{ dark: theme === 'dark' },
                 css({
                     display: 'flex',
                     flexDirection: 'column',
                     gap: { base: '2xl', xl: '4xl' },
-                    backgroundColor: theme === 'dark' ? 'grey.black' : 'white',
+                    backgroundColor: 'surface',
+                    color: 'neutral',
                     padding: { base: '2xl', xl: '4xl' },
                     minHeight: '100%',
                     height: 'fit-content',

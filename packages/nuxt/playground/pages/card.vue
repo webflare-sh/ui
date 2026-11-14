@@ -1,20 +1,20 @@
 
 <template>
     <ShowcaseContainer>
-        <FyrstCardRoot>
+        <WfCardRoot>
             <template #header>
-                <FyrstCardHeader
+                <WfCardHeader
                     title="Card Title"
                     subtitle="Card Subtitle"
                 >
                 <template #icon>
                     <span class="icon icon-info-bold" />
                 </template>
-                </FyrstCardHeader>
+                </WfCardHeader>
             </template>
-            <FyrstCardBody>
+            <WfCardBody>
                 <p>This is the body of the card. It contains the main content.</p>
-                <FyrstListRoot 
+                <WfListRoot 
                     state="danger"
                     size="md"
                     :items="[
@@ -22,8 +22,8 @@
                         { content: 'Second item' },
                         { content: 'Third <b>bold</b> item' }
                     ]"/>
-            </FyrstCardBody>
-        </FyrstCardRoot>
+            </WfCardBody>
+        </WfCardRoot>
     </ShowcaseContainer>
 </template>
 

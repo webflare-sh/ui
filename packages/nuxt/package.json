@@ -1,18 +1,18 @@
 {
-    "name": "@fyrst/ui-nuxt",
-    "version": "0.5.0",
+    "name": "@webflare/ui-nuxt",
+    "version": "0.1.0",
     "private": true,
-    "description": "Nuxt module for the fyrst.dev Vue UI components",
+    "description": "Nuxt module for the Webflare Vue UI components",
     "license": "MIT",
-    "author": "fyrst.dev",
+    "author": "Webflare OÜ",
     "type": "module",
-    "homepage": "https://github.com/fyrst-dev/ui/tree/master/packages/nuxt#readme",
+    "homepage": "https://github.com/webflare-sh/ui/tree/master/packages/nuxt#readme",
     "bugs": {
-        "url": "https://github.com/fyrst-dev/ui/issues"
+        "url": "https://github.com/webflare-sh/ui/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fyrst-dev/ui.git",
+        "url": "git+https://github.com/webflare-sh/ui.git",
         "directory": "packages/nuxt"
     },
     "keywords": [
@@ -22,7 +22,7 @@
         "ui",
         "components",
         "design-system",
-        "fyrst"
+        "webflare"
     ],
     "exports": {
         ".": {
