@@ -10,11 +10,7 @@ export const tabStyles = sva({
       backgroundColor: 'surface',
       borderWidth: '1px',
       borderStyle: 'solid',
-      borderColor: {
-        base: 'grey.100',
-        _dark: 'grey.700',
-        _osDark: 'grey.700',
-      },
+      borderColor: 'border.card',
       borderRadius: 'pill',
       padding: '2xs',
       position: 'relative',
@@ -53,12 +49,9 @@ export const tabStyles = sva({
         opacity: 0.4,
         cursor: 'not-allowed',
       },
+      // The hover fill is the same shade as the border of the tab bar.
       _hover: {
-        bgColor: {
-          base: 'grey.100',
-          _dark: 'grey.700',
-          _osDark: 'grey.700',
-        },
+        bgColor: 'border.card',
       },
       _active: {
         anchorName: '--active-tab',

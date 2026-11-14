@@ -81,11 +81,7 @@ export const listStyles = sva({
       default: {
         marker: {
           color: 'text.muted',
-          backgroundColor: {
-            base: 'grey.100',
-            _dark: 'grey.800',
-            _osDark: 'grey.800',
-          },
+          backgroundColor: 'neutral.subtle',
         },
       },
       primary: {

@@ -33,11 +33,7 @@ export const accordionStyles = sva({
       'alignItems': 'center',
       'userSelect': 'none',
       '_open': {
-        'backgroundColor': {
-          base: 'grey.100',
-          _dark: 'grey.800',
-          _osDark: 'grey.800',
-        },
+        'backgroundColor': 'neutral.subtle',
         '& [data-trigger="icon"]': {
           transform: 'rotate(180deg)',
         },

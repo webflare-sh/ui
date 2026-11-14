@@ -17,11 +17,7 @@ export const badgeStyles = cva({
   variants: {
     color: {
       default: {
-        backgroundColor: {
-          base: 'grey.100',
-          _dark: 'grey.800',
-          _osDark: 'grey.800',
-        },
+        backgroundColor: 'neutral.subtle',
         color: 'neutral',
         borderColor: 'border',
       },

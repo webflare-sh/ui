@@ -90,6 +90,10 @@ export const colors = defineSemanticTokens.colors({
     },
     inverse: { value: mode('{colors.white}', '{colors.grey.800}') },
     light: { value: '{colors.grey.400}' },
+    subtle: {
+      value: mode('{colors.grey.100}', '{colors.grey.800}'),
+      description: 'Quiet neutral fill: default badge, list marker, highlighted option, open accordion item',
+    },
   },
   'surface': {
     DEFAULT: {
@@ -118,6 +122,10 @@ export const colors = defineSemanticTokens.colors({
       value: mode('{colors.grey.100}', '{colors.grey.800}'),
       description: 'Dividers and dialog borders',
     },
+    card: {
+      value: mode('{colors.grey.100}', '{colors.grey.700}'),
+      description: 'Border of cards, pricing cards, and the tab bar',
+    },
   },
   'muted': {
     value: mode('{colors.neutral.light}', '{colors.grey.300}'),
@@ -127,6 +135,16 @@ export const colors = defineSemanticTokens.colors({
     muted: {
       value: mode('{colors.muted}', '{colors.muted}'),
       description: 'Secondary copy: descriptions and helper text',
+    },
+    placeholder: {
+      value: mode('{colors.black/75}', '{colors.white/75}'),
+      description: 'Placeholder text and quiet icons inside a field',
+    },
+  },
+  'loader': {
+    track: {
+      value: mode('{colors.black/17.5}', '{colors.white/17.5}'),
+      description: 'Ring of the loader, behind the brand arc',
     },
   },
   'input-border': { value: mode('{colors.border}', '{colors.border}') },

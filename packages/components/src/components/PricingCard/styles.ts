@@ -12,11 +12,7 @@ export const pricingCardStyles = sva({
       backgroundColor: 'surface',
       borderWidth: '1px',
       borderStyle: 'solid',
-      borderColor: {
-        base: 'grey.100',
-        _dark: 'grey.700',
-        _osDark: 'grey.700',
-      },
+      borderColor: 'border.card',
       borderRadius: 'md',
       position: 'relative',
       outlineWidth: '2px',
@@ -35,11 +31,7 @@ export const pricingCardStyles = sva({
       _hasNext: {
         borderBottomWidth: '1px',
         borderBottomStyle: 'solid',
-        borderBottomColor: {
-          base: 'grey.100',
-          _dark: 'grey.700',
-          _osDark: 'grey.700',
-        },
+        borderBottomColor: 'border.card',
       },
     },
     headerPackage: {

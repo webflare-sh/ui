@@ -116,10 +116,12 @@ The component merges the override into its own style object before generating cl
 | Role | Use |
 | --- | --- |
 | `primary`, `primary-pale` | Brand color (the same in both modes) and its pale fill |
-| `neutral`, `neutral.inverse`, `neutral.light` | Text, text on an inverted fill, quiet text |
+| `neutral`, `neutral.inverse`, `neutral.light`, `neutral.subtle` | Text, text on an inverted fill, quiet text, quiet neutral fill |
 | `surface`, `surface.raised`, `surface-muted` | Page and field background, panels, muted sections |
-| `border`, `border.hover`, `border.subtle` | Field borders, hovered fields, dividers |
+| `border`, `border.hover`, `border.subtle`, `border.card` | Field borders, hovered fields, dividers, card and tab bar borders |
 | `muted`, `text.muted` | Secondary copy |
+| `text.placeholder` | Placeholder text and quiet icons inside a field |
+| `loader.track` | Ring of the loader behind the brand arc |
 | `input-border`, `input-bg`, `input-disabled-bg`, `input-color` | Form fields |
 | `accent-subtle`, `accent-border`, `accent-text` | Brand-tinted highlights |
 | `danger`, `success`, `warning`, `info` (with `.subtle`, `.subtle.light`, `.text`) | Status |

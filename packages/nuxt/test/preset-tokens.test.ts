@@ -51,6 +51,18 @@ describe('preset tokens', () => {
     expect(JSON.stringify(preset.theme)).not.toMatch(/"_light"/)
   })
 
+  it('gives the library roles the light and dark value the components used inline', () => {
+    const roles: Record<string, [string, string]> = {
+      'colors.neutral.subtle': ['#e5e5e5', '#262626'],
+      'colors.border.card': ['#e5e5e5', '#333333'],
+      'colors.text.placeholder': ['color-mix(in srgb, #000000 75%, transparent)', 'color-mix(in srgb, #FFFFFF 75%, transparent)'],
+      'colors.loader.track': ['color-mix(in srgb, #000000 17.5%, transparent)', 'color-mix(in srgb, #FFFFFF 17.5%, transparent)'],
+    }
+    for (const [path, [light, dark]] of Object.entries(roles)) {
+      expect(viaClass[path], path).toMatchObject({ light, dark })
+    }
+  })
+
   it('points the role names at the website values', () => {
     const roles: Record<string, [string, string]> = {
       'colors.primary': ['#f87960', '#f87960'],

@@ -69,13 +69,7 @@ export const cardStyles = sva({
       'default': {
         root: {
           '--card-bg': 'linear-gradient(token(colors.surface.raised))',
-          '--card-border-color': 'token(colors.grey.100)',
-          '_dark': {
-            '--card-border-color': 'token(colors.grey.700)',
-          },
-          '_osDark': {
-            '--card-border-color': 'token(colors.grey.700)',
-          },
+          '--card-border-color': 'token(colors.border.card)',
         },
       },
       'primary': {
