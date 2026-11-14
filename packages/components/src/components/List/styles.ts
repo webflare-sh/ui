@@ -80,8 +80,12 @@ export const listStyles = sva({
     state: {
       default: {
         marker: {
-          color: 'grey.dawn',
-          backgroundColor: 'grey.night',
+          color: 'text.muted',
+          backgroundColor: {
+            base: 'grey.100',
+            _dark: 'grey.800',
+            _osDark: 'grey.800',
+          },
         },
       },
       primary: {

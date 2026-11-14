@@ -31,7 +31,7 @@ Standalone exceptions: `Button` and `Loader` keep those public names (not `Butto
 
 - `<script setup lang="ts">`. Reka UI for primitives (dialogs, tabs, accordion, etc.).
 - Styles in `styles.ts` via `cva` (or `sva` for multi-slot). Classes applied with `.raw()` (typically wrapped in `css(...)` like `BadgeRoot.vue`).
-- Semantic / token color names (`primary`, `neutral`, `grey.night`), not raw hex. Responsive values are mobile-first objects (`base`, then `md` / `lg`, …).
+- Semantic / token color names (`primary`, `neutral`, `grey.800`), not raw hex. Responsive values are mobile-first objects (`base`, then `md` / `lg`, …).
 - No compiled Panda CSS (`panda cssgen`, `styles.css`, `panda.css`) added to the published surface.
 
 ### Exports (match neighbors)

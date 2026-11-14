@@ -9,10 +9,14 @@ export const pricingCardStyles = sva({
       width: '100%',
       maxWidth: '100%',
       color: 'neutral',
-      backgroundColor: 'grey.black',
+      backgroundColor: 'surface',
       borderWidth: '1px',
       borderStyle: 'solid',
-      borderColor: 'grey.700',
+      borderColor: {
+        base: 'grey.100',
+        _dark: 'grey.700',
+        _osDark: 'grey.700',
+      },
       borderRadius: 'md',
       position: 'relative',
       outlineWidth: '2px',
@@ -31,7 +35,11 @@ export const pricingCardStyles = sva({
       _hasNext: {
         borderBottomWidth: '1px',
         borderBottomStyle: 'solid',
-        borderBottomColor: 'grey.700',
+        borderBottomColor: {
+          base: 'grey.100',
+          _dark: 'grey.700',
+          _osDark: 'grey.700',
+        },
       },
     },
     headerPackage: {
@@ -44,7 +52,7 @@ export const pricingCardStyles = sva({
     },
     subtitle: {
       fontSize: 'md',
-      color: 'grey.dawn',
+      color: 'text.muted',
     },
     pricing: {
       display: 'flex',

@@ -23,10 +23,10 @@ export const switchStyles = sva({
       'justifyContent': 'start',
       'borderWidth': '1px',
       'borderStyle': 'solid',
-      'borderColor': 'grey.dawn/75',
+      'borderColor': 'grey.300',
       'padding': '2px',
       'borderRadius': 'pill',
-      'bgColor': 'grey.black',
+      'bgColor': 'grey.100',
       'flexShrink': '0',
       '_hover': {
         borderColor: 'grey.400',
@@ -40,11 +40,27 @@ export const switchStyles = sva({
       '&[data-invalid]': {
         borderColor: 'danger.subtle',
       },
-      // Repeat the state selectors inside `_light` so they still beat the
-      // light-mode track colors on specificity.
-      '_light': {
-        'borderColor': 'grey.300',
-        'bgColor': 'grey.100',
+      // Repeat the state selectors inside `_dark` / `_osDark` so they still
+      // beat the dark-mode track colors on specificity.
+      '_dark': {
+        'borderColor': 'grey.300/75',
+        'bgColor': 'grey.950',
+        '_hover': {
+          borderColor: 'grey.400',
+        },
+        '&[data-state="checked"]': {
+          bgColor: 'primary',
+        },
+        '&[data-invalid]': {
+          borderColor: 'danger.subtle',
+        },
+      },
+      '_osDark': {
+        'borderColor': 'grey.300/75',
+        'bgColor': 'grey.950',
+        '_hover': {
+          borderColor: 'grey.400',
+        },
         '&[data-state="checked"]': {
           bgColor: 'primary',
         },
@@ -58,16 +74,14 @@ export const switchStyles = sva({
       aspectRatio: '1',
       display: 'block',
       borderRadius: 'pill',
-      bgColor: {
-        base: 'neutral',
-        _light: 'white',
-      },
+      bgColor: 'white',
       translate: 'auto',
       translateX: '0',
       shadow: '0 0 16px var(--shadow-color)',
       shadowColor: {
-        base: 'grey.black',
-        _light: 'grey.400',
+        base: 'grey.400',
+        _dark: 'grey.950',
+        _osDark: 'grey.950',
       },
     },
     label: {

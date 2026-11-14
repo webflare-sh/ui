@@ -38,7 +38,7 @@ export const checkboxStyles = sva({
       '&[data-state="checked"]': {
         backgroundColor: 'primary',
         borderColor: 'primary',
-        color: 'grey.night',
+        color: 'grey.800',
       },
     },
     indicator: {

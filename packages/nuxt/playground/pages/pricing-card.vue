@@ -5,7 +5,7 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Basic PricingCard
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Default pricing card with data provided through the Root component.
       </p>
 
@@ -26,7 +26,7 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Highlighted PricingCard
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Highlighted pricing card using the primary brand token for the border.
       </p>
 
@@ -49,7 +49,7 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         PricingCard with prop override
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Child component props take precedence over injected data.
       </p>
 
@@ -70,7 +70,7 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Per-component css map overrides
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Each component accepts a <code>css</code> prop keyed by slot name. The outermost element is always <code>root</code>. Wrap each value in <code>css.raw()</code> so Panda generates the CSS.
       </p>
 

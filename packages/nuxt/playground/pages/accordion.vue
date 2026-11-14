@@ -5,7 +5,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Basic Accordion
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 A simple accordion with multiple items that can be expanded and collapsed.
             </p>
             
@@ -19,7 +19,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Accordion with Rich Content
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Accordion items can contain HTML content for more complex layouts.
             </p>
             
@@ -34,7 +34,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 FAQ Style Accordion
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 A typical FAQ implementation using the accordion component.
             </p>
             
@@ -46,7 +46,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Multiple Items
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Accordion with several items demonstrating scalability.
             </p>
             

@@ -5,7 +5,7 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Colors
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Color variants: default, primary, success, info, and danger.
       </p>
 
@@ -23,7 +23,7 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Sizes
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Three size variants: sm, md (default), and lg.
       </p>
 
@@ -39,7 +39,7 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         With icon
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Use the icon slot to prepend an Iconify icon.
       </p>
 

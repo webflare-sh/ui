@@ -5,7 +5,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Basic Flyout
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 A simple flyout that opens on hover with default left alignment.
             </p>
             
@@ -16,7 +16,7 @@
                             <h3 :class="css({ fontSize: 'lg', fontWeight: 'bold', marginBottom: 'sm' })">
                                 Flyout Content
                             </h3>
-                            <p :class="css({ fontSize: 'sm', color: 'grey.300', _light: { color: 'grey.700' } })">
+                            <p :class="css({ fontSize: 'sm', color: 'text.muted' })">
                                 This is a basic flyout that appears when you hover over the trigger.
                             </p>
                         </div>
@@ -30,7 +30,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Custom Trigger
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Flyout with a custom trigger button using the #trigger slot.
             </p>
             
@@ -51,7 +51,7 @@
                                     padding: 'sm',
                                     cursor: 'pointer',
                                     borderRadius: 'md',
-                                    _hover: { bg: 'lucid.50', _light: { bg: 'lucid.200' } }
+                                    _hover: { bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' } }
                                 })">
                                     Profile
                                 </li>
@@ -59,7 +59,7 @@
                                     padding: 'sm',
                                     cursor: 'pointer',
                                     borderRadius: 'md',
-                                    _hover: { bg: 'lucid.50', _light: { bg: 'lucid.200' } }
+                                    _hover: { bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' } }
                                 })">
                                     Settings
                                 </li>
@@ -67,7 +67,7 @@
                                     padding: 'sm',
                                     cursor: 'pointer',
                                     borderRadius: 'md',
-                                    _hover: { bg: 'lucid.50', _light: { bg: 'lucid.200' } }
+                                    _hover: { bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' } }
                                 })">
                                     Logout
                                 </li>
@@ -84,7 +84,7 @@
                 <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                     Right-Aligned Flyout
                 </h2>
-                <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+                <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                     Flyout dropdown aligned to the right using direction="right" on FlyoutDropdown.
                 </p>
                 
@@ -125,7 +125,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Rich Content Flyout
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Flyout with complex content including images, text, and actions.
             </p>
             
@@ -151,8 +151,7 @@
                             </h3>
                             <p :class="css({ 
                                 fontSize: 'sm', 
-                                color: 'grey.300', 
-                                _light: { color: 'grey.700' },
+                                color: 'text.muted',
                                 marginBottom: 'md'
                             })">
                                 A high-quality product with excellent features and great value for your money.
@@ -161,8 +160,7 @@
                                 <span :class="css({ 
                                     fontSize: 'xs',
                                     padding: '2xs sm',
-                                    bg: 'lucid.50',
-                                    _light: { bg: 'lucid.200' },
+                                    bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' },
                                     borderRadius: 'md'
                                 })">
                                     Popular
@@ -170,8 +168,7 @@
                                 <span :class="css({ 
                                     fontSize: 'xs',
                                     padding: '2xs sm',
-                                    bg: 'lucid.50',
-                                    _light: { bg: 'lucid.200' },
+                                    bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' },
                                     borderRadius: 'md'
                                 })">
                                     New
@@ -192,7 +189,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Multiple Flyouts
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Multiple flyouts can coexist, each with its own trigger and content.
             </p>
             
@@ -205,21 +202,21 @@
                                     <li :class="css({ 
                                         padding: 'xs',
                                         cursor: 'pointer',
-                                        _hover: { bg: 'lucid.50', _light: { bg: 'lucid.200' } }
+                                        _hover: { bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' } }
                                     })">
                                         New
                                     </li>
                                     <li :class="css({ 
                                         padding: 'xs',
                                         cursor: 'pointer',
-                                        _hover: { bg: 'lucid.50', _light: { bg: 'lucid.200' } }
+                                        _hover: { bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' } }
                                     })">
                                         Open
                                     </li>
                                     <li :class="css({ 
                                         padding: 'xs',
                                         cursor: 'pointer',
-                                        _hover: { bg: 'lucid.50', _light: { bg: 'lucid.200' } }
+                                        _hover: { bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' } }
                                     })">
                                         Save
                                     </li>
@@ -237,21 +234,21 @@
                                     <li :class="css({ 
                                         padding: 'xs',
                                         cursor: 'pointer',
-                                        _hover: { bg: 'lucid.50', _light: { bg: 'lucid.200' } }
+                                        _hover: { bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' } }
                                     })">
                                         Cut
                                     </li>
                                     <li :class="css({ 
                                         padding: 'xs',
                                         cursor: 'pointer',
-                                        _hover: { bg: 'lucid.50', _light: { bg: 'lucid.200' } }
+                                        _hover: { bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' } }
                                     })">
                                         Copy
                                     </li>
                                     <li :class="css({ 
                                         padding: 'xs',
                                         cursor: 'pointer',
-                                        _hover: { bg: 'lucid.50', _light: { bg: 'lucid.200' } }
+                                        _hover: { bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' } }
                                     })">
                                         Paste
                                     </li>
@@ -269,21 +266,21 @@
                                     <li :class="css({ 
                                         padding: 'xs',
                                         cursor: 'pointer',
-                                        _hover: { bg: 'lucid.50', _light: { bg: 'lucid.200' } }
+                                        _hover: { bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' } }
                                     })">
                                         Zoom In
                                     </li>
                                     <li :class="css({ 
                                         padding: 'xs',
                                         cursor: 'pointer',
-                                        _hover: { bg: 'lucid.50', _light: { bg: 'lucid.200' } }
+                                        _hover: { bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' } }
                                     })">
                                         Zoom Out
                                     </li>
                                     <li :class="css({ 
                                         padding: 'xs',
                                         cursor: 'pointer',
-                                        _hover: { bg: 'lucid.50', _light: { bg: 'lucid.200' } }
+                                        _hover: { bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' } }
                                     })">
                                         Fullscreen
                                     </li>
@@ -301,21 +298,21 @@
                                     <li :class="css({ 
                                         padding: 'xs',
                                         cursor: 'pointer',
-                                        _hover: { bg: 'lucid.50', _light: { bg: 'lucid.200' } }
+                                        _hover: { bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' } }
                                     })">
                                         Documentation
                                     </li>
                                     <li :class="css({ 
                                         padding: 'xs',
                                         cursor: 'pointer',
-                                        _hover: { bg: 'lucid.50', _light: { bg: 'lucid.200' } }
+                                        _hover: { bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' } }
                                     })">
                                         Support
                                     </li>
                                     <li :class="css({ 
                                         padding: 'xs',
                                         cursor: 'pointer',
-                                        _hover: { bg: 'lucid.50', _light: { bg: 'lucid.200' } }
+                                        _hover: { bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' } }
                                     })">
                                         About
                                     </li>
@@ -332,7 +329,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Custom Styled Trigger
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Flyout with custom trigger styling through the <code>css</code> prop (<code>trigger</code> slot).
             </p>
             
@@ -356,7 +353,7 @@
                             <h3 :class="css({ fontSize: 'lg', fontWeight: 'bold', marginBottom: 'sm' })">
                                 Custom Trigger Style
                             </h3>
-                            <p :class="css({ fontSize: 'sm', color: 'grey.300', _light: { color: 'grey.700' } })">
+                            <p :class="css({ fontSize: 'sm', color: 'text.muted' })">
                                 The trigger button has custom styling applied via the classTrigger prop.
                             </p>
                         </div>

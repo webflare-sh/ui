@@ -49,7 +49,11 @@ export const urlStyles = sva({
       'margin': '0',
       'border': 'none',
       'borderRadius': '0',
-      'backgroundColor': 'grey.night',
+      'backgroundColor': {
+        base: 'grey.100',
+        _dark: 'grey.800',
+        _osDark: 'grey.800',
+      },
       'color': 'inherit',
       'font': 'inherit',
       'fontWeight': '450',
@@ -87,7 +91,11 @@ export const urlStyles = sva({
       fontWeight: '450',
       lineHeight: '1.5',
       _placeholder: {
-        color: 'lucid.600',
+        color: {
+          base: 'black/75',
+          _dark: 'white/75',
+          _osDark: 'white/75',
+        },
       },
       _disabled: {
         cursor: 'not-allowed',
@@ -171,7 +179,11 @@ export const urlStyles = sva({
       false: {
         protocol: {
           '& .icon': {
-            color: 'lucid.600',
+            color: {
+              base: 'black/75',
+              _dark: 'white/75',
+              _osDark: 'white/75',
+            },
           },
         },
       },

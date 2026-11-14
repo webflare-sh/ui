@@ -7,10 +7,14 @@ export const tabStyles = sva({
       display: 'inline-flex',
       alignItems: 'center',
       gap: '2xs',
-      backgroundColor: 'grey.black',
+      backgroundColor: 'surface',
       borderWidth: '1px',
       borderStyle: 'solid',
-      borderColor: 'grey.700',
+      borderColor: {
+        base: 'grey.100',
+        _dark: 'grey.700',
+        _osDark: 'grey.700',
+      },
       borderRadius: 'pill',
       padding: '2xs',
       position: 'relative',
@@ -50,7 +54,11 @@ export const tabStyles = sva({
         cursor: 'not-allowed',
       },
       _hover: {
-        bgColor: 'grey.700',
+        bgColor: {
+          base: 'grey.100',
+          _dark: 'grey.700',
+          _osDark: 'grey.700',
+        },
       },
       _active: {
         anchorName: '--active-tab',

@@ -14,7 +14,7 @@ const snapshotText = readFileSync(snapshotFile, 'utf8')
 const snapshot = JSON.parse(snapshotText) as Snapshot
 
 // Mode conditions of the current preset. Update together with the color-mode mechanism.
-const current = flattenPreset(preset, { light: ['_light'], dark: [] })
+const current = flattenPreset(preset, { light: [], dark: ['_dark'] })
 
 describe('imported token snapshot', () => {
   it('is the 0.5.0 preset of the imported history', () => {

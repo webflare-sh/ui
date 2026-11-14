@@ -36,8 +36,9 @@ export const selectStyles = sva({
       'position': 'relative',
       '&[data-highlighted]': {
         backgroundColor: {
-          base: 'grey.night',
-          _light: 'grey.100',
+          base: 'grey.100',
+          _dark: 'grey.800',
+          _osDark: 'grey.800',
         },
       },
       '&[data-disabled]': {

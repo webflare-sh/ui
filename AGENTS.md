@@ -159,7 +159,9 @@ const styles = computed(() => badgeStyles.raw({ size: props.size }))
 - Parts without an override (internal chrome) may call the definition directly: `fieldStyles().footer`.
 - Share style objects between parts through a typed `createInjectionKey` context (see `Card/types.ts`), never string keys.
 - Calling `.raw()` with runtime variants in another file triggers Panda's `imported_recipe_raw_dynamic` warning. It is expected: the definition itself still generates every variant.
-- Prefer semantic tokens (`surface`, `border`, `text.muted`, `neutral`) over `_light` overrides. Keep a `_light` block only when state selectors must beat light-mode colors on specificity (see `switchStyles.ts`).
+- Color modes: light is the base. Dark applies under `.dark` and when the OS prefers dark, so every dark value is written under both `_dark` and `_osDark` with the same value. There is no `.light` condition.
+- Prefer semantic tokens (`surface`, `border`, `text.muted`, `neutral`) over mode conditions. Keep a `_dark` / `_osDark` block only when state selectors must beat dark-mode colors on specificity (see `switchStyles.ts`).
+- Use only published colors: the brand / red / green / blue / yellow / grey shades, `white`, `black`, `transparent`, the roles, and the status colors. Use the opacity modifier (`black/10`) for transparency, not raw `rgba()`. Removed tokens and their replacements are listed in `packages/nuxt/test/fixtures/tokens/removed-colors.json`.
 
 **4. Content.** Content props (labels, titles, descriptions, item content, field message / error) render with `v-html`, as documented in the README. Sanitizing untrusted strings is the consuming app's job, not the library's; `vue/no-v-html` is off for that reason. Where practical, offer a slot for the same content so apps can pass escaped text or their own nodes.
 

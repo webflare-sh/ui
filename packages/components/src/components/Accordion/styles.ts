@@ -13,7 +13,7 @@ export const accordionStyles = sva({
     item: {
       borderWidth: '1px',
       borderStyle: 'solid',
-      borderColor: 'grey.dusk',
+      borderColor: 'border',
       transition: 'all 300ms',
       overflow: 'clip',
       _closed: {
@@ -33,7 +33,11 @@ export const accordionStyles = sva({
       'alignItems': 'center',
       'userSelect': 'none',
       '_open': {
-        'backgroundColor': 'grey.night',
+        'backgroundColor': {
+          base: 'grey.100',
+          _dark: 'grey.800',
+          _osDark: 'grey.800',
+        },
         '& [data-trigger="icon"]': {
           transform: 'rotate(180deg)',
         },

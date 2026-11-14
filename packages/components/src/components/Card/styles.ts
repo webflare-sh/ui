@@ -40,7 +40,7 @@ export const cardStyles = sva({
       lineHeight: '1.25',
     },
     headerSubtitle: {
-      color: 'grey.dawn',
+      color: 'text.muted',
       fontSize: 'md',
     },
   },
@@ -67,11 +67,13 @@ export const cardStyles = sva({
       },
       'default': {
         root: {
-          '--card-bg': 'linear-gradient(token(colors.grey.deep))',
-          '--card-border-color': 'token(colors.grey.700)',
-          '_light': {
-            '--card-bg': 'linear-gradient(token(colors.white))',
-            '--card-border-color': 'token(colors.grey.100)',
+          '--card-bg': 'linear-gradient(token(colors.surface.raised))',
+          '--card-border-color': 'token(colors.grey.100)',
+          '_dark': {
+            '--card-border-color': 'token(colors.grey.700)',
+          },
+          '_osDark': {
+            '--card-border-color': 'token(colors.grey.700)',
           },
         },
       },
@@ -102,7 +104,7 @@ export const cardStyles = sva({
       },
       'lucid-deep': {
         root: {
-          '--card-bg': 'linear-gradient(rgb(from token(colors.black) r g b / 10%))',
+          '--card-bg': 'linear-gradient(token(colors.black/10))',
         },
       },
     },

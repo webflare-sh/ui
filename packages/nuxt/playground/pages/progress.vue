@@ -5,7 +5,7 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Basic Progress
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Determinate progress values from 0 to 100.
       </p>
 
@@ -23,13 +23,13 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Sizes
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Three size variants: sm, md (default), and lg.
       </p>
 
       <div :class="css({ display: 'flex', flexDirection: 'column', gap: 'lg', maxWidth: '480px' })">
         <div>
-          <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' }, marginBottom: 'xs', display: 'block' })">
+          <span :class="css({ fontSize: 'xs', color: 'text.muted', marginBottom: 'xs', display: 'block' })">
             sm
           </span>
           <WfProgressRoot
@@ -38,7 +38,7 @@
           />
         </div>
         <div>
-          <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' }, marginBottom: 'xs', display: 'block' })">
+          <span :class="css({ fontSize: 'xs', color: 'text.muted', marginBottom: 'xs', display: 'block' })">
             md
           </span>
           <WfProgressRoot
@@ -47,7 +47,7 @@
           />
         </div>
         <div>
-          <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' }, marginBottom: 'xs', display: 'block' })">
+          <span :class="css({ fontSize: 'xs', color: 'text.muted', marginBottom: 'xs', display: 'block' })">
             lg
           </span>
           <WfProgressRoot
@@ -63,7 +63,7 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Colors
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Color variants: primary, success, danger, and info.
       </p>
 
@@ -96,7 +96,7 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Value Label
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Use show-value for a percentage label, or the value slot for custom text.
       </p>
 
@@ -122,7 +122,7 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Indeterminate
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Pass null or omit model-value for an animated indeterminate bar.
       </p>
 
@@ -146,7 +146,7 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Interactive
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Drive progress with a range input.
       </p>
 

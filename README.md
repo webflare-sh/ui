@@ -109,7 +109,28 @@ import { css } from 'styled-system/css'
 
 The component merges the override into its own style object before generating classes, so an overridden property gets one class and the override wins.
 
-**Semantic colors.** Besides `primary`, `neutral`, and the status colors, the preset has `surface`, `surface.raised`, `border`, `border.hover`, `border.subtle`, and `text.muted`. They switch between dark (default) and `.light` on their own, so app styles rarely need `_light`.
+**Color modes.** Light is the default. Dark applies inside an element with the `.dark` class and when the OS prefers dark (`prefers-color-scheme: dark`). Put `class="dark"` on `<html>` (or any container) to switch that subtree. There is no class that forces light while the OS prefers dark.
+
+**Semantic colors.** Use the roles instead of raw shades; they switch between the modes on their own, so app styles rarely need a mode condition:
+
+| Role | Use |
+| --- | --- |
+| `primary`, `primary-pale` | Brand color (the same in both modes) and its pale fill |
+| `neutral`, `neutral.inverse`, `neutral.light` | Text, text on an inverted fill, quiet text |
+| `surface`, `surface.raised`, `surface-muted` | Page and field background, panels, muted sections |
+| `border`, `border.hover`, `border.subtle` | Field borders, hovered fields, dividers |
+| `muted`, `text.muted` | Secondary copy |
+| `input-border`, `input-bg`, `input-disabled-bg`, `input-color` | Form fields |
+| `accent-subtle`, `accent-border`, `accent-text` | Brand-tinted highlights |
+| `danger`, `success`, `warning`, `info` (with `.subtle`, `.subtle.light`, `.text`) | Status |
+
+When an app style does need a mode condition, write the dark value under both `_dark` and `_osDark`:
+
+```ts
+css({ bg: { base: 'grey.100', _dark: 'grey.800', _osDark: 'grey.800' } })
+```
+
+For transparency, use the opacity modifier on a color token (`black/10`, `primary/30`).
 
 ## Text and HTML content
 

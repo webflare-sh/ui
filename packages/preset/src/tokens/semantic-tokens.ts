@@ -1,26 +1,36 @@
 import { defineSemanticTokens } from '@pandacss/dev'
 
+/**
+ * Light is the base. Dark applies inside a `.dark` class (`_dark`) and when the
+ * OS prefers dark (`_osDark`), so every dark value is written under both.
+ *
+ * A value that references a mode-dependent token repeats the reference under
+ * the dark conditions too. Otherwise the CSS variable is resolved once at the
+ * root, and an element inside `.dark` would keep the light result.
+ */
+const mode = <T extends string>(light: T, dark: T) => ({ base: light, _dark: dark, _osDark: dark })
+
 const subtleMix = (
-  dark: string,
   light: string,
+  dark: string,
   status = '{opacity.color.status}',
   neutral = '{opacity.color.neutral}',
 ) => ({
-  value: {
-    base: `color-mix(in srgb, {colors.${dark}} ${status}, {colors.grey.800} ${neutral})`,
-    _light: `color-mix(in srgb, {colors.${light}} ${status}, {colors.grey.400} ${neutral})`,
-  },
+  value: mode(
+    `color-mix(in srgb, {colors.${light}} ${status}, {colors.grey.400} ${neutral})`,
+    `color-mix(in srgb, {colors.${dark}} ${status}, {colors.grey.800} ${neutral})`,
+  ),
 })
 
 export const opacity = defineSemanticTokens.opacity({
   color: {
-    status: { 
-      DEFAULT: { value: { base: '20%', _light: '80%' } },
-      lighter: { value: { base: '25%', _light: '25%' } },
+    status: {
+      DEFAULT: { value: mode('80%', '20%') },
+      lighter: { value: '25%' },
     },
-    neutral: { 
-      DEFAULT: { value: { base: '80%', _light: '5%' } },
-      lighter: { value: { base: '20%', _light: '25%' } },
+    neutral: {
+      DEFAULT: { value: mode('5%', '80%') },
+      lighter: { value: mode('25%', '20%') },
     },
   },
 })
@@ -33,94 +43,97 @@ export const fonts = defineSemanticTokens.fonts({
 })
 
 export const colors = defineSemanticTokens.colors({
-  brand: {
-    pale: { value: '{colors.brand.100}' },
-    day: { value: '{colors.brand.300}' },
-    brand: { value: '{colors.brand.400}' },
-    dawn: { value: '{colors.brand.600}' },
+  'primary': {
+    value: '{colors.brand.400}',
+    description: 'The brand color. Same in both modes.',
   },
-  grey: {
-    dawn: { value: '{colors.grey.300}' },
-    dusk: { value: '{colors.grey.600}' },
-    night: { value: '{colors.grey.800}' },
-    deep: { value: '{colors.grey.900}' },
-    black: { value: '{colors.grey.950}' },
+  'primary-pale': {
+    value: '{colors.brand.50}',
+    description: 'Pale brand fill',
   },
-  primary: {
-    value: { base: '{colors.brand.pale}', _light: '{colors.brand.day}' },
-  },
-  danger: {
-    DEFAULT: { value: { base: '{colors.red.400}', _light: '{colors.red.600}' } },
+  'danger': {
+    DEFAULT: { value: mode('{colors.red.600}', '{colors.red.400}') },
     subtle: {
-      DEFAULT: subtleMix('red.400', 'red.200'),
-      light: subtleMix('red.200', 'red.400', '{opacity.color.status.lighter}', '{opacity.color.neutral.lighter}'),
+      DEFAULT: subtleMix('red.200', 'red.400'),
+      light: subtleMix('red.400', 'red.200', '{opacity.color.status.lighter}', '{opacity.color.neutral.lighter}'),
     },
-    text: { value: { base: '{colors.red.900}' } },
+    text: { value: '{colors.red.900}' },
   },
-  success: {
-    DEFAULT: { value: { base: '{colors.green.400}', _light: '{colors.green.600}' } },
-    subtle: { 
-      DEFAULT: subtleMix('green.400', 'green.200'),
-      light: subtleMix('green.200', 'green.400', '{opacity.color.status.lighter}', '{opacity.color.neutral.lighter}'),
+  'success': {
+    DEFAULT: { value: mode('{colors.green.600}', '{colors.green.400}') },
+    subtle: {
+      DEFAULT: subtleMix('green.200', 'green.400'),
+      light: subtleMix('green.400', 'green.200', '{opacity.color.status.lighter}', '{opacity.color.neutral.lighter}'),
     },
-    text: { value: { base: '{colors.green.900}' } },
+    text: { value: '{colors.green.900}' },
   },
-  warning: {
-    DEFAULT: { value: { base: '{colors.yellow.400}', _light: '{colors.yellow.600}' } },
-    subtle: { 
-      DEFAULT: subtleMix('yellow.400', 'yellow.200'),
-      light: subtleMix('yellow.200', 'yellow.400', '{opacity.color.status.lighter}', '{opacity.color.neutral.lighter}'),
+  'warning': {
+    DEFAULT: { value: mode('{colors.yellow.600}', '{colors.yellow.400}') },
+    subtle: {
+      DEFAULT: subtleMix('yellow.200', 'yellow.400'),
+      light: subtleMix('yellow.400', 'yellow.200', '{opacity.color.status.lighter}', '{opacity.color.neutral.lighter}'),
     },
-    text: { value: { base: '{colors.yellow.900}' } },
+    text: { value: '{colors.yellow.900}' },
   },
-  info: {
-    DEFAULT: { value: { base: '{colors.blue.400}', _light: '{colors.blue.600}' } },
-    subtle: { 
-      DEFAULT: subtleMix('blue.400', 'blue.200'),
-      light: subtleMix('blue.200', 'blue.400', '{opacity.color.status.lighter}', '{opacity.color.neutral.lighter}'),
+  'info': {
+    DEFAULT: { value: mode('{colors.blue.600}', '{colors.blue.400}') },
+    subtle: {
+      DEFAULT: subtleMix('blue.200', 'blue.400'),
+      light: subtleMix('blue.400', 'blue.200', '{opacity.color.status.lighter}', '{opacity.color.neutral.lighter}'),
     },
-    text: { value: { base: '{colors.blue.900}' } },
+    text: { value: '{colors.blue.900}' },
   },
-  neutral: {
-    DEFAULT: { value: { base: '{colors.white}', _light: '{colors.grey.night}' } },
-    inverse: { value: { base: '{colors.grey.night}', _light: '{colors.white}' } },
-    light: { value: { base: '{colors.grey.300}', _light: '{colors.grey.400}' } },
-  },
-  surface: {
+  'neutral': {
     DEFAULT: {
-      value: { base: '{colors.grey.950}', _light: '{colors.white}' },
+      value: mode('{colors.grey.800}', '{colors.white}'),
+      description: 'Default text color',
+    },
+    inverse: { value: mode('{colors.white}', '{colors.grey.800}') },
+    light: { value: '{colors.grey.400}' },
+  },
+  'surface': {
+    DEFAULT: {
+      value: mode('{colors.white}', '{colors.grey.950}'),
       description: 'Background of fields, menus, and dialogs',
     },
     raised: {
-      value: { base: '{colors.grey.800}', _light: '{colors.white}' },
+      value: mode('{colors.white}', '{colors.grey.900}'),
       description: 'Background of panels that sit on the page, such as the prompt form',
     },
   },
-  border: {
+  'surface-muted': {
+    value: mode('{colors.grey.50}', '{colors.grey.900}'),
+    description: 'Muted page section background',
+  },
+  'border': {
     DEFAULT: {
-      value: { base: '{colors.grey.600}', _light: '{colors.grey.200}' },
+      value: mode('{colors.grey.200}', '{colors.grey.600}'),
       description: 'Border of fields and menus',
     },
     hover: {
-      value: { base: '{colors.grey.400}', _light: '{colors.grey.300}' },
+      value: mode('{colors.grey.300}', '{colors.grey.400}'),
       description: 'Border of a hovered field',
     },
     subtle: {
-      value: { base: '{colors.grey.700}', _light: '{colors.grey.200}' },
+      value: mode('{colors.grey.100}', '{colors.grey.800}'),
       description: 'Dividers and dialog borders',
     },
   },
-  text: {
+  'muted': {
+    value: mode('{colors.neutral.light}', '{colors.grey.300}'),
+    description: 'Secondary copy',
+  },
+  'text': {
     muted: {
-      value: { base: '{colors.grey.300}', _light: '{colors.grey.600}' },
+      value: mode('{colors.muted}', '{colors.muted}'),
       description: 'Secondary copy: descriptions and helper text',
     },
   },
-  lucid: {
-    50: { value: { base: 'rgba(255, 255, 255, 0.1)', _light: 'rgba(0, 0, 0, 0.1)' } },
-    100: { value: { base: 'rgba(255, 255, 255, 0.175)', _light: 'rgba(0, 0, 0, 0.175)' } },
-    200: { value: { base: 'rgba(255, 255, 255, 0.25)', _light: 'rgba(0, 0, 0, 0.25)' } },
-    400: { value: { base: 'rgba(255, 255, 255, 0.5)', _light: 'rgba(0, 0, 0, 0.5)' } },
-    600: { value: { base: 'rgba(255, 255, 255, 0.75)', _light: 'rgba(0, 0, 0, 0.75)' } },
-  },
+  'input-border': { value: mode('{colors.border}', '{colors.border}') },
+  'input-bg': { value: mode('{colors.surface}', '{colors.surface}') },
+  'input-disabled-bg': { value: mode('{colors.grey.50}', '{colors.grey.800}') },
+  'input-color': { value: '{colors.grey.400}' },
+  'accent-subtle': { value: mode('{colors.brand.50}', '#f879601a') },
+  'accent-border': { value: mode('{colors.brand.100}', '#f8796040') },
+  'accent-text': { value: mode('{colors.brand.600}', '{colors.brand.300}') },
 })

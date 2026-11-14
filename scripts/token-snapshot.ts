@@ -1,7 +1,7 @@
 /**
  * Write a JSON snapshot of the preset tokens at a git ref.
  *
- *   bun scripts/token-snapshot.ts <ref> <outfile> [--light=_light] [--dark=_dark]
+ *   bun scripts/token-snapshot.ts <ref> <outfile> [--light=<conditions>] [--dark=<conditions>]
  *
  * `--light` / `--dark` list the semantic-token condition keys that hold each
  * mode's value (comma-separated, in lookup order). `base` is always the
@@ -36,7 +36,7 @@ function parseConditions(args: string[]): ModeConditions {
 
 const [ref, outfile, ...rest] = process.argv.slice(2)
 if (!ref || !outfile) {
-  console.error('Usage: bun scripts/token-snapshot.ts <ref> <outfile> [--light=_light] [--dark=_dark]')
+  console.error('Usage: bun scripts/token-snapshot.ts <ref> <outfile> [--light=<conditions>] [--dark=<conditions>]')
   process.exit(1)
 }
 

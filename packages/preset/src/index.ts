@@ -54,7 +54,6 @@ const preset: Preset = definePreset({
   },
   conditions: {
     extend: {
-      light: '.light &, .light&',
       hasNext: '&:has(+ *)',
     },
   },

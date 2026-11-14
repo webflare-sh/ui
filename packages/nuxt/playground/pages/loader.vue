@@ -5,7 +5,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Basic Loader
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Default loader with default size (40px) and label.
             </p>
             
@@ -17,49 +17,49 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Loader Sizes
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Loaders can be customized to any size using the size prop (in pixels).
             </p>
             
             <div :class="css({ display: 'flex', gap: 'xl', alignItems: 'center', flexWrap: 'wrap' })">
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
                     <WfLoader :size="24" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         24px
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
                     <WfLoader :size="32" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         32px
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
                     <WfLoader :size="40" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         40px (default)
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
                     <WfLoader :size="56" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         56px
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
                     <WfLoader :size="80" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         80px
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
                     <WfLoader :size="120" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         120px
                     </span>
                 </div>
@@ -71,28 +71,28 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Custom Label
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Customize the aria-label for accessibility using the label prop.
             </p>
             
             <div :class="css({ display: 'flex', gap: 'xl', alignItems: 'center', flexWrap: 'wrap' })">
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
                     <WfLoader label="Processing..." />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         Processing...
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
                     <WfLoader label="Uploading files" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         Uploading files
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
                     <WfLoader label="Please wait" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         Please wait
                     </span>
                 </div>
@@ -104,7 +104,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Loader in Card
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Loader used in a card layout to indicate loading state.
             </p>
             
@@ -120,7 +120,7 @@
                         minHeight: '200px'
                     })">
                         <WfLoader :size="60" label="Loading content" />
-                        <p :class="css({ fontSize: 'md', color: 'grey.300', _light: { color: 'grey.700' } })">
+                        <p :class="css({ fontSize: 'md', color: 'text.muted' })">
                             Loading content...
                         </p>
                     </div>
@@ -133,7 +133,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Centered Full-Width
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Loader centered in a full-width container for page loading states.
             </p>
             
@@ -142,8 +142,7 @@
                 justifyContent: 'center', 
                 alignItems: 'center',
                 minHeight: '300px',
-                bg: 'lucid.50',
-                _light: { bg: 'lucid.100' },
+                bg: { base: 'black/17.5', _dark: 'white/10', _osDark: 'white/10' },
                 borderRadius: 'xl'
             })">
                 <WfLoader :size="80" label="Loading page" />
@@ -155,7 +154,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Inline with Text
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Small loaders can be used inline with text.
             </p>
             
@@ -182,7 +181,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Loading Button States
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Simulated loading states in button layouts.
             </p>
             
@@ -201,8 +200,7 @@
                                 gap: 'sm',
                                 padding: 'xs lg',
                                 bg: 'primary',
-                                color: 'grey.night',
-                                _light: { color: 'white' },
+                                color: 'grey.800',
                                 borderRadius: 'lg',
                                 border: '1px solid',
                                 borderColor: 'primary',
@@ -235,8 +233,7 @@
                                 gap: 'sm',
                                 padding: 'sm lg',
                                 bg: 'primary',
-                                color: 'grey.night',
-                                _light: { color: 'white' },
+                                color: 'grey.800',
                                 borderRadius: 'lg',
                                 border: '1px solid',
                                 borderColor: 'primary',
@@ -269,8 +266,7 @@
                                 gap: 'md',
                                 padding: 'md xl',
                                 bg: 'primary',
-                                color: 'grey.night',
-                                _light: { color: 'white' },
+                                color: 'grey.800',
                                 borderRadius: 'lg',
                                 border: '1px solid',
                                 borderColor: 'primary',
@@ -296,7 +292,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Multiple Loading States
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Multiple loaders for different sections loading independently.
             </p>
             
@@ -313,7 +309,7 @@
                             justifyContent: 'center'
                         })">
                             <WfLoader :size="40" label="Loading user data" />
-                            <span :class="css({ fontSize: 'sm', color: 'grey.300', _light: { color: 'grey.700' } })">
+                            <span :class="css({ fontSize: 'sm', color: 'text.muted' })">
                                 Loading user data...
                             </span>
                         </div>
@@ -332,7 +328,7 @@
                             justifyContent: 'center'
                         })">
                             <WfLoader :size="40" label="Loading statistics" />
-                            <span :class="css({ fontSize: 'sm', color: 'grey.300', _light: { color: 'grey.700' } })">
+                            <span :class="css({ fontSize: 'sm', color: 'text.muted' })">
                                 Loading statistics...
                             </span>
                         </div>
@@ -351,7 +347,7 @@
                             justifyContent: 'center'
                         })">
                             <WfLoader :size="40" label="Loading activities" />
-                            <span :class="css({ fontSize: 'sm', color: 'grey.300', _light: { color: 'grey.700' } })">
+                            <span :class="css({ fontSize: 'sm', color: 'text.muted' })">
                                 Loading activities...
                             </span>
                         </div>

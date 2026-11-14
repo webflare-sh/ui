@@ -5,7 +5,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Button Colors
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Three color variants: primary, secondary, and transparent.
             </p>
             
@@ -21,7 +21,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Button Sizes
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Three size variants: sm, md (default), and lg.
             </p>
             
@@ -37,7 +37,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Button Types
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Buttons can have different types: button (default), submit, and reset.
             </p>
             
@@ -53,7 +53,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Button as Link
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 When the "to" prop is provided, the button renders as an anchor tag.
             </p>
             
@@ -68,7 +68,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Disabled State
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Buttons can be disabled to prevent user interaction.
             </p>
             
@@ -84,7 +84,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 All Color and Size Combinations
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Complete matrix of all color and size variants.
             </p>
             
@@ -132,7 +132,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Buttons in Context
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Buttons composed with other components in real-world scenarios.
             </p>
             
@@ -142,7 +142,7 @@
                         <h3 :class="css({ fontSize: 'xl', fontWeight: 'bold' })">
                             Action Required
                         </h3>
-                        <p :class="css({ color: 'grey.300', _light: { color: 'grey.700' } })">
+                        <p :class="css({ color: 'text.muted' })">
                             Please confirm your email address to continue using our service. Check your inbox for a verification link.
                         </p>
                         <div :class="css({ display: 'flex', gap: 'sm', justifyContent: 'flex-end' })">
@@ -160,7 +160,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Button Group Patterns
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Common button grouping patterns for forms and actions.
             </p>
             
@@ -208,7 +208,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Interactive Demo
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Click the buttons below to see console output.
             </p>
             
@@ -236,8 +236,7 @@
                 :class="css({ 
                     marginTop: 'md', 
                     padding: 'md', 
-                    bg: 'lucid.50',
-                    _light: { bg: 'lucid.200' },
+                    bg: { base: 'black/25', _dark: 'white/10', _osDark: 'white/10' },
                     borderRadius: 'md',
                     fontSize: 'sm'
                 })"

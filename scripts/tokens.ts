@@ -23,12 +23,15 @@ export type FlatTokens = Record<string, FlatToken>
  */
 export type ModeConditions = Record<ColorMode, string[]>
 
+/** Any preset or config object. Only `theme.tokens`, `theme.semanticTokens`, and `theme.extend` are read. */
 interface PresetLike {
-  theme?: {
-    tokens?: Record<string, unknown>
-    semanticTokens?: Record<string, unknown>
-    extend?: Record<string, unknown>
-  }
+  theme?: object
+}
+
+interface ThemeLike {
+  tokens?: Record<string, unknown>
+  semanticTokens?: Record<string, unknown>
+  extend?: Record<string, unknown>
 }
 
 type RawValue = string | number | Record<string, unknown>
@@ -102,14 +105,15 @@ function resolve(
 export function flattenPreset(preset: PresetLike, conditions: ModeConditions): FlatTokens {
   const raw = new Map<string, RawEntry>()
 
-  for (const [category, scale] of Object.entries(preset.theme?.tokens ?? {})) {
+  const theme = (preset.theme ?? {}) as ThemeLike
+  for (const [category, scale] of Object.entries(theme.tokens ?? {})) {
     walk(scale, [category], 'token', raw)
   }
-  for (const [category, scale] of Object.entries(preset.theme?.semanticTokens ?? {})) {
+  for (const [category, scale] of Object.entries(theme.semanticTokens ?? {})) {
     walk(scale, [category], 'semantic', raw)
   }
   for (const scale of THEME_SCALES) {
-    const values = preset.theme?.extend?.[scale]
+    const values = theme.extend?.[scale]
     if (isRecord(values)) {
       for (const [name, value] of Object.entries(values)) {
         if (typeof value === 'string') {

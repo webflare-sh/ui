@@ -2,7 +2,7 @@ import { defineTokens } from '@pandacss/dev'
 
 export const colors = defineTokens.colors({
   white: {
-    value: '#ffffff',
+    value: '#FFFFFF',
     description: 'This is the primary white color used in our design system',
   },
   black: {
@@ -10,33 +10,41 @@ export const colors = defineTokens.colors({
     description: 'This is the primary black color used in our design system',
   },
   transparent: {
-    value: 'transparent',
+    value: '#00000000',
     description: 'This is the transparent color used in our design system',
   },
   brand: {
     50: {
-      value: '#C5F6CB',
-      description: 'Lightest brand tint. Hover fill for pale brand surfaces',
+      value: '#FDF1EB',
+      description: 'Lightest brand tint, referenced as primary-pale',
     },
     100: {
-      value: '#A3EFAC',
-      description: 'Light, pale brand color, referenced as brand.pale',
+      value: '#FFD9CE',
     },
     200: {
-      value: '#78E284',
-      description: 'Pressed fill for pale brand surfaces',
+      value: '#FFBAAA',
     },
     300: {
-      value: '#19bf56',
-      description: 'Brand color on light backgrounds, referenced as brand.day',
+      value: '#FD9B85',
     },
     400: {
-      value: '#05C260',
-      description: 'The Webflare brand color, referenced as brand.brand',
+      value: '#f87960',
+      description: 'The Webflare brand color, referenced as primary',
+    },
+    500: {
+      value: '#E75F45',
     },
     600: {
-      value: '#0E8543',
-      description: 'Darker, bolder brand color, referenced as brand.dawn',
+      value: '#C6543F',
+    },
+    700: {
+      value: '#A44C3B',
+    },
+    800: {
+      value: '#834235',
+    },
+    900: {
+      value: '#66382E',
     },
   },
   red: {
@@ -182,9 +190,6 @@ export const colors = defineTokens.colors({
   grey: {
     50: {
       value: '#fafafa',
-    },
-    75: {
-      value: '#f4f4f4',
     },
     100: {
       value: '#e5e5e5',

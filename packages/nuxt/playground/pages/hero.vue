@@ -5,7 +5,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Basic Hero (Medium Size)
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Default hero section with headline and description. Size: "md" (default).
             </p>
             
@@ -27,7 +27,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Small Hero
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Compact hero section with size="sm" for smaller sections or secondary pages.
             </p>
             
@@ -47,7 +47,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Large Hero
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Large, impactful hero section with size="lg" for landing pages and main sections.
             </p>
             
@@ -70,7 +70,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Center Aligned Hero
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Hero section with center alignment using alignItems="center".
             </p>
             
@@ -93,7 +93,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 End Aligned Hero
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Hero section with end (right) alignment using alignItems="end".
             </p>
             
@@ -113,7 +113,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Custom Headline Tag
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Hero using headlineTag="h2" for proper semantic hierarchy in sub-sections.
             </p>
             
@@ -133,7 +133,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Custom Slot Content
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Hero using custom slot content instead of props for maximum flexibility.
             </p>
             
@@ -152,8 +152,7 @@
                 <template #description>
                     <div :class="css({ 
                         fontSize: { base: 'md', md: 'lg' },
-                        color: 'grey.300',
-                        _light: { color: 'grey.700' },
+                        color: 'text.muted',
                         textWrap: 'balance'
                     })">
                         You can use slots for complete control over the content and styling. This allows for:
@@ -169,7 +168,7 @@
                     <div :class="css({ display: 'flex', gap: 'sm', flexWrap: 'wrap', alignItems: 'center' })">
                         <WfButton label="Primary Action" color="primary" size="md" />
                         <WfButton label="Secondary Action" color="secondary" size="md" />
-                        <span :class="css({ fontSize: 'sm', color: 'grey.300', _light: { color: 'grey.700' } })">
+                        <span :class="css({ fontSize: 'sm', color: 'text.muted' })">
                             or <a href="#" :class="css({ textDecoration: 'underline', color: 'primary' })">learn more</a>
                         </span>
                     </div>
@@ -182,7 +181,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Hero in a Card
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Hero component can be composed with other components like Card for enhanced layouts.
             </p>
             
@@ -210,17 +209,16 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Styled Hero Container
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Hero wrapped in a styled container for visual impact.
             </p>
             
             <div :class="css({ 
                 padding: { base: 'xl', md: '2xl' },
                 borderRadius: 'xl',
-                bg: 'lucid.50',
+                bg: { base: 'black/17.5', _dark: 'white/10', _osDark: 'white/10' },
                 border: '1px solid',
-                borderColor: 'lucid.100',
-                _light: { borderColor: 'lucid.300', bg: 'lucid.100' }
+                borderColor: 'border'
             })">
                 <WfHeroLead
                     size="lg"
@@ -243,7 +241,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Multiple Call-to-Actions
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Hero with multiple action buttons and additional information.
             </p>
             
@@ -260,8 +258,7 @@
                         </div>
                         <p :class="css({ 
                             fontSize: 'xs', 
-                            color: 'grey.300', 
-                            _light: { color: 'grey.700' } 
+                            color: 'text.muted' 
                         })">
                             No credit card required • Cancel anytime • 14-day free trial
                         </p>

@@ -4,7 +4,7 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Dialog
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Modal dialog built on reka-ui Dialog primitives.
       </p>
 
@@ -20,7 +20,7 @@
         description="This is a sample description for the dialog."
         close-label="Close"
       >
-        <p :class="css({ color: 'grey.300', _light: { color: 'grey.700' } })">
+        <p :class="css({ color: 'text.muted' })">
           Dialog body content goes here. Forms, text, or any slot content.
         </p>
         <div :class="css({ marginTop: 'lg' })">
