@@ -121,6 +121,7 @@
     "test": "bun run link:package && bun run --filter='@webflare/ui-components' test && bun run --filter='@webflare/ui-nuxt' test",
     "prepublishOnly": "bun run build",
     "changelog": "bun scripts/changelog.ts",
+    "check:colors": "bun scripts/check-colors.ts",
     "clean": "rm -rf packages/*/dist dist",
     "typecheck": "bun run --filter='@webflare/design-preset' typecheck && bun run --filter='@webflare/ui-components' typecheck"
   },

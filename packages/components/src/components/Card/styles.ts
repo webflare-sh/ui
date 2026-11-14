@@ -48,13 +48,14 @@ export const cardStyles = sva({
     colorStrategy: {
       default: {
         root: {
-          background: 'var(--card-bg-overlay) padding-box, var(--card-bg) padding-box',
+          // `[…]` marks a raw value: a layered shorthand built from CSS variables.
+          background: '[var(--card-bg-overlay) padding-box, var(--card-bg) padding-box]',
           borderColor: 'var(--card-border-color)',
         },
       },
       image: {
         root: {
-          background: 'var(--card-bg-overlay) padding-box, var(--card-bg) padding-box, var(--card-border-color) border-box',
+          background: '[var(--card-bg-overlay) padding-box, var(--card-bg) padding-box, var(--card-border-color) border-box]',
         },
       },
     },

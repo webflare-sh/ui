@@ -133,6 +133,7 @@ describe('published package contract', () => {
       'test',
       'prepublishOnly',
       'changelog',
+      'check:colors',
       'clean',
       'typecheck',
     ])
