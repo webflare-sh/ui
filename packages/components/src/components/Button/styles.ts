@@ -37,51 +37,22 @@ export const buttonStyles = cva({
         },
       },
       // Light: pale brand fill (website "soft" button). Dark: grey fill.
-      // The dark blocks repeat the state selectors so they beat the light
-      // state colors on specificity.
+      // Each property holds all its modes under one key, so a `css` override
+      // of that property replaces it in every mode. States repeat the mode
+      // conditions so they beat the dark resting colors on specificity.
       secondary: {
-        'bg': 'primary-pale',
-        'borderColor': 'primary-pale',
-        'color': 'grey.800',
+        'bg': { base: 'primary-pale', _dark: 'grey.800', _osDark: 'grey.800' },
+        'borderColor': { base: 'primary-pale', _dark: 'grey.600', _osDark: 'grey.600' },
+        'color': { base: 'grey.800', _dark: 'neutral', _osDark: 'neutral' },
         '& .btn-icon': {
-          color: 'grey.800',
+          color: { base: 'grey.800', _dark: 'primary', _osDark: 'primary' },
         },
         '_hover': {
-          backgroundColor: 'brand.100',
+          backgroundColor: { base: 'brand.100', _dark: 'grey.700', _osDark: 'grey.700' },
         },
         '_active': {
-          backgroundColor: 'brand.200',
-          borderColor: 'brand.200',
-        },
-        '_dark': {
-          'bg': 'grey.800',
-          'color': 'neutral',
-          'borderColor': 'grey.600',
-          '& .btn-icon': {
-            color: 'primary',
-          },
-          '_hover': {
-            backgroundColor: 'grey.700',
-          },
-          '_active': {
-            backgroundColor: 'grey.950',
-            borderColor: 'grey.600',
-          },
-        },
-        '_osDark': {
-          'bg': 'grey.800',
-          'color': 'neutral',
-          'borderColor': 'grey.600',
-          '& .btn-icon': {
-            color: 'primary',
-          },
-          '_hover': {
-            backgroundColor: 'grey.700',
-          },
-          '_active': {
-            backgroundColor: 'grey.950',
-            borderColor: 'grey.600',
-          },
+          backgroundColor: { base: 'brand.200', _dark: 'grey.950', _osDark: 'grey.950' },
+          borderColor: { base: 'brand.200', _dark: 'grey.600', _osDark: 'grey.600' },
         },
       },
       transparent: {
@@ -102,26 +73,10 @@ export const buttonStyles = cva({
           textUnderlineOffset: '25%',
         },
         '_hover': {
-          backgroundColor: 'primary-pale',
+          backgroundColor: { base: 'primary-pale', _dark: 'grey.800', _osDark: 'grey.800' },
         },
         '_active': {
-          backgroundColor: 'brand.100',
-        },
-        '_dark': {
-          _hover: {
-            backgroundColor: 'grey.800',
-          },
-          _active: {
-            backgroundColor: 'black',
-          },
-        },
-        '_osDark': {
-          _hover: {
-            backgroundColor: 'grey.800',
-          },
-          _active: {
-            backgroundColor: 'black',
-          },
+          backgroundColor: { base: 'brand.100', _dark: 'black', _osDark: 'black' },
         },
       },
     },

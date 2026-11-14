@@ -23,50 +23,26 @@ export const switchStyles = sva({
       'justifyContent': 'start',
       'borderWidth': '1px',
       'borderStyle': 'solid',
-      'borderColor': 'grey.300',
+      // Each property holds all its modes under one key, so a `css` override
+      // of that property replaces it in every mode. States repeat the mode
+      // conditions, even where the value is the same in both modes, so they
+      // beat the dark resting colors on specificity.
+      'borderColor': { base: 'grey.300', _dark: 'grey.300/75', _osDark: 'grey.300/75' },
       'padding': '2px',
       'borderRadius': 'pill',
-      'bgColor': 'grey.100',
+      'bgColor': { base: 'grey.100', _dark: 'grey.950', _osDark: 'grey.950' },
       'flexShrink': '0',
       '_hover': {
-        borderColor: 'grey.400',
+        borderColor: { base: 'grey.400', _dark: 'grey.400', _osDark: 'grey.400' },
       },
       '&[data-state="checked"]': {
-        bgColor: 'primary',
+        bgColor: { base: 'primary', _dark: 'primary', _osDark: 'primary' },
       },
       '&[data-disabled]': {
         cursor: 'not-allowed',
       },
       '&[data-invalid]': {
-        borderColor: 'danger.subtle',
-      },
-      // Repeat the state selectors inside `_dark` / `_osDark` so they still
-      // beat the dark-mode track colors on specificity.
-      '_dark': {
-        'borderColor': 'grey.300/75',
-        'bgColor': 'grey.950',
-        '_hover': {
-          borderColor: 'grey.400',
-        },
-        '&[data-state="checked"]': {
-          bgColor: 'primary',
-        },
-        '&[data-invalid]': {
-          borderColor: 'danger.subtle',
-        },
-      },
-      '_osDark': {
-        'borderColor': 'grey.300/75',
-        'bgColor': 'grey.950',
-        '_hover': {
-          borderColor: 'grey.400',
-        },
-        '&[data-state="checked"]': {
-          bgColor: 'primary',
-        },
-        '&[data-invalid]': {
-          borderColor: 'danger.subtle',
-        },
+        borderColor: { base: 'danger.subtle', _dark: 'danger.subtle', _osDark: 'danger.subtle' },
       },
     },
     thumb: {
