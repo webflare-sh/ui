@@ -1,8 +1,9 @@
 /**
  * Color checks. Run with `bun run check:colors`.
  *
- * 1. CSS check (blocking): generate the CSS, then every `var(--colors-*)` must
- *    be declared and no color property may contain a raw token name.
+ * 1. CSS check (blocking): generate the CSS from the components and the
+ *    playground, then every `var(--colors-*)` must be declared and no color
+ *    property may contain a raw token name.
  * 2. strictTokens (blocking for color properties): findings on other
  *    properties are listed, not fixed.
  * 3. Contrast (warning only, never fails): text 4.5:1, borders and focus 3:1,

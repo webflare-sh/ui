@@ -2,8 +2,8 @@
  * Color check on the generated Panda CSS.
  *
  * The package ships no compiled CSS, so the CSS is generated first with
- * `panda cssgen` from a throwaway config that loads the preset and the
- * component sources. Then:
+ * `panda cssgen` from a throwaway config that loads the preset, the
+ * component sources, and the playground pages. Then:
  *
  * - every `var(--colors-*)` must be declared somewhere in that CSS;
  * - a color property must not contain a raw token name such as `brand.pale`
@@ -21,16 +21,37 @@ export interface CssIssue {
   detail: string
 }
 
+/**
+ * Sources the check extracts styles from, relative to the repository root:
+ * the components and the playground, which `bun run lint` and the build do
+ * not check for stale tokens.
+ */
+export const CHECKED_SOURCES = [
+  'packages/components/src/**/*.{js,ts,vue}',
+  'packages/nuxt/playground/app.vue',
+  'packages/nuxt/playground/{components,pages}/**/*.{js,ts,vue}',
+]
+
+/** Generated and third-party folders that must never be extracted. */
+export const EXCLUDED_SOURCES = [
+  'packages/components/src/vue/**',
+  'packages/nuxt/playground/{.nuxt,.output,node_modules,styled-system}/**',
+]
+
 export interface GenerateOptions {
   /** Dotted path under the preset `theme` to delete first, e.g. `semanticTokens.colors.border.subtle`. */
   drop?: string
   /** Name of the work folder under `node_modules/.cache/color-checks`. */
   name?: string
+  /** Absolute paths or globs to extract instead of `CHECKED_SOURCES`. */
+  include?: string[]
 }
 
-/** Generate the full CSS of the preset plus every component style. */
+/** Generate the full CSS of the preset plus every component and playground style. */
 export function generateCss(options: GenerateOptions = {}): string {
   const workDir = join(rootDir, 'node_modules/.cache/color-checks', options.name ?? 'default')
+  const include = options.include ?? CHECKED_SOURCES.map(source => join(rootDir, source))
+  const exclude = EXCLUDED_SOURCES.map(source => join(rootDir, source))
   mkdirSync(workDir, { recursive: true })
   const configFile = join(workDir, 'panda.config.ts')
   const outfile = join(workDir, 'styles.css')
@@ -53,8 +74,8 @@ const drop = ${JSON.stringify(options.drop ?? '')}
 export default defineConfig({
   preflight: true,
   presets: [{ ...preset, theme: drop ? without(preset.theme, drop.split('.')) : preset.theme }],
-  include: [${JSON.stringify(join(rootDir, 'packages/components/src/**/*.{js,ts,vue}'))}],
-  exclude: [${JSON.stringify(join(rootDir, 'packages/components/src/vue/**'))}],
+  include: ${JSON.stringify(include)},
+  exclude: ${JSON.stringify(exclude)},
   outdir: ${JSON.stringify(join(workDir, 'styled-system'))},
 })
 `)
