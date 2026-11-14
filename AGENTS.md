@@ -215,7 +215,7 @@ Agents never tag, create a GitHub Release, or publish. Each of those needs the m
 
 `publish.yml` runs on a published GitHub Release and on a manual start. Both must run from the tag `v<version>` that matches `package.json`; the first step fails on a branch or on any other tag. Keep `packages/nuxt/test/consumer-contract.test.ts` in sync with the workflow.
 
-**Changelog.** The `v0.1.0` entry in `CHANGELOG.md` is written by hand. For every later release, bump the version in all four `package.json` files, then run `bun run changelog` (or `bun run changelog --dry` to preview). It generates the entry with `changelogen` from the previous `v*` release tag to `HEAD`. It refuses to run for 0.1.0, before `v0.1.0` exists, or from a tag that does not contain the imported history, so the imported commits never show up.
+**Changelog.** The `v0.1.0` entry in `CHANGELOG.md` is written by hand. For every later release, bump the version in all four `package.json` files, then run `bun run changelog` (or `bun run changelog --dry` to preview). It generates the entry with `changelogen` from the previous `v*` release tag to `HEAD`. It refuses to run for 0.1.0, before `v0.1.0` exists, or from a tag that does not contain the imported history, so the imported commits never show up. Run it from a full clone: in a shallow clone it stops with git's error and asks for `git fetch --unshallow --tags`.
 
 **Package check.** `npm pack --dry-run` lists only `dist/`, `LICENSE`, `README.md`, and `package.json`. The contract test packs the package and checks this.
 

@@ -8,6 +8,9 @@
  * The 0.1.0 entry is written by hand. This script refuses to run until a
  * `v0.1.0` tag exists, and the range always starts at a release tag that
  * already contains the imported history, so that history never shows up.
+ *
+ * It needs the full history: in a shallow clone the imported commit is
+ * missing, and the script stops with git's error.
  */
 import { execFileSync } from 'node:child_process'
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
@@ -16,7 +19,7 @@ import { fileURLToPath } from 'node:url'
 import { generateMarkDown, getGitDiff, loadChangelogConfig, parseCommits } from 'changelogen'
 
 /** Last commit of the imported history. Every release tag must contain it. */
-export const IMPORTED_HEAD = 'a895222'
+export const IMPORTED_HEAD = 'a895222dc1f6b798c02792c530a79249f24000d1'
 
 /** The first release. Its changelog entry is written by hand. */
 export const FIRST_RELEASE = '0.1.0'
@@ -41,8 +44,17 @@ function isAncestor(cwd: string, ancestor: string, commit: string): boolean {
     git(cwd, 'merge-base', '--is-ancestor', ancestor, commit)
     return true
   }
-  catch {
-    return false
+  catch (error) {
+    // Exit code 1 means "not an ancestor". Anything else is a git error, such
+    // as a commit missing from a shallow clone.
+    const { status, stderr } = error as { status?: number | null, stderr?: unknown }
+    if (status === 1) return false
+    const detail = String(stderr ?? '').trim()
+    throw new Error(
+      `git merge-base --is-ancestor ${ancestor} ${commit} failed${detail ? `: ${detail}` : ''}. `
+      + 'A shallow clone does not have the imported history: run `git fetch --unshallow --tags` first.',
+      { cause: error },
+    )
   }
 }
 

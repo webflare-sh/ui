@@ -232,4 +232,4 @@ npm publish --access public --ignore-scripts
 
 ### Later publishes
 
-Bump the version in all four `package.json` files and run `bun run changelog`. It adds the entry generated from the previous release tag. After the pull request is merged, tag `v<version>` on `master` and publish a GitHub Release for that tag (or start the **Publish to npm** Action from the tag). After the first OIDC publish succeeds, you can set the package to require 2FA and disallow tokens.
+Bump the version in all four `package.json` files and run `bun run changelog`. It adds the entry generated from the previous release tag. Run it from a full clone: in a shallow clone it stops with git's error and asks for `git fetch --unshallow --tags`. After the pull request is merged, tag `v<version>` on `master` and publish a GitHub Release for that tag (or start the **Publish to npm** Action from the tag). After the first OIDC publish succeeds, you can set the package to require 2FA and disallow tokens.
