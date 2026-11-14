@@ -58,6 +58,13 @@ const preset: Preset = definePreset({
   },
   conditions: {
     extend: {
+      // Match the element that carries the mode class as well as its
+      // descendants. Panda's built-in `.dark &` / `.light &` match descendants
+      // only, while the token block (`.dark { --colors-*: … }`) also applies to
+      // the element itself, so `class="dark"` on a component's own root would
+      // switch its roles but not its `_dark` styles.
+      light: '.light &, .light&',
+      dark: '.dark &, .dark&',
       hasNext: '&:has(+ *)',
     },
   },

@@ -46,8 +46,14 @@ describe('preset tokens', () => {
     }
   })
 
-  it('has no light condition of its own', () => {
-    expect(preset.conditions?.extend).not.toHaveProperty('light')
+  it('matches the element with the mode class as well as its descendants', () => {
+    expect(preset.conditions?.extend).toMatchObject({
+      light: '.light &, .light&',
+      dark: '.dark &, .dark&',
+    })
+  })
+
+  it('writes no light values in the theme', () => {
     expect(JSON.stringify(preset.theme)).not.toMatch(/"_light"/)
   })
 
