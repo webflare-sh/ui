@@ -1,0 +1,895 @@
+{
+  "source": {
+    "version": "0.5.0",
+    "commit": "a895222"
+  },
+  "defaultMode": "dark",
+  "conditions": {
+    "light": [
+      "_light"
+    ],
+    "dark": []
+  },
+  "tokens": {
+    "breakpoints.2xl": {
+      "kind": "theme",
+      "light": "1440px",
+      "dark": "1440px"
+    },
+    "breakpoints.2xs": {
+      "kind": "theme",
+      "light": "420px",
+      "dark": "420px"
+    },
+    "breakpoints.3xl": {
+      "kind": "theme",
+      "light": "1640px",
+      "dark": "1640px"
+    },
+    "breakpoints.3xs": {
+      "kind": "theme",
+      "light": "360px",
+      "dark": "360px"
+    },
+    "breakpoints.4xl": {
+      "kind": "theme",
+      "light": "1920px",
+      "dark": "1920px"
+    },
+    "breakpoints.lg": {
+      "kind": "theme",
+      "light": "1024px",
+      "dark": "1024px"
+    },
+    "breakpoints.md": {
+      "kind": "theme",
+      "light": "768px",
+      "dark": "768px"
+    },
+    "breakpoints.sm": {
+      "kind": "theme",
+      "light": "640px",
+      "dark": "640px"
+    },
+    "breakpoints.xl": {
+      "kind": "theme",
+      "light": "1280px",
+      "dark": "1280px"
+    },
+    "breakpoints.xs": {
+      "kind": "theme",
+      "light": "520px",
+      "dark": "520px"
+    },
+    "colors.black": {
+      "kind": "token",
+      "light": "#000000",
+      "dark": "#000000"
+    },
+    "colors.blue.100": {
+      "kind": "token",
+      "light": "#dbeafe",
+      "dark": "#dbeafe"
+    },
+    "colors.blue.200": {
+      "kind": "token",
+      "light": "#bfdbfe",
+      "dark": "#bfdbfe"
+    },
+    "colors.blue.300": {
+      "kind": "token",
+      "light": "#93c5fd",
+      "dark": "#93c5fd"
+    },
+    "colors.blue.400": {
+      "kind": "token",
+      "light": "#60a5fa",
+      "dark": "#60a5fa"
+    },
+    "colors.blue.50": {
+      "kind": "token",
+      "light": "#eff6ff",
+      "dark": "#eff6ff"
+    },
+    "colors.blue.500": {
+      "kind": "token",
+      "light": "#3b82f6",
+      "dark": "#3b82f6"
+    },
+    "colors.blue.600": {
+      "kind": "token",
+      "light": "#2563eb",
+      "dark": "#2563eb"
+    },
+    "colors.blue.700": {
+      "kind": "token",
+      "light": "#1d4ed8",
+      "dark": "#1d4ed8"
+    },
+    "colors.blue.800": {
+      "kind": "token",
+      "light": "#1e40af",
+      "dark": "#1e40af"
+    },
+    "colors.blue.900": {
+      "kind": "token",
+      "light": "#1e3a8a",
+      "dark": "#1e3a8a"
+    },
+    "colors.blue.950": {
+      "kind": "token",
+      "light": "#172554",
+      "dark": "#172554"
+    },
+    "colors.border": {
+      "kind": "semantic",
+      "light": "#d4d4d4",
+      "dark": "#404040"
+    },
+    "colors.border.hover": {
+      "kind": "semantic",
+      "light": "#a3a3a3",
+      "dark": "#737373"
+    },
+    "colors.border.subtle": {
+      "kind": "semantic",
+      "light": "#d4d4d4",
+      "dark": "#333333"
+    },
+    "colors.brand.100": {
+      "kind": "token",
+      "light": "#A3EFAC",
+      "dark": "#A3EFAC"
+    },
+    "colors.brand.200": {
+      "kind": "token",
+      "light": "#78E284",
+      "dark": "#78E284"
+    },
+    "colors.brand.300": {
+      "kind": "token",
+      "light": "#19bf56",
+      "dark": "#19bf56"
+    },
+    "colors.brand.400": {
+      "kind": "token",
+      "light": "#05C260",
+      "dark": "#05C260"
+    },
+    "colors.brand.50": {
+      "kind": "token",
+      "light": "#C5F6CB",
+      "dark": "#C5F6CB"
+    },
+    "colors.brand.600": {
+      "kind": "token",
+      "light": "#0E8543",
+      "dark": "#0E8543"
+    },
+    "colors.brand.brand": {
+      "kind": "semantic",
+      "light": "#05C260",
+      "dark": "#05C260"
+    },
+    "colors.brand.dawn": {
+      "kind": "semantic",
+      "light": "#0E8543",
+      "dark": "#0E8543"
+    },
+    "colors.brand.day": {
+      "kind": "semantic",
+      "light": "#19bf56",
+      "dark": "#19bf56"
+    },
+    "colors.brand.pale": {
+      "kind": "semantic",
+      "light": "#A3EFAC",
+      "dark": "#A3EFAC"
+    },
+    "colors.danger": {
+      "kind": "semantic",
+      "light": "#dc2626",
+      "dark": "#f87171"
+    },
+    "colors.danger.subtle": {
+      "kind": "semantic",
+      "light": "color-mix(in srgb, #fecaca 80%, #737373 5%)",
+      "dark": "color-mix(in srgb, #f87171 20%, #262626 80%)"
+    },
+    "colors.danger.subtle.light": {
+      "kind": "semantic",
+      "light": "color-mix(in srgb, #f87171 25%, #737373 25%)",
+      "dark": "color-mix(in srgb, #fecaca 25%, #262626 20%)"
+    },
+    "colors.danger.text": {
+      "kind": "semantic",
+      "light": "#7f1d1d",
+      "dark": "#7f1d1d"
+    },
+    "colors.green.100": {
+      "kind": "token",
+      "light": "#dcfce7",
+      "dark": "#dcfce7"
+    },
+    "colors.green.200": {
+      "kind": "token",
+      "light": "#bbf7d0",
+      "dark": "#bbf7d0"
+    },
+    "colors.green.300": {
+      "kind": "token",
+      "light": "#86efac",
+      "dark": "#86efac"
+    },
+    "colors.green.400": {
+      "kind": "token",
+      "light": "#4ade80",
+      "dark": "#4ade80"
+    },
+    "colors.green.50": {
+      "kind": "token",
+      "light": "#f0fdf4",
+      "dark": "#f0fdf4"
+    },
+    "colors.green.500": {
+      "kind": "token",
+      "light": "#22c55e",
+      "dark": "#22c55e"
+    },
+    "colors.green.600": {
+      "kind": "token",
+      "light": "#16a34a",
+      "dark": "#16a34a"
+    },
+    "colors.green.700": {
+      "kind": "token",
+      "light": "#15803d",
+      "dark": "#15803d"
+    },
+    "colors.green.800": {
+      "kind": "token",
+      "light": "#166534",
+      "dark": "#166534"
+    },
+    "colors.green.900": {
+      "kind": "token",
+      "light": "#14532d",
+      "dark": "#14532d"
+    },
+    "colors.green.950": {
+      "kind": "token",
+      "light": "#052e16",
+      "dark": "#052e16"
+    },
+    "colors.grey.100": {
+      "kind": "token",
+      "light": "#e5e5e5",
+      "dark": "#e5e5e5"
+    },
+    "colors.grey.200": {
+      "kind": "token",
+      "light": "#d4d4d4",
+      "dark": "#d4d4d4"
+    },
+    "colors.grey.300": {
+      "kind": "token",
+      "light": "#a3a3a3",
+      "dark": "#a3a3a3"
+    },
+    "colors.grey.400": {
+      "kind": "token",
+      "light": "#737373",
+      "dark": "#737373"
+    },
+    "colors.grey.50": {
+      "kind": "token",
+      "light": "#fafafa",
+      "dark": "#fafafa"
+    },
+    "colors.grey.500": {
+      "kind": "token",
+      "light": "#525252",
+      "dark": "#525252"
+    },
+    "colors.grey.600": {
+      "kind": "token",
+      "light": "#404040",
+      "dark": "#404040"
+    },
+    "colors.grey.700": {
+      "kind": "token",
+      "light": "#333333",
+      "dark": "#333333"
+    },
+    "colors.grey.75": {
+      "kind": "token",
+      "light": "#f4f4f4",
+      "dark": "#f4f4f4"
+    },
+    "colors.grey.800": {
+      "kind": "token",
+      "light": "#262626",
+      "dark": "#262626"
+    },
+    "colors.grey.900": {
+      "kind": "token",
+      "light": "#1d1d1d",
+      "dark": "#1d1d1d"
+    },
+    "colors.grey.950": {
+      "kind": "token",
+      "light": "#171717",
+      "dark": "#171717"
+    },
+    "colors.grey.black": {
+      "kind": "semantic",
+      "light": "#171717",
+      "dark": "#171717"
+    },
+    "colors.grey.dawn": {
+      "kind": "semantic",
+      "light": "#a3a3a3",
+      "dark": "#a3a3a3"
+    },
+    "colors.grey.deep": {
+      "kind": "semantic",
+      "light": "#1d1d1d",
+      "dark": "#1d1d1d"
+    },
+    "colors.grey.dusk": {
+      "kind": "semantic",
+      "light": "#404040",
+      "dark": "#404040"
+    },
+    "colors.grey.night": {
+      "kind": "semantic",
+      "light": "#262626",
+      "dark": "#262626"
+    },
+    "colors.info": {
+      "kind": "semantic",
+      "light": "#2563eb",
+      "dark": "#60a5fa"
+    },
+    "colors.info.subtle": {
+      "kind": "semantic",
+      "light": "color-mix(in srgb, #bfdbfe 80%, #737373 5%)",
+      "dark": "color-mix(in srgb, #60a5fa 20%, #262626 80%)"
+    },
+    "colors.info.subtle.light": {
+      "kind": "semantic",
+      "light": "color-mix(in srgb, #60a5fa 25%, #737373 25%)",
+      "dark": "color-mix(in srgb, #bfdbfe 25%, #262626 20%)"
+    },
+    "colors.info.text": {
+      "kind": "semantic",
+      "light": "#1e3a8a",
+      "dark": "#1e3a8a"
+    },
+    "colors.lucid.100": {
+      "kind": "semantic",
+      "light": "rgba(0, 0, 0, 0.175)",
+      "dark": "rgba(255, 255, 255, 0.175)"
+    },
+    "colors.lucid.200": {
+      "kind": "semantic",
+      "light": "rgba(0, 0, 0, 0.25)",
+      "dark": "rgba(255, 255, 255, 0.25)"
+    },
+    "colors.lucid.400": {
+      "kind": "semantic",
+      "light": "rgba(0, 0, 0, 0.5)",
+      "dark": "rgba(255, 255, 255, 0.5)"
+    },
+    "colors.lucid.50": {
+      "kind": "semantic",
+      "light": "rgba(0, 0, 0, 0.1)",
+      "dark": "rgba(255, 255, 255, 0.1)"
+    },
+    "colors.lucid.600": {
+      "kind": "semantic",
+      "light": "rgba(0, 0, 0, 0.75)",
+      "dark": "rgba(255, 255, 255, 0.75)"
+    },
+    "colors.neutral": {
+      "kind": "semantic",
+      "light": "#262626",
+      "dark": "#ffffff"
+    },
+    "colors.neutral.inverse": {
+      "kind": "semantic",
+      "light": "#ffffff",
+      "dark": "#262626"
+    },
+    "colors.neutral.light": {
+      "kind": "semantic",
+      "light": "#737373",
+      "dark": "#a3a3a3"
+    },
+    "colors.primary": {
+      "kind": "semantic",
+      "light": "#19bf56",
+      "dark": "#A3EFAC"
+    },
+    "colors.red.100": {
+      "kind": "token",
+      "light": "#fee2e2",
+      "dark": "#fee2e2"
+    },
+    "colors.red.200": {
+      "kind": "token",
+      "light": "#fecaca",
+      "dark": "#fecaca"
+    },
+    "colors.red.300": {
+      "kind": "token",
+      "light": "#fca5a5",
+      "dark": "#fca5a5"
+    },
+    "colors.red.400": {
+      "kind": "token",
+      "light": "#f87171",
+      "dark": "#f87171"
+    },
+    "colors.red.50": {
+      "kind": "token",
+      "light": "#fef2f2",
+      "dark": "#fef2f2"
+    },
+    "colors.red.500": {
+      "kind": "token",
+      "light": "#ef4444",
+      "dark": "#ef4444"
+    },
+    "colors.red.600": {
+      "kind": "token",
+      "light": "#dc2626",
+      "dark": "#dc2626"
+    },
+    "colors.red.700": {
+      "kind": "token",
+      "light": "#b91c1c",
+      "dark": "#b91c1c"
+    },
+    "colors.red.800": {
+      "kind": "token",
+      "light": "#991b1b",
+      "dark": "#991b1b"
+    },
+    "colors.red.900": {
+      "kind": "token",
+      "light": "#7f1d1d",
+      "dark": "#7f1d1d"
+    },
+    "colors.red.950": {
+      "kind": "token",
+      "light": "#450a0a",
+      "dark": "#450a0a"
+    },
+    "colors.success": {
+      "kind": "semantic",
+      "light": "#16a34a",
+      "dark": "#4ade80"
+    },
+    "colors.success.subtle": {
+      "kind": "semantic",
+      "light": "color-mix(in srgb, #bbf7d0 80%, #737373 5%)",
+      "dark": "color-mix(in srgb, #4ade80 20%, #262626 80%)"
+    },
+    "colors.success.subtle.light": {
+      "kind": "semantic",
+      "light": "color-mix(in srgb, #4ade80 25%, #737373 25%)",
+      "dark": "color-mix(in srgb, #bbf7d0 25%, #262626 20%)"
+    },
+    "colors.success.text": {
+      "kind": "semantic",
+      "light": "#14532d",
+      "dark": "#14532d"
+    },
+    "colors.surface": {
+      "kind": "semantic",
+      "light": "#ffffff",
+      "dark": "#171717"
+    },
+    "colors.surface.raised": {
+      "kind": "semantic",
+      "light": "#ffffff",
+      "dark": "#262626"
+    },
+    "colors.text.muted": {
+      "kind": "semantic",
+      "light": "#404040",
+      "dark": "#a3a3a3"
+    },
+    "colors.transparent": {
+      "kind": "token",
+      "light": "transparent",
+      "dark": "transparent"
+    },
+    "colors.warning": {
+      "kind": "semantic",
+      "light": "#d97706",
+      "dark": "#fbbf24"
+    },
+    "colors.warning.subtle": {
+      "kind": "semantic",
+      "light": "color-mix(in srgb, #fde68a 80%, #737373 5%)",
+      "dark": "color-mix(in srgb, #fbbf24 20%, #262626 80%)"
+    },
+    "colors.warning.subtle.light": {
+      "kind": "semantic",
+      "light": "color-mix(in srgb, #fbbf24 25%, #737373 25%)",
+      "dark": "color-mix(in srgb, #fde68a 25%, #262626 20%)"
+    },
+    "colors.warning.text": {
+      "kind": "semantic",
+      "light": "#78350f",
+      "dark": "#78350f"
+    },
+    "colors.white": {
+      "kind": "token",
+      "light": "#ffffff",
+      "dark": "#ffffff"
+    },
+    "colors.yellow.100": {
+      "kind": "token",
+      "light": "#fef3c7",
+      "dark": "#fef3c7"
+    },
+    "colors.yellow.200": {
+      "kind": "token",
+      "light": "#fde68a",
+      "dark": "#fde68a"
+    },
+    "colors.yellow.300": {
+      "kind": "token",
+      "light": "#fcd34d",
+      "dark": "#fcd34d"
+    },
+    "colors.yellow.400": {
+      "kind": "token",
+      "light": "#fbbf24",
+      "dark": "#fbbf24"
+    },
+    "colors.yellow.50": {
+      "kind": "token",
+      "light": "#fffbeb",
+      "dark": "#fffbeb"
+    },
+    "colors.yellow.500": {
+      "kind": "token",
+      "light": "#f59e0b",
+      "dark": "#f59e0b"
+    },
+    "colors.yellow.600": {
+      "kind": "token",
+      "light": "#d97706",
+      "dark": "#d97706"
+    },
+    "colors.yellow.700": {
+      "kind": "token",
+      "light": "#b45309",
+      "dark": "#b45309"
+    },
+    "colors.yellow.800": {
+      "kind": "token",
+      "light": "#92400e",
+      "dark": "#92400e"
+    },
+    "colors.yellow.900": {
+      "kind": "token",
+      "light": "#78350f",
+      "dark": "#78350f"
+    },
+    "colors.yellow.950": {
+      "kind": "token",
+      "light": "#451a03",
+      "dark": "#451a03"
+    },
+    "containers.2xl": {
+      "kind": "theme",
+      "light": "672px",
+      "dark": "672px"
+    },
+    "containers.3xl": {
+      "kind": "theme",
+      "light": "768px",
+      "dark": "768px"
+    },
+    "containers.4xl": {
+      "kind": "theme",
+      "light": "896px",
+      "dark": "896px"
+    },
+    "containers.5xl": {
+      "kind": "theme",
+      "light": "1024px",
+      "dark": "1024px"
+    },
+    "containers.6xl": {
+      "kind": "theme",
+      "light": "1152px",
+      "dark": "1152px"
+    },
+    "containers.7xl": {
+      "kind": "theme",
+      "light": "1280px",
+      "dark": "1280px"
+    },
+    "containers.8xl": {
+      "kind": "theme",
+      "light": "1440px",
+      "dark": "1440px"
+    },
+    "containers.lg": {
+      "kind": "theme",
+      "light": "512px",
+      "dark": "512px"
+    },
+    "containers.md": {
+      "kind": "theme",
+      "light": "448px",
+      "dark": "448px"
+    },
+    "containers.sm": {
+      "kind": "theme",
+      "light": "384px",
+      "dark": "384px"
+    },
+    "containers.xl": {
+      "kind": "theme",
+      "light": "576px",
+      "dark": "576px"
+    },
+    "containers.xs": {
+      "kind": "theme",
+      "light": "320px",
+      "dark": "320px"
+    },
+    "fontSizes.2xl": {
+      "kind": "token",
+      "light": "32px",
+      "dark": "32px"
+    },
+    "fontSizes.3xl": {
+      "kind": "token",
+      "light": "40px",
+      "dark": "40px"
+    },
+    "fontSizes.4xl": {
+      "kind": "token",
+      "light": "48px",
+      "dark": "48px"
+    },
+    "fontSizes.5xl": {
+      "kind": "token",
+      "light": "64px",
+      "dark": "64px"
+    },
+    "fontSizes.lg": {
+      "kind": "token",
+      "light": "20px",
+      "dark": "20px"
+    },
+    "fontSizes.md": {
+      "kind": "token",
+      "light": "16px",
+      "dark": "16px"
+    },
+    "fontSizes.sm": {
+      "kind": "token",
+      "light": "14px",
+      "dark": "14px"
+    },
+    "fontSizes.xl": {
+      "kind": "token",
+      "light": "24px",
+      "dark": "24px"
+    },
+    "fontSizes.xs": {
+      "kind": "token",
+      "light": "12px",
+      "dark": "12px"
+    },
+    "fontWeights.bold": {
+      "kind": "token",
+      "light": "700",
+      "dark": "700"
+    },
+    "fontWeights.medium": {
+      "kind": "token",
+      "light": "500",
+      "dark": "500"
+    },
+    "fontWeights.normal": {
+      "kind": "token",
+      "light": "400",
+      "dark": "400"
+    },
+    "fontWeights.semibold": {
+      "kind": "token",
+      "light": "600",
+      "dark": "600"
+    },
+    "fonts.body": {
+      "kind": "semantic",
+      "light": "Figtree, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "dark": "Figtree, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
+    },
+    "fonts.mono": {
+      "kind": "token",
+      "light": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+      "dark": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+    },
+    "fonts.sans": {
+      "kind": "token",
+      "light": "Figtree, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "dark": "Figtree, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
+    },
+    "fonts.serif": {
+      "kind": "token",
+      "light": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
+      "dark": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif"
+    },
+    "lineHeights.normal": {
+      "kind": "token",
+      "light": "1.5",
+      "dark": "1.5"
+    },
+    "opacity.color.neutral": {
+      "kind": "semantic",
+      "light": "5%",
+      "dark": "80%"
+    },
+    "opacity.color.neutral.lighter": {
+      "kind": "semantic",
+      "light": "25%",
+      "dark": "20%"
+    },
+    "opacity.color.status": {
+      "kind": "semantic",
+      "light": "80%",
+      "dark": "20%"
+    },
+    "opacity.color.status.lighter": {
+      "kind": "semantic",
+      "light": "25%",
+      "dark": "25%"
+    },
+    "radii.2xl": {
+      "kind": "token",
+      "light": "20px",
+      "dark": "20px"
+    },
+    "radii.3xl": {
+      "kind": "token",
+      "light": "24px",
+      "dark": "24px"
+    },
+    "radii.4xl": {
+      "kind": "token",
+      "light": "32px",
+      "dark": "32px"
+    },
+    "radii.5xl": {
+      "kind": "token",
+      "light": "40px",
+      "dark": "40px"
+    },
+    "radii.lg": {
+      "kind": "token",
+      "light": "10px",
+      "dark": "10px"
+    },
+    "radii.md": {
+      "kind": "token",
+      "light": "6px",
+      "dark": "6px"
+    },
+    "radii.pill": {
+      "kind": "token",
+      "light": "99rem",
+      "dark": "99rem"
+    },
+    "radii.sm": {
+      "kind": "token",
+      "light": "4px",
+      "dark": "4px"
+    },
+    "radii.xl": {
+      "kind": "token",
+      "light": "16px",
+      "dark": "16px"
+    },
+    "spacing.10xl": {
+      "kind": "token",
+      "light": "128px",
+      "dark": "128px"
+    },
+    "spacing.11xl": {
+      "kind": "token",
+      "light": "144px",
+      "dark": "144px"
+    },
+    "spacing.12xl": {
+      "kind": "token",
+      "light": "160px",
+      "dark": "160px"
+    },
+    "spacing.2xl": {
+      "kind": "token",
+      "light": "32px",
+      "dark": "32px"
+    },
+    "spacing.2xs": {
+      "kind": "token",
+      "light": "4px",
+      "dark": "4px"
+    },
+    "spacing.3xl": {
+      "kind": "token",
+      "light": "40px",
+      "dark": "40px"
+    },
+    "spacing.3xs": {
+      "kind": "token",
+      "light": "2px",
+      "dark": "2px"
+    },
+    "spacing.4xl": {
+      "kind": "token",
+      "light": "48px",
+      "dark": "48px"
+    },
+    "spacing.5xl": {
+      "kind": "token",
+      "light": "56px",
+      "dark": "56px"
+    },
+    "spacing.6xl": {
+      "kind": "token",
+      "light": "64px",
+      "dark": "64px"
+    },
+    "spacing.7xl": {
+      "kind": "token",
+      "light": "72px",
+      "dark": "72px"
+    },
+    "spacing.8xl": {
+      "kind": "token",
+      "light": "80px",
+      "dark": "80px"
+    },
+    "spacing.9xl": {
+      "kind": "token",
+      "light": "96px",
+      "dark": "96px"
+    },
+    "spacing.lg": {
+      "kind": "token",
+      "light": "20px",
+      "dark": "20px"
+    },
+    "spacing.md": {
+      "kind": "token",
+      "light": "16px",
+      "dark": "16px"
+    },
+    "spacing.sm": {
+      "kind": "token",
+      "light": "12px",
+      "dark": "12px"
+    },
+    "spacing.xl": {
+      "kind": "token",
+      "light": "24px",
+      "dark": "24px"
+    },
+    "spacing.xs": {
+      "kind": "token",
+      "light": "8px",
+      "dark": "8px"
+    }
+  }
+}

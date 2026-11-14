@@ -5,7 +5,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@fyrst/design-preset": ["../preset/src/index.ts"],
+      "@webflare/design-preset": ["../preset/src/index.ts"],
       "styled-system/*": ["styled-system/*"]
     },
     "declaration": true,

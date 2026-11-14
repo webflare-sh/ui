@@ -1,0 +1,2218 @@
+{
+  "$comment": "Inventory of the Webflare micropage design system at one commit. Token names and values only. A later update is a new, deliberate change.",
+  "source": {
+    "commit": "03c549d",
+    "date": "2026-11-11"
+  },
+  "actions": {
+    "add": "The library does not have the token. Add it with the micropage value.",
+    "replace": "Color the library already has. The micropage value replaces it.",
+    "keep": "Same path and same value in both (hex compared without letter case). Nothing changes.",
+    "keep-library": "Non-color token in both with a different spelling or value. The library value is kept.",
+    "publish-as": "Published under the nested library role name in `publishedAs`, with the micropage value.",
+    "skip": "Not added to the library."
+  },
+  "modes": {
+    "count": 2,
+    "default": "light",
+    "dark": {
+      "conditions": [
+        "_dark",
+        "_osDark"
+      ],
+      "selectors": [
+        ".dark &",
+        "@media (prefers-color-scheme: dark)"
+      ],
+      "note": "Every mode-dependent value repeats the dark value under both conditions."
+    },
+    "forceLight": false,
+    "note": "Light is the base. Dark applies inside a `.dark` class and when the OS prefers dark. No class switches back to light when the OS prefers dark."
+  },
+  "transparency": {
+    "opacityTokens": false,
+    "opacityModifier": false,
+    "methods": [
+      "color-mix() with transparent (focus shadows)",
+      "hex colors with alpha (accent-subtle and accent-border in dark mode)",
+      "rgb() with alpha (card and float shadows)"
+    ],
+    "white": "#FFFFFF",
+    "black": "#000000",
+    "transparent": "#00000000"
+  },
+  "colorFamilies": {
+    "brand": {
+      "shades": [
+        "50",
+        "100",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900"
+      ],
+      "sameAsLibrary": false
+    },
+    "red": {
+      "shades": [
+        "50",
+        "100",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900",
+        "950"
+      ],
+      "sameAsLibrary": true
+    },
+    "green": {
+      "shades": [
+        "50",
+        "100",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900",
+        "950"
+      ],
+      "sameAsLibrary": true
+    },
+    "blue": {
+      "shades": [
+        "50",
+        "100",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900",
+        "950"
+      ],
+      "sameAsLibrary": true
+    },
+    "yellow": {
+      "shades": [
+        "50",
+        "100",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900",
+        "950"
+      ],
+      "sameAsLibrary": true
+    },
+    "grey": {
+      "shades": [
+        "50",
+        "100",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900",
+        "950"
+      ],
+      "sameAsLibrary": true,
+      "note": "No grey.75."
+    },
+    "roles": [
+      "primary",
+      "primary-pale",
+      "surface",
+      "surface-raised",
+      "surface-muted",
+      "neutral",
+      "neutral-light",
+      "border",
+      "border-subtle",
+      "muted",
+      "input-border",
+      "input-bg",
+      "input-disabled-bg",
+      "input-color",
+      "accent-subtle",
+      "accent-border",
+      "accent-text"
+    ],
+    "roleSpelling": "flat with hyphens"
+  },
+  "fonts": {
+    "family": "Figtree",
+    "weights": [
+      400,
+      500,
+      600,
+      700,
+      800
+    ],
+    "styles": [
+      "normal"
+    ],
+    "loading": "Downloaded at build time and served from the site itself. No runtime requests to Google. No font files in the source.",
+    "license": "SIL Open Font License 1.1",
+    "commercial": false,
+    "token": "fonts.body",
+    "action": "keep-library",
+    "note": "The library keeps Figtree, ships no font files, and keeps fonts.body as an alias of fonts.sans."
+  },
+  "icons": {
+    "source": "Phosphor via Iconify (`ph`)",
+    "weight": "bold",
+    "license": "MIT",
+    "singleColor": true,
+    "rendering": "CSS masks",
+    "items": [
+      {
+        "name": "arrow-left-bold",
+        "class": ".icon-arrow-left-bold",
+        "inLibrary": true,
+        "action": "keep"
+      },
+      {
+        "name": "arrow-right-bold",
+        "class": ".icon-arrow-right-bold",
+        "inLibrary": true,
+        "action": "keep"
+      },
+      {
+        "name": "check-bold",
+        "class": ".icon-check-bold",
+        "inLibrary": true,
+        "action": "keep"
+      },
+      {
+        "name": "envelope-simple-bold",
+        "class": ".icon-envelope-simple-bold",
+        "inLibrary": false,
+        "action": "add"
+      },
+      {
+        "name": "package-bold",
+        "class": ".icon-package-bold",
+        "inLibrary": false,
+        "action": "add"
+      },
+      {
+        "name": "puzzle-piece-bold",
+        "class": ".icon-puzzle-piece-bold",
+        "inLibrary": false,
+        "action": "add"
+      },
+      {
+        "name": "shopping-cart-simple-bold",
+        "class": ".icon-shopping-cart-simple-bold",
+        "inLibrary": false,
+        "action": "add"
+      },
+      {
+        "name": "storefront-bold",
+        "class": ".icon-storefront-bold",
+        "inLibrary": false,
+        "action": "add"
+      },
+      {
+        "name": "wrench-bold",
+        "class": ".icon-wrench-bold",
+        "inLibrary": false,
+        "action": "add"
+      }
+    ]
+  },
+  "config": [
+    {
+      "path": "breakpoints",
+      "origin": "app-level",
+      "value": {
+        "sm": "640px",
+        "md": "768px",
+        "lg": "1024px",
+        "xl": "1280px"
+      },
+      "action": "keep",
+      "note": "Same values in the library, which has more breakpoints."
+    },
+    {
+      "path": "textStyles",
+      "origin": "app-level",
+      "value": [
+        "display",
+        "h2",
+        "h3",
+        "lead",
+        "body",
+        "eyebrow"
+      ],
+      "action": "skip"
+    },
+    {
+      "path": "keyframes",
+      "origin": "app-level",
+      "value": [
+        "rise",
+        "float",
+        "blink"
+      ],
+      "action": "skip"
+    },
+    {
+      "path": "recipes",
+      "origin": "app-level",
+      "value": [
+        "button",
+        "input",
+        "field"
+      ],
+      "action": "skip",
+      "note": "Component recipes are out of scope. Library components keep their structure."
+    },
+    {
+      "path": "globalCss",
+      "origin": "app-level",
+      "action": "skip"
+    }
+  ],
+  "tokens": [
+    {
+      "path": "colors.accent-border",
+      "origin": "app-level",
+      "kind": "semantic",
+      "value": {
+        "light": "{colors.brand.100}",
+        "dark": "#f8796040"
+      },
+      "format": {
+        "light": "reference",
+        "dark": "hex-alpha"
+      },
+      "resolved": {
+        "light": "#FFD9CE",
+        "dark": "#f8796040"
+      },
+      "action": "add",
+      "note": "Dark value is a raw hex color with alpha."
+    },
+    {
+      "path": "colors.accent-subtle",
+      "origin": "app-level",
+      "kind": "semantic",
+      "value": {
+        "light": "{colors.brand.50}",
+        "dark": "#f879601a"
+      },
+      "format": {
+        "light": "reference",
+        "dark": "hex-alpha"
+      },
+      "resolved": {
+        "light": "#FDF1EB",
+        "dark": "#f879601a"
+      },
+      "action": "add",
+      "note": "Dark value is a raw hex color with alpha."
+    },
+    {
+      "path": "colors.accent-text",
+      "origin": "app-level",
+      "kind": "semantic",
+      "value": {
+        "light": "{colors.brand.600}",
+        "dark": "{colors.brand.300}"
+      },
+      "format": {
+        "light": "reference",
+        "dark": "reference"
+      },
+      "resolved": {
+        "light": "#C6543F",
+        "dark": "#FD9B85"
+      },
+      "action": "add"
+    },
+    {
+      "path": "colors.black",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#000000",
+      "format": "hex",
+      "resolved": {
+        "light": "#000000",
+        "dark": "#000000"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.blue.100",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#DBEAFE",
+      "format": "hex",
+      "resolved": {
+        "light": "#DBEAFE",
+        "dark": "#DBEAFE"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.blue.200",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#BFDBFE",
+      "format": "hex",
+      "resolved": {
+        "light": "#BFDBFE",
+        "dark": "#BFDBFE"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.blue.300",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#93C5FD",
+      "format": "hex",
+      "resolved": {
+        "light": "#93C5FD",
+        "dark": "#93C5FD"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.blue.400",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#60A5FA",
+      "format": "hex",
+      "resolved": {
+        "light": "#60A5FA",
+        "dark": "#60A5FA"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.blue.50",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#EFF6FF",
+      "format": "hex",
+      "resolved": {
+        "light": "#EFF6FF",
+        "dark": "#EFF6FF"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.blue.500",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#3B82F6",
+      "format": "hex",
+      "resolved": {
+        "light": "#3B82F6",
+        "dark": "#3B82F6"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.blue.600",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#2563EB",
+      "format": "hex",
+      "resolved": {
+        "light": "#2563EB",
+        "dark": "#2563EB"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.blue.700",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#1D4ED8",
+      "format": "hex",
+      "resolved": {
+        "light": "#1D4ED8",
+        "dark": "#1D4ED8"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.blue.800",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#1E40AF",
+      "format": "hex",
+      "resolved": {
+        "light": "#1E40AF",
+        "dark": "#1E40AF"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.blue.900",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#1E3A8A",
+      "format": "hex",
+      "resolved": {
+        "light": "#1E3A8A",
+        "dark": "#1E3A8A"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.blue.950",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#172554",
+      "format": "hex",
+      "resolved": {
+        "light": "#172554",
+        "dark": "#172554"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.border",
+      "origin": "design-file",
+      "kind": "semantic",
+      "value": {
+        "light": "{colors.grey.200}",
+        "dark": "{colors.grey.600}"
+      },
+      "format": {
+        "light": "reference",
+        "dark": "reference"
+      },
+      "resolved": {
+        "light": "#D4D4D4",
+        "dark": "#404040"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.border-subtle",
+      "origin": "app-level",
+      "kind": "semantic",
+      "value": {
+        "light": "{colors.grey.100}",
+        "dark": "{colors.grey.800}"
+      },
+      "format": {
+        "light": "reference",
+        "dark": "reference"
+      },
+      "resolved": {
+        "light": "#E5E5E5",
+        "dark": "#262626"
+      },
+      "action": "publish-as",
+      "publishedAs": "colors.border.subtle",
+      "note": "Same meaning as the library role `border.subtle`. Was grey.200 / grey.700 in the library."
+    },
+    {
+      "path": "colors.brand.100",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#FFD9CE",
+      "format": "hex",
+      "resolved": {
+        "light": "#FFD9CE",
+        "dark": "#FFD9CE"
+      },
+      "action": "replace",
+      "note": "New brand ramp. Replaces the library shade."
+    },
+    {
+      "path": "colors.brand.200",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#FFBAAA",
+      "format": "hex",
+      "resolved": {
+        "light": "#FFBAAA",
+        "dark": "#FFBAAA"
+      },
+      "action": "replace",
+      "note": "New brand ramp. Replaces the library shade."
+    },
+    {
+      "path": "colors.brand.300",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#FD9B85",
+      "format": "hex",
+      "resolved": {
+        "light": "#FD9B85",
+        "dark": "#FD9B85"
+      },
+      "action": "replace",
+      "note": "New brand ramp. Replaces the library shade."
+    },
+    {
+      "path": "colors.brand.400",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#f87960",
+      "format": "hex",
+      "resolved": {
+        "light": "#f87960",
+        "dark": "#f87960"
+      },
+      "action": "replace",
+      "note": "New brand ramp. Replaces the library shade."
+    },
+    {
+      "path": "colors.brand.50",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#FDF1EB",
+      "format": "hex",
+      "resolved": {
+        "light": "#FDF1EB",
+        "dark": "#FDF1EB"
+      },
+      "action": "replace",
+      "note": "New brand ramp. Replaces the library shade."
+    },
+    {
+      "path": "colors.brand.500",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#E75F45",
+      "format": "hex",
+      "resolved": {
+        "light": "#E75F45",
+        "dark": "#E75F45"
+      },
+      "action": "add"
+    },
+    {
+      "path": "colors.brand.600",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#C6543F",
+      "format": "hex",
+      "resolved": {
+        "light": "#C6543F",
+        "dark": "#C6543F"
+      },
+      "action": "replace",
+      "note": "New brand ramp. Replaces the library shade."
+    },
+    {
+      "path": "colors.brand.700",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#A44C3B",
+      "format": "hex",
+      "resolved": {
+        "light": "#A44C3B",
+        "dark": "#A44C3B"
+      },
+      "action": "add"
+    },
+    {
+      "path": "colors.brand.800",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#834235",
+      "format": "hex",
+      "resolved": {
+        "light": "#834235",
+        "dark": "#834235"
+      },
+      "action": "add"
+    },
+    {
+      "path": "colors.brand.900",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#66382E",
+      "format": "hex",
+      "resolved": {
+        "light": "#66382E",
+        "dark": "#66382E"
+      },
+      "action": "add"
+    },
+    {
+      "path": "colors.green.100",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#DCFCE7",
+      "format": "hex",
+      "resolved": {
+        "light": "#DCFCE7",
+        "dark": "#DCFCE7"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.green.200",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#BBF7D0",
+      "format": "hex",
+      "resolved": {
+        "light": "#BBF7D0",
+        "dark": "#BBF7D0"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.green.300",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#86EFAC",
+      "format": "hex",
+      "resolved": {
+        "light": "#86EFAC",
+        "dark": "#86EFAC"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.green.400",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#4ADE80",
+      "format": "hex",
+      "resolved": {
+        "light": "#4ADE80",
+        "dark": "#4ADE80"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.green.50",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#F0FDF4",
+      "format": "hex",
+      "resolved": {
+        "light": "#F0FDF4",
+        "dark": "#F0FDF4"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.green.500",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#22C55E",
+      "format": "hex",
+      "resolved": {
+        "light": "#22C55E",
+        "dark": "#22C55E"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.green.600",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#16A34A",
+      "format": "hex",
+      "resolved": {
+        "light": "#16A34A",
+        "dark": "#16A34A"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.green.700",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#15803D",
+      "format": "hex",
+      "resolved": {
+        "light": "#15803D",
+        "dark": "#15803D"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.green.800",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#166534",
+      "format": "hex",
+      "resolved": {
+        "light": "#166534",
+        "dark": "#166534"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.green.900",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#14532D",
+      "format": "hex",
+      "resolved": {
+        "light": "#14532D",
+        "dark": "#14532D"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.green.950",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#052E16",
+      "format": "hex",
+      "resolved": {
+        "light": "#052E16",
+        "dark": "#052E16"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.grey.100",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#E5E5E5",
+      "format": "hex",
+      "resolved": {
+        "light": "#E5E5E5",
+        "dark": "#E5E5E5"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.grey.200",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#D4D4D4",
+      "format": "hex",
+      "resolved": {
+        "light": "#D4D4D4",
+        "dark": "#D4D4D4"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.grey.300",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#A3A3A3",
+      "format": "hex",
+      "resolved": {
+        "light": "#A3A3A3",
+        "dark": "#A3A3A3"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.grey.400",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#737373",
+      "format": "hex",
+      "resolved": {
+        "light": "#737373",
+        "dark": "#737373"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.grey.50",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#FAFAFA",
+      "format": "hex",
+      "resolved": {
+        "light": "#FAFAFA",
+        "dark": "#FAFAFA"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.grey.500",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#525252",
+      "format": "hex",
+      "resolved": {
+        "light": "#525252",
+        "dark": "#525252"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.grey.600",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#404040",
+      "format": "hex",
+      "resolved": {
+        "light": "#404040",
+        "dark": "#404040"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.grey.700",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#333333",
+      "format": "hex",
+      "resolved": {
+        "light": "#333333",
+        "dark": "#333333"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.grey.800",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#262626",
+      "format": "hex",
+      "resolved": {
+        "light": "#262626",
+        "dark": "#262626"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.grey.900",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#1D1D1D",
+      "format": "hex",
+      "resolved": {
+        "light": "#1D1D1D",
+        "dark": "#1D1D1D"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.grey.950",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#171717",
+      "format": "hex",
+      "resolved": {
+        "light": "#171717",
+        "dark": "#171717"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.input-bg",
+      "origin": "design-file",
+      "kind": "semantic",
+      "value": "{colors.surface}",
+      "format": "reference",
+      "resolved": {
+        "light": "#FFFFFF",
+        "dark": "#171717"
+      },
+      "action": "add"
+    },
+    {
+      "path": "colors.input-border",
+      "origin": "design-file",
+      "kind": "semantic",
+      "value": "{colors.border}",
+      "format": "reference",
+      "resolved": {
+        "light": "#D4D4D4",
+        "dark": "#404040"
+      },
+      "action": "add"
+    },
+    {
+      "path": "colors.input-color",
+      "origin": "design-file",
+      "kind": "semantic",
+      "value": "{colors.grey.400}",
+      "format": "reference",
+      "resolved": {
+        "light": "#737373",
+        "dark": "#737373"
+      },
+      "action": "add"
+    },
+    {
+      "path": "colors.input-disabled-bg",
+      "origin": "design-file",
+      "kind": "semantic",
+      "value": {
+        "light": "{colors.grey.50}",
+        "dark": "{colors.grey.800}"
+      },
+      "format": {
+        "light": "reference",
+        "dark": "reference"
+      },
+      "resolved": {
+        "light": "#FAFAFA",
+        "dark": "#262626"
+      },
+      "action": "add"
+    },
+    {
+      "path": "colors.muted",
+      "origin": "app-level",
+      "kind": "semantic",
+      "value": {
+        "light": "{colors.neutral-light}",
+        "dark": "{colors.grey.300}"
+      },
+      "format": {
+        "light": "reference",
+        "dark": "reference"
+      },
+      "resolved": {
+        "light": "#737373",
+        "dark": "#A3A3A3"
+      },
+      "action": "add",
+      "note": "Points at the flat `neutral-light`. Published pointing at `neutral.light`."
+    },
+    {
+      "path": "colors.neutral",
+      "origin": "design-file",
+      "kind": "semantic",
+      "value": {
+        "light": "{colors.grey.800}",
+        "dark": "{colors.white}"
+      },
+      "format": {
+        "light": "reference",
+        "dark": "reference"
+      },
+      "resolved": {
+        "light": "#262626",
+        "dark": "#FFFFFF"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.neutral-light",
+      "origin": "design-file",
+      "kind": "semantic",
+      "value": "{colors.grey.400}",
+      "format": "reference",
+      "resolved": {
+        "light": "#737373",
+        "dark": "#737373"
+      },
+      "action": "publish-as",
+      "publishedAs": "colors.neutral.light",
+      "note": "Same meaning as the library role `neutral.light`. Dark was grey.300 in the library."
+    },
+    {
+      "path": "colors.primary",
+      "origin": "design-file",
+      "kind": "semantic",
+      "value": "{colors.brand.400}",
+      "format": "reference",
+      "resolved": {
+        "light": "#f87960",
+        "dark": "#f87960"
+      },
+      "action": "replace",
+      "note": "Same color in both modes. The library value changed per mode."
+    },
+    {
+      "path": "colors.primary-pale",
+      "origin": "design-file",
+      "kind": "semantic",
+      "value": "{colors.brand.50}",
+      "format": "reference",
+      "resolved": {
+        "light": "#FDF1EB",
+        "dark": "#FDF1EB"
+      },
+      "action": "add"
+    },
+    {
+      "path": "colors.red.100",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#FEE2E2",
+      "format": "hex",
+      "resolved": {
+        "light": "#FEE2E2",
+        "dark": "#FEE2E2"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.red.200",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#FECACA",
+      "format": "hex",
+      "resolved": {
+        "light": "#FECACA",
+        "dark": "#FECACA"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.red.300",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#FCA5A5",
+      "format": "hex",
+      "resolved": {
+        "light": "#FCA5A5",
+        "dark": "#FCA5A5"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.red.400",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#F87171",
+      "format": "hex",
+      "resolved": {
+        "light": "#F87171",
+        "dark": "#F87171"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.red.50",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#FEF2F2",
+      "format": "hex",
+      "resolved": {
+        "light": "#FEF2F2",
+        "dark": "#FEF2F2"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.red.500",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#EF4444",
+      "format": "hex",
+      "resolved": {
+        "light": "#EF4444",
+        "dark": "#EF4444"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.red.600",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#DC2626",
+      "format": "hex",
+      "resolved": {
+        "light": "#DC2626",
+        "dark": "#DC2626"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.red.700",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#B91C1C",
+      "format": "hex",
+      "resolved": {
+        "light": "#B91C1C",
+        "dark": "#B91C1C"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.red.800",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#991B1B",
+      "format": "hex",
+      "resolved": {
+        "light": "#991B1B",
+        "dark": "#991B1B"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.red.900",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#7F1D1D",
+      "format": "hex",
+      "resolved": {
+        "light": "#7F1D1D",
+        "dark": "#7F1D1D"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.red.950",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#450A0A",
+      "format": "hex",
+      "resolved": {
+        "light": "#450A0A",
+        "dark": "#450A0A"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.surface",
+      "origin": "design-file",
+      "kind": "semantic",
+      "value": {
+        "light": "{colors.white}",
+        "dark": "{colors.grey.950}"
+      },
+      "format": {
+        "light": "reference",
+        "dark": "reference"
+      },
+      "resolved": {
+        "light": "#FFFFFF",
+        "dark": "#171717"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.surface-muted",
+      "origin": "app-level",
+      "kind": "semantic",
+      "value": {
+        "light": "{colors.grey.50}",
+        "dark": "{colors.grey.900}"
+      },
+      "format": {
+        "light": "reference",
+        "dark": "reference"
+      },
+      "resolved": {
+        "light": "#FAFAFA",
+        "dark": "#1D1D1D"
+      },
+      "action": "add"
+    },
+    {
+      "path": "colors.surface-raised",
+      "origin": "app-level",
+      "kind": "semantic",
+      "value": {
+        "light": "{colors.white}",
+        "dark": "{colors.grey.900}"
+      },
+      "format": {
+        "light": "reference",
+        "dark": "reference"
+      },
+      "resolved": {
+        "light": "#FFFFFF",
+        "dark": "#1D1D1D"
+      },
+      "action": "publish-as",
+      "publishedAs": "colors.surface.raised",
+      "note": "Same meaning as the library role `surface.raised`. Dark was grey.800 in the library."
+    },
+    {
+      "path": "colors.transparent",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#00000000",
+      "format": "hex-alpha",
+      "resolved": {
+        "light": "#00000000",
+        "dark": "#00000000"
+      },
+      "action": "replace",
+      "note": "Written as an 8-digit hex. Replaces the library value `transparent`."
+    },
+    {
+      "path": "colors.white",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#FFFFFF",
+      "format": "hex",
+      "resolved": {
+        "light": "#FFFFFF",
+        "dark": "#FFFFFF"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.yellow.100",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#FEF3C7",
+      "format": "hex",
+      "resolved": {
+        "light": "#FEF3C7",
+        "dark": "#FEF3C7"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.yellow.200",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#FDE68A",
+      "format": "hex",
+      "resolved": {
+        "light": "#FDE68A",
+        "dark": "#FDE68A"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.yellow.300",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#FCD34D",
+      "format": "hex",
+      "resolved": {
+        "light": "#FCD34D",
+        "dark": "#FCD34D"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.yellow.400",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#FBBF24",
+      "format": "hex",
+      "resolved": {
+        "light": "#FBBF24",
+        "dark": "#FBBF24"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.yellow.50",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#FFFBEB",
+      "format": "hex",
+      "resolved": {
+        "light": "#FFFBEB",
+        "dark": "#FFFBEB"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.yellow.500",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#F59E0B",
+      "format": "hex",
+      "resolved": {
+        "light": "#F59E0B",
+        "dark": "#F59E0B"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.yellow.600",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#D97706",
+      "format": "hex",
+      "resolved": {
+        "light": "#D97706",
+        "dark": "#D97706"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.yellow.700",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#B45309",
+      "format": "hex",
+      "resolved": {
+        "light": "#B45309",
+        "dark": "#B45309"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.yellow.800",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#92400E",
+      "format": "hex",
+      "resolved": {
+        "light": "#92400E",
+        "dark": "#92400E"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.yellow.900",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#78350F",
+      "format": "hex",
+      "resolved": {
+        "light": "#78350F",
+        "dark": "#78350F"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "colors.yellow.950",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "#451A03",
+      "format": "hex",
+      "resolved": {
+        "light": "#451A03",
+        "dark": "#451A03"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "durations.fast",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "150ms",
+      "format": "duration",
+      "resolved": {
+        "light": "150ms",
+        "dark": "150ms"
+      },
+      "action": "add"
+    },
+    {
+      "path": "durations.normal",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "300ms",
+      "format": "duration",
+      "resolved": {
+        "light": "300ms",
+        "dark": "300ms"
+      },
+      "action": "add"
+    },
+    {
+      "path": "durations.slow",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "600ms",
+      "format": "duration",
+      "resolved": {
+        "light": "600ms",
+        "dark": "600ms"
+      },
+      "action": "add"
+    },
+    {
+      "path": "easings.default",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "format": "cubic-bezier",
+      "resolved": {
+        "light": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "dark": "cubic-bezier(0.4, 0, 0.2, 1)"
+      },
+      "action": "add"
+    },
+    {
+      "path": "easings.out",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "format": "cubic-bezier",
+      "resolved": {
+        "light": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "dark": "cubic-bezier(0.16, 1, 0.3, 1)"
+      },
+      "action": "add"
+    },
+    {
+      "path": "fontSizes.2xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "2rem",
+      "format": "rem",
+      "resolved": {
+        "light": "2rem",
+        "dark": "2rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "fontSizes.3xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "2.5rem",
+      "format": "rem",
+      "resolved": {
+        "light": "2.5rem",
+        "dark": "2.5rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "fontSizes.4xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "3rem",
+      "format": "rem",
+      "resolved": {
+        "light": "3rem",
+        "dark": "3rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "fontSizes.5xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "4rem",
+      "format": "rem",
+      "resolved": {
+        "light": "4rem",
+        "dark": "4rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "fontSizes.lg",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "1.25rem",
+      "format": "rem",
+      "resolved": {
+        "light": "1.25rem",
+        "dark": "1.25rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "fontSizes.md",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "1rem",
+      "format": "rem",
+      "resolved": {
+        "light": "1rem",
+        "dark": "1rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "fontSizes.sm",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "0.875rem",
+      "format": "rem",
+      "resolved": {
+        "light": "0.875rem",
+        "dark": "0.875rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "fontSizes.xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "1.5rem",
+      "format": "rem",
+      "resolved": {
+        "light": "1.5rem",
+        "dark": "1.5rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "fontSizes.xs",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "0.75rem",
+      "format": "rem",
+      "resolved": {
+        "light": "0.75rem",
+        "dark": "0.75rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "fontWeights.bold",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "700",
+      "format": "number",
+      "resolved": {
+        "light": "700",
+        "dark": "700"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "fontWeights.extrabold",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "800",
+      "format": "number",
+      "resolved": {
+        "light": "800",
+        "dark": "800"
+      },
+      "action": "add"
+    },
+    {
+      "path": "fontWeights.medium",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "500",
+      "format": "number",
+      "resolved": {
+        "light": "500",
+        "dark": "500"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "fontWeights.regular",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "400",
+      "format": "number",
+      "resolved": {
+        "light": "400",
+        "dark": "400"
+      },
+      "action": "add",
+      "note": "Same value as the existing library `normal`. Both are kept."
+    },
+    {
+      "path": "fontWeights.semibold",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "600",
+      "format": "number",
+      "resolved": {
+        "light": "600",
+        "dark": "600"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "fonts.body",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "Figtree, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif",
+      "format": "string",
+      "resolved": {
+        "light": "Figtree, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif",
+        "dark": "Figtree, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif"
+      },
+      "action": "keep-library",
+      "note": "The library keeps `fonts.body` as a semantic alias of `fonts.sans` (Figtree stack)."
+    },
+    {
+      "path": "letterSpacings.normal",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "0",
+      "format": "number",
+      "resolved": {
+        "light": "0",
+        "dark": "0"
+      },
+      "action": "add"
+    },
+    {
+      "path": "letterSpacings.tight",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "-0.02em",
+      "format": "em",
+      "resolved": {
+        "light": "-0.02em",
+        "dark": "-0.02em"
+      },
+      "action": "add"
+    },
+    {
+      "path": "letterSpacings.tighter",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "-0.035em",
+      "format": "em",
+      "resolved": {
+        "light": "-0.035em",
+        "dark": "-0.035em"
+      },
+      "action": "add"
+    },
+    {
+      "path": "letterSpacings.wide",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "0.08em",
+      "format": "em",
+      "resolved": {
+        "light": "0.08em",
+        "dark": "0.08em"
+      },
+      "action": "add"
+    },
+    {
+      "path": "lineHeights.heading",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "1.08",
+      "format": "number",
+      "resolved": {
+        "light": "1.08",
+        "dark": "1.08"
+      },
+      "action": "add"
+    },
+    {
+      "path": "lineHeights.none",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "1",
+      "format": "number",
+      "resolved": {
+        "light": "1",
+        "dark": "1"
+      },
+      "action": "add"
+    },
+    {
+      "path": "lineHeights.normal",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "1.5",
+      "format": "number",
+      "resolved": {
+        "light": "1.5",
+        "dark": "1.5"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "lineHeights.relaxed",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "1.65",
+      "format": "number",
+      "resolved": {
+        "light": "1.65",
+        "dark": "1.65"
+      },
+      "action": "add"
+    },
+    {
+      "path": "lineHeights.tight",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "1.25",
+      "format": "number",
+      "resolved": {
+        "light": "1.25",
+        "dark": "1.25"
+      },
+      "action": "add"
+    },
+    {
+      "path": "radii.2xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "20px",
+      "format": "px",
+      "resolved": {
+        "light": "20px",
+        "dark": "20px"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "radii.3xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "24px",
+      "format": "px",
+      "resolved": {
+        "light": "24px",
+        "dark": "24px"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "radii.4xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "32px",
+      "format": "px",
+      "resolved": {
+        "light": "32px",
+        "dark": "32px"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "radii.5xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "40px",
+      "format": "px",
+      "resolved": {
+        "light": "40px",
+        "dark": "40px"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "radii.lg",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "10px",
+      "format": "px",
+      "resolved": {
+        "light": "10px",
+        "dark": "10px"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "radii.md",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "6px",
+      "format": "px",
+      "resolved": {
+        "light": "6px",
+        "dark": "6px"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "radii.pill",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "99rem",
+      "format": "rem",
+      "resolved": {
+        "light": "99rem",
+        "dark": "99rem"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "radii.sm",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "4px",
+      "format": "px",
+      "resolved": {
+        "light": "4px",
+        "dark": "4px"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "radii.xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "16px",
+      "format": "px",
+      "resolved": {
+        "light": "16px",
+        "dark": "16px"
+      },
+      "action": "keep"
+    },
+    {
+      "path": "shadows.card",
+      "origin": "app-level",
+      "kind": "semantic",
+      "value": {
+        "light": "0 1px 2px rgb(23 23 23 / 0.04), 0 12px 32px -12px rgb(23 23 23 / 0.12)",
+        "dark": "0 1px 2px rgb(0 0 0 / 0.4), 0 12px 32px -12px rgb(0 0 0 / 0.6)"
+      },
+      "format": {
+        "light": "box-shadow",
+        "dark": "box-shadow"
+      },
+      "resolved": {
+        "light": "0 1px 2px rgb(23 23 23 / 0.04), 0 12px 32px -12px rgb(23 23 23 / 0.12)",
+        "dark": "0 1px 2px rgb(0 0 0 / 0.4), 0 12px 32px -12px rgb(0 0 0 / 0.6)"
+      },
+      "action": "add",
+      "note": "Raw `rgb()` values. Changes per mode."
+    },
+    {
+      "path": "shadows.float",
+      "origin": "app-level",
+      "kind": "semantic",
+      "value": {
+        "light": "0 2px 4px rgb(23 23 23 / 0.04), 0 32px 64px -24px rgb(23 23 23 / 0.22)",
+        "dark": "0 2px 4px rgb(0 0 0 / 0.5), 0 32px 64px -24px rgb(0 0 0 / 0.8)"
+      },
+      "format": {
+        "light": "box-shadow",
+        "dark": "box-shadow"
+      },
+      "resolved": {
+        "light": "0 2px 4px rgb(23 23 23 / 0.04), 0 32px 64px -24px rgb(23 23 23 / 0.22)",
+        "dark": "0 2px 4px rgb(0 0 0 / 0.5), 0 32px 64px -24px rgb(0 0 0 / 0.8)"
+      },
+      "action": "add",
+      "note": "Raw `rgb()` values. Changes per mode."
+    },
+    {
+      "path": "shadows.focus",
+      "origin": "app-level",
+      "kind": "semantic",
+      "value": "0 0 0 4px color-mix(in srgb, {colors.primary} 30%, transparent)",
+      "format": "box-shadow",
+      "resolved": {
+        "light": "0 0 0 4px color-mix(in srgb, #f87960 30%, transparent)",
+        "dark": "0 0 0 4px color-mix(in srgb, #f87960 30%, transparent)"
+      },
+      "action": "add",
+      "note": "Raw `color-mix()` over a color token."
+    },
+    {
+      "path": "shadows.focus-danger",
+      "origin": "app-level",
+      "kind": "semantic",
+      "value": "0 0 0 4px color-mix(in srgb, {colors.red.600} 30%, transparent)",
+      "format": "box-shadow",
+      "resolved": {
+        "light": "0 0 0 4px color-mix(in srgb, #DC2626 30%, transparent)",
+        "dark": "0 0 0 4px color-mix(in srgb, #DC2626 30%, transparent)"
+      },
+      "action": "add",
+      "note": "Raw `color-mix()` over a color token."
+    },
+    {
+      "path": "shadows.focus-success",
+      "origin": "app-level",
+      "kind": "semantic",
+      "value": "0 0 0 4px color-mix(in srgb, {colors.green.600} 30%, transparent)",
+      "format": "box-shadow",
+      "resolved": {
+        "light": "0 0 0 4px color-mix(in srgb, #16A34A 30%, transparent)",
+        "dark": "0 0 0 4px color-mix(in srgb, #16A34A 30%, transparent)"
+      },
+      "action": "add",
+      "note": "Raw `color-mix()` over a color token."
+    },
+    {
+      "path": "sizes.container",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "1200px",
+      "format": "px",
+      "resolved": {
+        "light": "1200px",
+        "dark": "1200px"
+      },
+      "action": "add",
+      "note": "The library also has a `container` pattern and a `containers` scale. Different namespaces."
+    },
+    {
+      "path": "sizes.prose",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "44rem",
+      "format": "rem",
+      "resolved": {
+        "light": "44rem",
+        "dark": "44rem"
+      },
+      "action": "add"
+    },
+    {
+      "path": "spacing.10xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "8rem",
+      "format": "rem",
+      "resolved": {
+        "light": "8rem",
+        "dark": "8rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.11xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "9rem",
+      "format": "rem",
+      "resolved": {
+        "light": "9rem",
+        "dark": "9rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.12xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "10rem",
+      "format": "rem",
+      "resolved": {
+        "light": "10rem",
+        "dark": "10rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.2xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "2rem",
+      "format": "rem",
+      "resolved": {
+        "light": "2rem",
+        "dark": "2rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.2xs",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "0.25rem",
+      "format": "rem",
+      "resolved": {
+        "light": "0.25rem",
+        "dark": "0.25rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.3xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "2.5rem",
+      "format": "rem",
+      "resolved": {
+        "light": "2.5rem",
+        "dark": "2.5rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.3xs",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "0.125rem",
+      "format": "rem",
+      "resolved": {
+        "light": "0.125rem",
+        "dark": "0.125rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.4xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "3rem",
+      "format": "rem",
+      "resolved": {
+        "light": "3rem",
+        "dark": "3rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.5xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "3.5rem",
+      "format": "rem",
+      "resolved": {
+        "light": "3.5rem",
+        "dark": "3.5rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.6xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "4rem",
+      "format": "rem",
+      "resolved": {
+        "light": "4rem",
+        "dark": "4rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.7xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "4.5rem",
+      "format": "rem",
+      "resolved": {
+        "light": "4.5rem",
+        "dark": "4.5rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.8xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "5rem",
+      "format": "rem",
+      "resolved": {
+        "light": "5rem",
+        "dark": "5rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.9xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "6rem",
+      "format": "rem",
+      "resolved": {
+        "light": "6rem",
+        "dark": "6rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.lg",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "1.25rem",
+      "format": "rem",
+      "resolved": {
+        "light": "1.25rem",
+        "dark": "1.25rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.md",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "1rem",
+      "format": "rem",
+      "resolved": {
+        "light": "1rem",
+        "dark": "1rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.sm",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "0.75rem",
+      "format": "rem",
+      "resolved": {
+        "light": "0.75rem",
+        "dark": "0.75rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.xl",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "1.5rem",
+      "format": "rem",
+      "resolved": {
+        "light": "1.5rem",
+        "dark": "1.5rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "spacing.xs",
+      "origin": "design-file",
+      "kind": "token",
+      "value": "0.5rem",
+      "format": "rem",
+      "resolved": {
+        "light": "0.5rem",
+        "dark": "0.5rem"
+      },
+      "action": "keep-library",
+      "note": "Same size. The micropage writes rem, the library writes px. The library value is kept."
+    },
+    {
+      "path": "zIndex.header",
+      "origin": "app-level",
+      "kind": "token",
+      "value": "50",
+      "format": "number",
+      "resolved": {
+        "light": "50",
+        "dark": "50"
+      },
+      "action": "skip",
+      "note": "Not added (decision in the rebrand plan)."
+    }
+  ]
+}

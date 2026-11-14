@@ -29,7 +29,7 @@ export const progressStyles = sva({
     value: {
       fontWeight: '600',
       lineHeight: '1.2',
-      color: 'grey.dawn',
+      color: 'text.muted',
     },
   },
   variants: {

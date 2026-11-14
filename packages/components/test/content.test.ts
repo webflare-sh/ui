@@ -10,7 +10,7 @@ import TabRoot from '../src/components/Tab/TabRoot.vue'
 const markup = 'Hello <em>world</em>'
 
 /**
- * Content props render as HTML (as in 0.4.x). Sanitizing untrusted strings is
+ * Content props render as HTML. Sanitizing untrusted strings is
  * the consuming app's job.
  */
 describe('HTML content', () => {

@@ -5,20 +5,20 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Basic PricingCard
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Default pricing card with data provided through the Root component.
       </p>
 
-      <FyrstPricingCardRoot
+      <WfPricingCardRoot
         title="Starter"
         subtitle="For new Onlineshops"
         price="$999"
         :features="features"
       >
-        <FyrstPricingCardHeader />
-        <FyrstPricingCardPricing />
-        <FyrstPricingCardBody />
-      </FyrstPricingCardRoot>
+        <WfPricingCardHeader />
+        <WfPricingCardPricing />
+        <WfPricingCardBody />
+      </WfPricingCardRoot>
     </div>
 
     <!-- Highlighted PricingCard -->
@@ -26,22 +26,22 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Highlighted PricingCard
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Highlighted pricing card using the primary brand token for the border.
       </p>
 
-      <FyrstPricingCardRoot
+      <WfPricingCardRoot
         title="Starter"
         subtitle="For new Onlineshops"
         price="$999"
         :features="features"
         highlight
       >
-        <FyrstPricingCardBadge label="Featured" />
-        <FyrstPricingCardHeader />
-        <FyrstPricingCardPricing />
-        <FyrstPricingCardBody />
-      </FyrstPricingCardRoot>
+        <WfPricingCardBadge label="Featured" />
+        <WfPricingCardHeader />
+        <WfPricingCardPricing />
+        <WfPricingCardBody />
+      </WfPricingCardRoot>
     </div>
 
     <!-- PricingCard with prop override -->
@@ -49,20 +49,20 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         PricingCard with prop override
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Child component props take precedence over injected data.
       </p>
 
-      <FyrstPricingCardRoot
+      <WfPricingCardRoot
         title="Starter"
         subtitle="For new Onlineshops"
         price="$999"
         :features="features"
       >
-        <FyrstPricingCardHeader />
-        <FyrstPricingCardPricing price="$899" />
-        <FyrstPricingCardBody />
-      </FyrstPricingCardRoot>
+        <WfPricingCardHeader />
+        <WfPricingCardPricing price="$899" />
+        <WfPricingCardBody />
+      </WfPricingCardRoot>
     </div>
 
     <!-- PricingCard with per-component css map overrides -->
@@ -70,22 +70,22 @@
       <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
         Per-component css map overrides
       </h2>
-      <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+      <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
         Each component accepts a <code>css</code> prop keyed by slot name. The outermost element is always <code>root</code>. Wrap each value in <code>css.raw()</code> so Panda generates the CSS.
       </p>
 
-      <FyrstPricingCardRoot
+      <WfPricingCardRoot
         title="Pro"
         subtitle="For growing shops"
         price="$1,499"
         :features="features"
         :css="{ root: css.raw({ maxWidth: '420px', borderRadius: 'lg', boxShadow: '0 10px 30px {colors.grey.900}' }) }"
       >
-        <FyrstPricingCardBadge label="Best Value" :css="{ root: css.raw({ bg: 'success', fontSize: 'xs', paddingInline: 'lg' }) }" />
-        <FyrstPricingCardHeader :css="{ root: css.raw({ padding: 'xl' }), headerPackage: css.raw({ gap: 'xs' }), title: css.raw({ fontSize: '2xl' }) }" />
-        <FyrstPricingCardPricing :css="{ root: css.raw({ paddingInline: 'xl', marginBottom: 'md' }), price: css.raw({ color: 'primary', fontSize: '3xl' }) }" />
-        <FyrstPricingCardBody :css="{ root: css.raw({ paddingBlock: 'xl', paddingInline: 'xl' }), feature: css.raw({ fontSize: 'sm' }), featureIcon: css.raw({ color: 'success' }) }" />
-      </FyrstPricingCardRoot>
+        <WfPricingCardBadge label="Best Value" :css="{ root: css.raw({ bg: 'success', fontSize: 'xs', paddingInline: 'lg' }) }" />
+        <WfPricingCardHeader :css="{ root: css.raw({ padding: 'xl' }), headerPackage: css.raw({ gap: 'xs' }), title: css.raw({ fontSize: '2xl' }) }" />
+        <WfPricingCardPricing :css="{ root: css.raw({ paddingInline: 'xl', marginBottom: 'md' }), price: css.raw({ color: 'primary', fontSize: '3xl' }) }" />
+        <WfPricingCardBody :css="{ root: css.raw({ paddingBlock: 'xl', paddingInline: 'xl' }), feature: css.raw({ fontSize: 'sm' }), featureIcon: css.raw({ color: 'success' }) }" />
+      </WfPricingCardRoot>
     </div>
   </ShowcaseContainer>
 </template>

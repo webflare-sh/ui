@@ -18,10 +18,7 @@ export const heroLeadStyles = sva({
       },
     },
     description: {
-      'color': {
-        base: 'grey.dawn',
-        _light: 'grey.400',
-      },
+      'color': 'text.muted',
       'textWrap': 'balance',
       'transition': 'all 200ms',
       '& mark, & strong, & a': {

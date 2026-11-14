@@ -5,11 +5,11 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Basic Loader
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Default loader with default size (40px) and label.
             </p>
             
-            <FyrstLoader />
+            <WfLoader />
         </div>
 
         <!-- Loader Sizes -->
@@ -17,49 +17,49 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Loader Sizes
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Loaders can be customized to any size using the size prop (in pixels).
             </p>
             
             <div :class="css({ display: 'flex', gap: 'xl', alignItems: 'center', flexWrap: 'wrap' })">
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="24" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <WfLoader :size="24" />
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         24px
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="32" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <WfLoader :size="32" />
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         32px
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="40" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <WfLoader :size="40" />
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         40px (default)
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="56" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <WfLoader :size="56" />
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         56px
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="80" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <WfLoader :size="80" />
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         80px
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="120" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <WfLoader :size="120" />
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         120px
                     </span>
                 </div>
@@ -71,28 +71,28 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Custom Label
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Customize the aria-label for accessibility using the label prop.
             </p>
             
             <div :class="css({ display: 'flex', gap: 'xl', alignItems: 'center', flexWrap: 'wrap' })">
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader label="Processing..." />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <WfLoader label="Processing..." />
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         Processing...
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader label="Uploading files" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <WfLoader label="Uploading files" />
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         Uploading files
                     </span>
                 </div>
                 
                 <div :class="css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader label="Please wait" />
-                    <span :class="css({ fontSize: 'xs', color: 'grey.300', _light: { color: 'grey.700' } })">
+                    <WfLoader label="Please wait" />
+                    <span :class="css({ fontSize: 'xs', color: 'text.muted' })">
                         Please wait
                     </span>
                 </div>
@@ -104,12 +104,12 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Loader in Card
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Loader used in a card layout to indicate loading state.
             </p>
             
-            <FyrstCardRoot>
-                <FyrstCardBody>
+            <WfCardRoot>
+                <WfCardBody>
                     <div :class="css({ 
                         display: 'flex', 
                         flexDirection: 'column', 
@@ -119,13 +119,13 @@
                         padding: 'xl',
                         minHeight: '200px'
                     })">
-                        <FyrstLoader :size="60" label="Loading content" />
-                        <p :class="css({ fontSize: 'md', color: 'grey.300', _light: { color: 'grey.700' } })">
+                        <WfLoader :size="60" label="Loading content" />
+                        <p :class="css({ fontSize: 'md', color: 'text.muted' })">
                             Loading content...
                         </p>
                     </div>
-                </FyrstCardBody>
-            </FyrstCardRoot>
+                </WfCardBody>
+            </WfCardRoot>
         </div>
 
         <!-- Centered Loader -->
@@ -133,7 +133,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Centered Full-Width
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Loader centered in a full-width container for page loading states.
             </p>
             
@@ -142,11 +142,10 @@
                 justifyContent: 'center', 
                 alignItems: 'center',
                 minHeight: '300px',
-                bg: 'lucid.50',
-                _light: { bg: 'lucid.100' },
+                bg: { base: 'black/17.5', _dark: 'white/10', _osDark: 'white/10' },
                 borderRadius: 'xl'
             })">
-                <FyrstLoader :size="80" label="Loading page" />
+                <WfLoader :size="80" label="Loading page" />
             </div>
         </div>
 
@@ -155,23 +154,23 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Inline with Text
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Small loaders can be used inline with text.
             </p>
             
             <div :class="css({ display: 'flex', flexDirection: 'column', gap: 'md' })">
                 <div :class="css({ display: 'flex', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="16" />
+                    <WfLoader :size="16" />
                     <span :class="css({ fontSize: 'sm' })">Processing your request...</span>
                 </div>
                 
                 <div :class="css({ display: 'flex', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="20" />
+                    <WfLoader :size="20" />
                     <span :class="css({ fontSize: 'md' })">Saving changes...</span>
                 </div>
                 
                 <div :class="css({ display: 'flex', alignItems: 'center', gap: 'sm' })">
-                    <FyrstLoader :size="24" />
+                    <WfLoader :size="24" />
                     <span :class="css({ fontSize: 'lg' })">Loading data...</span>
                 </div>
             </div>
@@ -182,7 +181,7 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Loading Button States
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Simulated loading states in button layouts.
             </p>
             
@@ -201,8 +200,7 @@
                                 gap: 'sm',
                                 padding: 'xs lg',
                                 bg: 'primary',
-                                color: 'grey.night',
-                                _light: { color: 'white' },
+                                color: 'grey.800',
                                 borderRadius: 'lg',
                                 border: '1px solid',
                                 borderColor: 'primary',
@@ -213,11 +211,11 @@
                             })"
                             disabled
                         >
-                            <FyrstLoader :size="16" />
+                            <WfLoader :size="16" />
                             <span>Loading...</span>
                         </button>
                         
-                        <FyrstButton label="Not Loading" color="secondary" size="sm" />
+                        <WfButton label="Not Loading" color="secondary" size="sm" />
                     </div>
                 </div>
 
@@ -235,8 +233,7 @@
                                 gap: 'sm',
                                 padding: 'sm lg',
                                 bg: 'primary',
-                                color: 'grey.night',
-                                _light: { color: 'white' },
+                                color: 'grey.800',
                                 borderRadius: 'lg',
                                 border: '1px solid',
                                 borderColor: 'primary',
@@ -247,11 +244,11 @@
                             })"
                             disabled
                         >
-                            <FyrstLoader :size="20" />
+                            <WfLoader :size="20" />
                             <span>Processing...</span>
                         </button>
                         
-                        <FyrstButton label="Ready" color="secondary" size="md" />
+                        <WfButton label="Ready" color="secondary" size="md" />
                     </div>
                 </div>
 
@@ -269,8 +266,7 @@
                                 gap: 'md',
                                 padding: 'md xl',
                                 bg: 'primary',
-                                color: 'grey.night',
-                                _light: { color: 'white' },
+                                color: 'grey.800',
                                 borderRadius: 'lg',
                                 border: '1px solid',
                                 borderColor: 'primary',
@@ -281,11 +277,11 @@
                             })"
                             disabled
                         >
-                            <FyrstLoader :size="24" />
+                            <WfLoader :size="24" />
                             <span>Uploading...</span>
                         </button>
                         
-                        <FyrstButton label="Complete" color="secondary" size="lg" />
+                        <WfButton label="Complete" color="secondary" size="lg" />
                     </div>
                 </div>
             </div>
@@ -296,13 +292,13 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Multiple Loading States
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Multiple loaders for different sections loading independently.
             </p>
             
             <div :class="css({ display: 'grid', gridTemplateColumns: { base: '1', md: '2', lg: '3' }, gap: 'lg' })">
-                <FyrstCardRoot>
-                    <FyrstCardBody>
+                <WfCardRoot>
+                    <WfCardBody>
                         <div :class="css({ 
                             display: 'flex', 
                             flexDirection: 'column', 
@@ -312,16 +308,16 @@
                             minHeight: '150px',
                             justifyContent: 'center'
                         })">
-                            <FyrstLoader :size="40" label="Loading user data" />
-                            <span :class="css({ fontSize: 'sm', color: 'grey.300', _light: { color: 'grey.700' } })">
+                            <WfLoader :size="40" label="Loading user data" />
+                            <span :class="css({ fontSize: 'sm', color: 'text.muted' })">
                                 Loading user data...
                             </span>
                         </div>
-                    </FyrstCardBody>
-                </FyrstCardRoot>
+                    </WfCardBody>
+                </WfCardRoot>
 
-                <FyrstCardRoot>
-                    <FyrstCardBody>
+                <WfCardRoot>
+                    <WfCardBody>
                         <div :class="css({ 
                             display: 'flex', 
                             flexDirection: 'column', 
@@ -331,16 +327,16 @@
                             minHeight: '150px',
                             justifyContent: 'center'
                         })">
-                            <FyrstLoader :size="40" label="Loading statistics" />
-                            <span :class="css({ fontSize: 'sm', color: 'grey.300', _light: { color: 'grey.700' } })">
+                            <WfLoader :size="40" label="Loading statistics" />
+                            <span :class="css({ fontSize: 'sm', color: 'text.muted' })">
                                 Loading statistics...
                             </span>
                         </div>
-                    </FyrstCardBody>
-                </FyrstCardRoot>
+                    </WfCardBody>
+                </WfCardRoot>
 
-                <FyrstCardRoot>
-                    <FyrstCardBody>
+                <WfCardRoot>
+                    <WfCardBody>
                         <div :class="css({ 
                             display: 'flex', 
                             flexDirection: 'column', 
@@ -350,13 +346,13 @@
                             minHeight: '150px',
                             justifyContent: 'center'
                         })">
-                            <FyrstLoader :size="40" label="Loading activities" />
-                            <span :class="css({ fontSize: 'sm', color: 'grey.300', _light: { color: 'grey.700' } })">
+                            <WfLoader :size="40" label="Loading activities" />
+                            <span :class="css({ fontSize: 'sm', color: 'text.muted' })">
                                 Loading activities...
                             </span>
                         </div>
-                    </FyrstCardBody>
-                </FyrstCardRoot>
+                    </WfCardBody>
+                </WfCardRoot>
             </div>
         </div>
     </ShowcaseContainer>

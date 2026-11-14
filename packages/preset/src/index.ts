@@ -1,12 +1,18 @@
 import type { Preset } from '@pandacss/dev'
 import { definePreset } from '@pandacss/dev'
 import presetBase from '@pandacss/preset-base'
-import { colors, spacing, radii, fontSizes, fonts, breakpoints } from './tokens/tokens'
-import { colors as semanticColors, fonts as semanticFonts, opacity as semanticOpacity } from './tokens/semantic-tokens'
+import { breakpoints } from './tokens/breakpoints'
+import { colors } from './tokens/colors'
+import { durations, easings } from './tokens/motion'
+import { radii } from './tokens/radii'
+import { sizes } from './tokens/sizes'
+import { spacing } from './tokens/spacing'
+import { fonts, fontSizes, fontWeights, letterSpacings, lineHeights } from './tokens/typography'
+import { colors as semanticColors, fonts as semanticFonts, opacity as semanticOpacity, shadows as semanticShadows } from './tokens/semantic-tokens'
 import { keyframes, animationStyles } from './animation'
 
 const preset: Preset = definePreset({
-  name: 'fyrst-design-preset',
+  name: 'webflare-design-preset',
   // Import the module so `panda lib` inlines it. A string preset is resolved
   // from the consuming app, which forced apps to install this package themselves.
   presets: [presetBase],
@@ -17,20 +23,18 @@ const preset: Preset = definePreset({
       radii: radii,
       fonts: fonts,
       fontSizes: fontSizes,
-      fontWeights: {
-        normal: { value: '400' },
-        medium: { value: '500' },
-        semibold: { value: '600' },
-        bold: { value: '700' },
-      },
-      lineHeights: {
-        normal: { value: '1.5' },
-      },
+      fontWeights: fontWeights,
+      lineHeights: lineHeights,
+      letterSpacings: letterSpacings,
+      sizes: sizes,
+      durations: durations,
+      easings: easings,
     },
     semanticTokens: {
       colors: semanticColors,
       fonts: semanticFonts,
       opacity: semanticOpacity,
+      shadows: semanticShadows,
     },
     extend: {
       breakpoints: breakpoints,
@@ -55,6 +59,7 @@ const preset: Preset = definePreset({
   conditions: {
     extend: {
       light: '.light &, .light&',
+      dark: '.dark &, .dark&',
       hasNext: '&:has(+ *)',
     },
   },

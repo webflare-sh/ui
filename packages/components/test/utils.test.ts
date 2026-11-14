@@ -6,11 +6,11 @@ import { useFormData } from '../src/composables/form'
 
 describe('URL utilities', () => {
   it.each([
-    ['https://fyrst.dev/a', 'https', 'fyrst.dev/a'],
-    ['HTTP://fyrst.dev', 'http', 'fyrst.dev'],
-    ['//fyrst.dev', 'https', 'fyrst.dev'],
-    ['fyrst.dev', 'https', 'fyrst.dev'],
-    ['  https://fyrst.dev  ', 'https', 'fyrst.dev'],
+    ['https://example.com/a', 'https', 'example.com/a'],
+    ['HTTP://example.com', 'http', 'example.com'],
+    ['//example.com', 'https', 'example.com'],
+    ['example.com', 'https', 'example.com'],
+    ['  https://example.com  ', 'https', 'example.com'],
     ['', 'https', ''],
     [null, 'https', ''],
   ] as const)('parses %j', (value, protocol, hostPath) => {
@@ -18,20 +18,20 @@ describe('URL utilities', () => {
   })
 
   it('uses the default protocol when the value has none', () => {
-    expect(parseUrlValue('fyrst.dev', 'http')).toEqual({ protocol: 'http', hostPath: 'fyrst.dev' })
+    expect(parseUrlValue('example.com', 'http')).toEqual({ protocol: 'http', hostPath: 'example.com' })
   })
 
   it('strips a pasted scheme and reports it', () => {
-    expect(sanitizeHostPathInput('  http://fyrst.dev')).toEqual({ protocol: 'http', hostPath: 'fyrst.dev' })
-    expect(sanitizeHostPathInput('//fyrst.dev')).toEqual({ hostPath: 'fyrst.dev' })
+    expect(sanitizeHostPathInput('  http://example.com')).toEqual({ protocol: 'http', hostPath: 'example.com' })
+    expect(sanitizeHostPathInput('//example.com')).toEqual({ hostPath: 'example.com' })
   })
 
   it('leaves input without a scheme untouched, including whitespace', () => {
-    expect(sanitizeHostPathInput(' fyrst.dev')).toEqual({ hostPath: ' fyrst.dev' })
+    expect(sanitizeHostPathInput(' example.com')).toEqual({ hostPath: ' example.com' })
   })
 
   it('joins protocol and host, and returns empty for an empty host', () => {
-    expect(joinUrl('https', ' fyrst.dev ')).toBe('https://fyrst.dev')
+    expect(joinUrl('https', ' example.com ')).toBe('https://example.com')
     expect(joinUrl('https', '   ')).toBe('')
   })
 })

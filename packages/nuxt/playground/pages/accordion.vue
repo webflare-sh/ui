@@ -5,11 +5,11 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Basic Accordion
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 A simple accordion with multiple items that can be expanded and collapsed.
             </p>
             
-            <FyrstAccordionRoot :items="basicItems" :css="{
+            <WfAccordionRoot :items="basicItems" :css="{
                     icon: css.raw({ color: 'primary' })
                 }"/>
         </div>
@@ -19,11 +19,11 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Accordion with Rich Content
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Accordion items can contain HTML content for more complex layouts.
             </p>
             
-            <FyrstAccordionRoot 
+            <WfAccordionRoot 
                 orientation="horizontal"
                 :items="richContentItems"
                  />
@@ -34,11 +34,11 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 FAQ Style Accordion
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 A typical FAQ implementation using the accordion component.
             </p>
             
-            <FyrstAccordionRoot type="single" :items="faqItems" />
+            <WfAccordionRoot type="single" :items="faqItems" />
         </div>
 
         <!-- Multiple Items Accordion -->
@@ -46,11 +46,11 @@
             <h2 :class="css({ fontSize: '2xl', fontWeight: 'bold', marginBottom: 'md' })">
                 Multiple Items
             </h2>
-            <p :class="css({ marginBottom: 'lg', color: 'grey.300', _light: { color: 'grey.700' } })">
+            <p :class="css({ marginBottom: 'lg', color: 'text.muted' })">
                 Accordion with several items demonstrating scalability.
             </p>
             
-            <FyrstAccordionRoot :items="multipleItems" />
+            <WfAccordionRoot :items="multipleItems" />
         </div>
     </ShowcaseContainer>
 </template>

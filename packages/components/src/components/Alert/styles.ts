@@ -45,10 +45,18 @@ export const alertStyles = sva({
       transition: 'all 200ms',
       _hover: {
         color: 'neutral',
-        bg: 'lucid.100',
+        bg: {
+          base: 'black/17.5',
+          _dark: 'white/17.5',
+          _osDark: 'white/17.5',
+        },
       },
       _active: {
-        bg: 'lucid.200',
+        bg: {
+          base: 'black/25',
+          _dark: 'white/25',
+          _osDark: 'white/25',
+        },
       },
     },
   },

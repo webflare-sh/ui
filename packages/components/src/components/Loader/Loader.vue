@@ -5,7 +5,7 @@ import { withCss, type CssMap } from '../../internal/css'
 
 export type LoaderCss = CssMap<'root'>
 
-defineOptions({ name: 'FyrstLoader' })
+defineOptions({ name: 'WfLoader' })
 
 const props = withDefaults(defineProps<{
   /** Diameter in px. Snaps to the closest of 16, 20, 24, 32, 40, 48, 56, 64, 80, 96, 120. */

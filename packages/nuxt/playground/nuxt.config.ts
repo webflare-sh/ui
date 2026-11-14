@@ -3,7 +3,7 @@ const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
   modules: ['../src/module'],
-  fyrstUi: {},
+  wfUi: {},
   telemetry: false,
   devtools: { enabled: true },
   alias: {

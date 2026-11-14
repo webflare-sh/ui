@@ -7,7 +7,7 @@ export const dialogStyles = sva({
       position: 'fixed',
       inset: '0',
       zIndex: '200',
-      bg: 'rgba(0, 0, 0, .75)',
+      bg: 'black/75',
       backdropFilter: 'blur(20px)',
     },
     content: {
@@ -27,8 +27,9 @@ export const dialogStyles = sva({
       borderColor: 'border.subtle',
       borderRadius: 'lg',
       boxShadow: {
-        base: '0 0 24px rgba(0, 0, 0, .45)',
-        _light: '0 0 24px rgba(0, 0, 0, .12)',
+        base: '0 0 24px token(colors.black/12)',
+        _dark: '0 0 24px token(colors.black/45)',
+        _osDark: '0 0 24px token(colors.black/45)',
       },
       outline: 'none',
       overflow: 'hidden',
@@ -65,8 +66,9 @@ export const dialogStyles = sva({
       cursor: 'pointer',
       flexShrink: 0,
       color: {
-        base: 'brand.pale',
-        _light: 'grey.night',
+        base: 'grey.800',
+        _dark: 'primary',
+        _osDark: 'primary',
       },
       fontSize: 'lg',
     },

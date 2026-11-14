@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Idempotent bootstrap for the @fyrst/ui Bun workspace.
+# Idempotent bootstrap for the @webflare/ui Bun workspace.
 # Safe to run repeatedly and against cached/partial state.
 
 cd "$(dirname "$0")/.."
@@ -25,7 +25,7 @@ bun install --frozen-lockfile
 
 # 3. Build the publishable packages (preset, components, Nuxt module) and
 #    assemble root dist/. The playground panda config and Nuxt module resolve
-#    @fyrst/ui exports from that dist. `build:nuxt` (prepack) already runs
+#    @webflare/ui exports from that dist. `build:nuxt` (prepack) already runs
 #    `nuxt-module-build prepare`, so packages/nuxt/.nuxt/tsconfig.json is
 #    generated here.
 #

@@ -26,7 +26,7 @@ import { withCss, type CssMap } from '../../internal/css'
 
 export type ButtonCss = CssMap<'root'>
 
-defineOptions({ name: 'FyrstButton' })
+defineOptions({ name: 'WfButton' })
 
 const props = withDefaults(defineProps<{
   label?: string | null

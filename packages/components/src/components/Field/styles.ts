@@ -20,8 +20,9 @@ export const fieldStyles = sva({
       transition: 'color 0.2s ease-in-out',
       _disabled: {
         color: {
-          base: 'grey.600',
-          _light: 'grey.400',
+          base: 'grey.400',
+          _dark: 'grey.600',
+          _osDark: 'grey.600',
         },
         cursor: 'not-allowed',
       },

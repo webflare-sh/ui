@@ -16,7 +16,7 @@ describe('ssr', async () => {
     expect(html).toContain('<div>basic</div>')
   })
 
-  it('auto-imports FyrstButton from the module', async () => {
+  it('auto-imports WfButton from the module', async () => {
     const html = await $fetch('/')
     expect(html).toContain('Publish')
     expect(html).toContain('btn')

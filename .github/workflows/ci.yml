@@ -32,3 +32,8 @@ jobs:
 
       - name: Test
         run: bun run test
+
+      # CSS check and strictTokens on color properties block the merge.
+      # Contrast findings are warnings only.
+      - name: Color checks
+        run: bun run check:colors
