@@ -169,7 +169,7 @@ const styles = computed(() => badgeStyles.raw({ size: props.size }))
 - Parts without an override (internal chrome) may call the definition directly: `fieldStyles().footer`.
 - Share style objects between parts through a typed `createInjectionKey` context (see `Card/types.ts`), never string keys.
 - Calling `.raw()` with runtime variants in another file triggers Panda's `imported_recipe_raw_dynamic` warning. It is expected: the definition itself still generates every variant.
-- Color modes: light is the base. Dark applies under `.dark` and when the OS prefers dark, so every dark value is written under both `_dark` and `_osDark` with the same value. There is no `.light` condition.
+- Color modes: light is the base. Dark applies under `.dark` and when the OS prefers dark, so every dark value is written under both `_dark` and `_osDark` with the same value. The preset's `dark` and `light` conditions (`.dark &, .dark&`, `.light &, .light&`) match the element that carries the class as well as its descendants, like the token block does; keep both selectors.
 - Prefer semantic tokens (`surface`, `border`, `text.muted`, `neutral`) over mode conditions. Keep a `_dark` / `_osDark` block only when state selectors must beat dark-mode colors on specificity (see `switchStyles.ts`).
 - Use only published colors: the brand / red / green / blue / yellow / grey shades, `white`, `black`, `transparent`, the roles, and the status colors. Use the opacity modifier (`black/10`) for transparency, not raw `rgba()`. Removed tokens and their replacements are listed in `packages/nuxt/test/fixtures/tokens/removed-colors.json`.
 

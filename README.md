@@ -109,7 +109,7 @@ import { css } from 'styled-system/css'
 
 The component merges the override into its own style object before generating classes, so an overridden property gets one class and the override wins.
 
-**Color modes.** Light is the default. Dark applies inside an element with the `.dark` class and when the OS prefers dark (`prefers-color-scheme: dark`). Put `class="dark"` on `<html>` (or any container) to switch that subtree. There is no class that forces light while the OS prefers dark.
+**Color modes.** Light is the default. Dark applies inside an element with the `.dark` class and when the OS prefers dark (`prefers-color-scheme: dark`). Put `class="dark"` on `<html>`, any container, or a component's own root to switch that element and its subtree. There is no class that forces light while the OS prefers dark.
 
 **Semantic colors.** Use the roles instead of raw shades; they switch between the modes on their own, so app styles rarely need a mode condition:
 
