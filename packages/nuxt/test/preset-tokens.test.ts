@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import presetBase from '@pandacss/preset-base'
 import { preset } from '../../preset/src/index.ts'
 import { colors as baseColors, fonts } from '../../preset/src/tokens/tokens.ts'
-import { colors, fonts as semanticFonts, opacity } from '../../preset/src/tokens/semantic-tokens.ts'
+import { colors, fonts as semanticFonts, opacity, shadows } from '../../preset/src/tokens/semantic-tokens.ts'
 import { flattenPreset } from '../../../scripts/tokens.ts'
 
 const removed = (JSON.parse(readFileSync(new URL('./fixtures/tokens/removed-colors.json', import.meta.url), 'utf8')) as {
@@ -34,7 +34,7 @@ describe('preset tokens', () => {
   })
 
   it('uses light as the base and the same dark value under .dark and OS dark', () => {
-    for (const [path, value] of [...leaves(colors, ['colors']), ...leaves(opacity, ['opacity'])]) {
+    for (const [path, value] of [...leaves(colors, ['colors']), ...leaves(opacity, ['opacity']), ...leaves(shadows, ['shadows'])]) {
       if (typeof value !== 'object' || value === null) continue
       expect(Object.keys(value).sort(), path).toEqual(['_dark', '_osDark', 'base'])
       const { _dark, _osDark } = value as Record<string, string>

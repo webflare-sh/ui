@@ -137,3 +137,25 @@ export const colors = defineSemanticTokens.colors({
   'accent-border': { value: mode('{colors.brand.100}', '#f8796040') },
   'accent-text': { value: mode('{colors.brand.600}', '{colors.brand.300}') },
 })
+
+/**
+ * Focus rings point at color tokens. `card` and `float` change per mode and use
+ * raw `rgb()` values, as on the website.
+ */
+export const shadows = defineSemanticTokens.shadows({
+  'focus': { value: '0 0 0 4px color-mix(in srgb, {colors.primary} 30%, transparent)' },
+  'focus-danger': { value: '0 0 0 4px color-mix(in srgb, {colors.red.600} 30%, transparent)' },
+  'focus-success': { value: '0 0 0 4px color-mix(in srgb, {colors.green.600} 30%, transparent)' },
+  'card': {
+    value: mode(
+      '0 1px 2px rgb(23 23 23 / 0.04), 0 12px 32px -12px rgb(23 23 23 / 0.12)',
+      '0 1px 2px rgb(0 0 0 / 0.4), 0 12px 32px -12px rgb(0 0 0 / 0.6)',
+    ),
+  },
+  'float': {
+    value: mode(
+      '0 2px 4px rgb(23 23 23 / 0.04), 0 32px 64px -24px rgb(23 23 23 / 0.22)',
+      '0 2px 4px rgb(0 0 0 / 0.5), 0 32px 64px -24px rgb(0 0 0 / 0.8)',
+    ),
+  },
+})

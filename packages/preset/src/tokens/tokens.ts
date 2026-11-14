@@ -292,6 +292,50 @@ export const fontSizes = defineTokens.fontSizes({
   '5xl': { value: '64px' },
 })
 
+export const fontWeights = defineTokens.fontWeights({
+  regular: { value: '400', description: 'Same weight as normal' },
+  normal: { value: '400' },
+  medium: { value: '500' },
+  semibold: { value: '600' },
+  bold: { value: '700' },
+  extrabold: { value: '800' },
+})
+
+export const lineHeights = defineTokens.lineHeights({
+  none: { value: '1' },
+  heading: { value: '1.08' },
+  tight: { value: '1.25' },
+  normal: { value: '1.5' },
+  relaxed: { value: '1.65' },
+})
+
+export const letterSpacings = defineTokens.letterSpacings({
+  tighter: { value: '-0.035em' },
+  tight: { value: '-0.02em' },
+  normal: { value: '0' },
+  wide: { value: '0.08em' },
+})
+
+/**
+ * `sizes.container` is a width token (`maxW: 'container'`). It is unrelated to
+ * the `container` pattern and to the `containers` scale for container queries.
+ */
+export const sizes = defineTokens.sizes({
+  container: { value: '1200px' },
+  prose: { value: '44rem' },
+})
+
+export const durations = defineTokens.durations({
+  fast: { value: '150ms' },
+  normal: { value: '300ms' },
+  slow: { value: '600ms' },
+})
+
+export const easings = defineTokens.easings({
+  default: { value: 'cubic-bezier(0.4, 0, 0.2, 1)' },
+  out: { value: 'cubic-bezier(0.16, 1, 0.3, 1)' },
+})
+
 export const breakpoints = {
   '3xs': '360px',
   '2xs': '420px',
