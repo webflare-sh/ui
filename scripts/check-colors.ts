@@ -6,7 +6,8 @@
  * 2. strictTokens (blocking for color properties): findings on other
  *    properties are listed, not fixed.
  * 3. Contrast (warning only, never fails): text 4.5:1, borders and focus 3:1,
- *    in both modes.
+ *    in both modes. A pair that names an unknown token or a color the check
+ *    cannot parse is a warning too.
  */
 import { preset } from '../packages/preset/src/index.ts'
 import { checkContrast } from './colors/contrast'
@@ -46,6 +47,11 @@ failed ||= colorFindings.length > 0
 console.log('\nContrast (warning only)')
 const tokens = flattenPreset(preset, { light: [], dark: ['_dark'] })
 for (const result of checkContrast(tokens)) {
+  if ('error' in result) {
+    const text = `${result.mode} ${result.label}: cannot measure (${result.error})`
+    console.log(github ? `::warning::Contrast ${text}` : `  ! ${text}`)
+    continue
+  }
   const text = `${result.mode} ${result.label}: ${result.ratio}:1 (needs ${result.min}:1)`
   if (result.ok) console.log(`  ✓ ${text}`)
   else console.log(github ? `::warning::Contrast ${text}` : `  ! ${text}`)

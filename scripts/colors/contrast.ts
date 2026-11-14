@@ -5,6 +5,10 @@
  * Colors are measured as they appear: a translucent color (hex with alpha, an
  * opacity modifier, or a `color-mix()` whose weights sum below 100%) is
  * composited over the background it sits on.
+ *
+ * A pair that names an unknown token or a color it cannot parse is returned
+ * with an `error` instead of a ratio. It is never thrown, so a stale pair is
+ * reported without stopping the other checks.
  */
 import type { ColorMode, FlatTokens } from '../tokens'
 
@@ -23,11 +27,19 @@ export interface ContrastPair {
   min: number
 }
 
-export interface ContrastResult extends ContrastPair {
+export interface ContrastMeasured extends ContrastPair {
   mode: ColorMode
   ratio: number
   ok: boolean
 }
+
+export interface ContrastError extends ContrastPair {
+  mode: ColorMode
+  /** Why the pair could not be measured, e.g. "Unknown token colors.surface-muted". */
+  error: string
+}
+
+export type ContrastResult = ContrastMeasured | ContrastError
 
 function parseHex(hex: string): Rgba {
   let h = hex.slice(1)
@@ -145,8 +157,12 @@ export const contrastPairs: ContrastPair[] = [
   { label: 'focus ring (primary at 30%)', fg: 'color-mix(in srgb, {colors.primary} 30%, transparent)', bg: 'colors.surface', min: 3 },
 ]
 
+/** A bare token path such as `colors.surface.raised`, as opposed to a color expression. */
+const TOKEN_PATH = /^[\w-]+(?:\.[\w-]+)+$/
+
 function lookup(tokens: FlatTokens, expression: string, mode: ColorMode): string {
   if (tokens[expression]) return tokens[expression][mode]
+  if (TOKEN_PATH.test(expression)) throw new Error(`Unknown token ${expression}`)
   return expression.replace(/\{([\w.-]+)\}/g, (_match, path: string) => {
     const token = tokens[path]
     if (!token) throw new Error(`Unknown token ${path}`)
@@ -154,17 +170,26 @@ function lookup(tokens: FlatTokens, expression: string, mode: ColorMode): string
   })
 }
 
+function measure(tokens: FlatTokens, pair: ContrastPair, mode: ColorMode): number {
+  const page = parseColor(lookup(tokens, 'colors.surface', mode))
+  const under = pair.under ? over(parseColor(lookup(tokens, pair.under, mode)), page) : page
+  const bg = over(parseColor(lookup(tokens, pair.bg, mode)), under)
+  const fgExpression = typeof pair.fg === 'string' ? pair.fg : pair.fg[mode]
+  const fg = over(parseColor(lookup(tokens, fgExpression, mode)), bg)
+  return Math.round(contrastRatio(fg, bg) * 100) / 100
+}
+
 export function checkContrast(tokens: FlatTokens, pairs: ContrastPair[] = contrastPairs): ContrastResult[] {
   const results: ContrastResult[] = []
   for (const mode of ['light', 'dark'] as const) {
-    const page = parseColor(lookup(tokens, 'colors.surface', mode))
     for (const pair of pairs) {
-      const under = pair.under ? over(parseColor(lookup(tokens, pair.under, mode)), page) : page
-      const bg = over(parseColor(lookup(tokens, pair.bg, mode)), under)
-      const fgExpression = typeof pair.fg === 'string' ? pair.fg : pair.fg[mode]
-      const fg = over(parseColor(lookup(tokens, fgExpression, mode)), bg)
-      const ratio = Math.round(contrastRatio(fg, bg) * 100) / 100
-      results.push({ ...pair, mode, ratio, ok: ratio >= pair.min })
+      try {
+        const ratio = measure(tokens, pair, mode)
+        results.push({ ...pair, mode, ratio, ok: ratio >= pair.min })
+      }
+      catch (error) {
+        results.push({ ...pair, mode, error: error instanceof Error ? error.message : String(error) })
+      }
     }
   }
   return results
