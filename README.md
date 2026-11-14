@@ -126,7 +126,7 @@ The component merges the override into its own style object before generating cl
 | `accent-subtle`, `accent-border`, `accent-text` | Brand-tinted highlights |
 | `danger`, `success`, `warning`, `info` (with `.subtle`, `.subtle.light`, `.text`) | Status |
 
-When an app style does need a mode condition, write the dark value under both `_dark` and `_osDark`:
+When an app style does need a mode condition, write the same dark value under both `_dark` and `_osDark`:
 
 ```ts
 css({ bg: { base: 'grey.100', _dark: 'grey.800', _osDark: 'grey.800' } })

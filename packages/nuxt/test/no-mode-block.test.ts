@@ -48,7 +48,16 @@ describe('webflare/no-mode-block', () => {
       `export const d = { '@media (prefers-color-scheme: dark)': { color: 'white' } }`,
       `export const e = { _osDark: { ...shared } }`,
     ].join('\n')
-    expect(await findings(code)).toHaveLength(5)
+    // The unpaired `_dark` and `_osDark` lines are also missing their twin.
+    expect(await findings(code)).toEqual([
+      `export const a = { _dark: { _hover: { bg: 'grey.700' } } }`,
+      `export const a = { _dark: { _hover: { bg: 'grey.700' } } }`,
+      `export const b = { '_light': { '& .icon': { color: 'grey.800' } } }`,
+      `export const c = { '.dark &': { color: 'white' } }`,
+      `export const d = { '@media (prefers-color-scheme: dark)': { color: 'white' } }`,
+      `export const e = { _osDark: { ...shared } }`,
+      `export const e = { _osDark: { ...shared } }`,
+    ])
   })
 
   it('allows the mode inside a property, nested conditions, and breakpoints', async () => {
@@ -56,11 +65,43 @@ describe('webflare/no-mode-block', () => {
       `export const s = {`,
       `  bg: { base: 'grey.100', _dark: 'grey.800', _osDark: 'grey.800' },`,
       `  _hover: { bg: { base: 'brand.100', _dark: 'grey.700', _osDark: 'grey.700' } },`,
-      `  color: { base: 'x', _dark: { base: 'y', _hover: 'z', md: 'w' } },`,
+      `  color: { base: 'x', _dark: { base: 'y', _hover: 'z', md: 'w' }, _osDark: { base: 'y', _hover: 'z', md: 'w' } },`,
       `  '&[data-state="checked"]': { bgColor: { base: 'primary', _dark: 'primary', _osDark: 'primary' } },`,
       `}`,
-      `export const tokens = { value: { base: '{colors.white}', _dark: '{colors.grey.950}' } }`,
+      `export const tokens = { value: { base: '{colors.white}', _dark: '{colors.grey.950}', _osDark: '{colors.grey.950}' } }`,
       `export const conditions = { dark: '.dark &, .dark&' }`,
+    ].join('\n')
+    expect(await findings(code)).toEqual([])
+  })
+
+  it('reports a missing twin and a `_dark` value that differs from `_osDark`', async () => {
+    const code = [
+      `export const missingOs = { bg: { base: 'grey.100', _dark: 'grey.800' } }`,
+      `export const missingDark = { bg: { base: 'grey.100', _osDark: 'grey.800' } }`,
+      `export const literals = { bg: { base: 'grey.100', _dark: 'grey.800', _osDark: 'grey.700' } }`,
+      `export const nested = { color: { _dark: { base: 'y', _hover: 'z' }, _osDark: { base: 'y', _hover: 'w' } } }`,
+      `export const order = { color: { _dark: { base: 'y', md: 'w' }, _osDark: { md: 'w', base: 'y' } } }`,
+    ].join('\n')
+    expect(await findings(code)).toEqual([
+      `export const missingOs = { bg: { base: 'grey.100', _dark: 'grey.800' } }`,
+      `export const missingDark = { bg: { base: 'grey.100', _osDark: 'grey.800' } }`,
+      `export const literals = { bg: { base: 'grey.100', _dark: 'grey.800', _osDark: 'grey.700' } }`,
+      `export const nested = { color: { _dark: { base: 'y', _hover: 'z' }, _osDark: { base: 'y', _hover: 'w' } } }`,
+      `export const order = { color: { _dark: { base: 'y', md: 'w' }, _osDark: { md: 'w', base: 'y' } } }`,
+    ])
+  })
+
+  it('allows the same literal, object, or identifier under `_dark` and `_osDark`', async () => {
+    const code = [
+      `const dark = 'grey.800'`,
+      `const color = 'token(colors.black/45)'`,
+      `export const literals = { bg: { base: 'grey.100', _dark: 'grey.800', _osDark: 'grey.800' } }`,
+      `export const nested = { color: { _dark: { base: 'y', _hover: 'z', md: 'w' }, _osDark: { base: 'y', _hover: 'z', md: 'w' } } }`,
+      `export const names = { bg: { base: 'grey.100', _dark: dark, _osDark: dark } }`,
+      `export const calls = { bg: { _dark: token('grey.800'), _osDark: token('grey.800') } }`,
+      `export const lists = { bg: { _dark: ['a', 'b'], _osDark: ['a', 'b'] } }`,
+      'export const templates = { shadow: { _dark: `0 0 ${color}`, _osDark: `0 0 ${color}` } }',
+      `export const wrapped = { bg: { _dark: ('grey.800' as const), _osDark: 'grey.800' satisfies string } }`,
     ].join('\n')
     expect(await findings(code)).toEqual([])
   })
@@ -77,10 +118,11 @@ describe('webflare/no-mode-block', () => {
     ].join('\n')
     expect(await findings(code, 'packages/nuxt/playground/pages/example.vue')).toEqual([
       `<div :class="css({ _dark: { color: 'white' } })" />`,
+      `<div :class="css({ _dark: { color: 'white' } })" />`,
     ])
   })
 
-  it('finds no blocks in the playground, which `bun run lint` does not cover', async () => {
+  it('finds no mode blocks or mismatched twins in the playground, which `bun run lint` does not cover', async () => {
     const results = await createLinter().lintFiles(['packages/nuxt/playground'])
     expect(results.length).toBeGreaterThan(10)
     const problems = results.flatMap(result => result.messages.map(message => `${result.filePath}:${message.line} ${message.message}`))
