@@ -72,7 +72,7 @@ bun run --filter='@webflare/ui-nuxt' test:types             # Type checking
 
 `bun run check:colors` runs the color checks (CI runs it after the tests):
 
-- **CSS check** (blocks a merge): generates the CSS with `panda cssgen` into `node_modules/.cache/color-checks/`; every `var(--colors-*)` must be declared and no color property may contain a raw token name such as `brand.pale`.
+- **CSS check** (blocks a merge): generates the CSS with `panda cssgen` from the components and the playground pages into `node_modules/.cache/color-checks/`; every `var(--colors-*)` must be declared and no color property may contain a raw token name such as `brand.pale`.
 - **strictTokens** (blocks on color properties): codegen with `packages/components/panda.strict-tokens.config.ts`, then `vue-tsc -p tsconfig.strict-tokens.json`. Findings on other properties are listed, not fixed.
 - **Contrast** (warning only): text 4.5:1, borders and focus 3:1, in both modes, measured over the real background. A pair that names an unknown token or a color the check cannot parse is reported as a warning, never an error; `packages/nuxt/test/color-checks.test.ts` still fails on it so a stale pair gets fixed.
 

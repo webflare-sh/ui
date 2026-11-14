@@ -1,15 +1,50 @@
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { preset } from '../../preset/src/index.ts'
 import type { ContrastResult } from '../../../scripts/colors/contrast.ts'
 import { checkContrast, contrastPairs, contrastRatio, parseColor } from '../../../scripts/colors/contrast.ts'
-import { checkCss, generateCss } from '../../../scripts/colors/css-check.ts'
+import { CHECKED_SOURCES, checkCss, generateCss } from '../../../scripts/colors/css-check.ts'
 import { flattenPreset } from '../../../scripts/tokens.ts'
 
 describe('CSS color check', () => {
   it('passes on the generated CSS', () => {
     const css = generateCss()
     expect(css).toContain('--colors-primary:')
+    // Only the playground uses black/17.5 at rest (the carousel slide), so
+    // this class is missing when the playground drops out of the check.
+    expect(css).toContain('.bg_black\\/17\\.5')
     expect(checkCss(css)).toEqual([])
+  })
+
+  it('reads the playground pages as well as the components', () => {
+    expect(CHECKED_SOURCES).toEqual(expect.arrayContaining([
+      'packages/components/src/**/*.{js,ts,vue}',
+      'packages/nuxt/playground/app.vue',
+      'packages/nuxt/playground/{components,pages}/**/*.{js,ts,vue}',
+    ]))
+  })
+
+  it('fails on a removed token in a page', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'webflare-ui-stale-page-'))
+    try {
+      const page = join(dir, 'stale.vue')
+      // `lucid.300` is the removed token a playground page used on master.
+      writeFileSync(page, `<script setup lang="ts">
+import { css } from 'styled-system/css'
+</script>
+
+<template>
+  <div :class="css({ borderColor: 'lucid.300' })" />
+</template>
+`)
+      const issues = checkCss(generateCss({ include: [page], name: 'stale-page' }))
+      expect(issues).toContainEqual({ kind: 'raw-token-name', detail: expect.stringContaining('raw token name "lucid.300"') })
+    }
+    finally {
+      rmSync(dir, { recursive: true, force: true })
+    }
   })
 
   it('fails when a token that a component uses is deleted', () => {
