@@ -18,7 +18,11 @@ packages/
 ├── preset/              # @webflare/design-preset - Panda CSS Preset
 │   └── src/
 │       ├── index.ts           # Token preset (`@webflare/ui/design-preset`)
-│       └── tokens/            # Base & semantic tokens
+│       └── tokens/            # One file per kind of base token, plus semantic-tokens.ts
+│           ├── colors.ts, spacing.ts, radii.ts, sizes.ts, breakpoints.ts
+│           ├── typography.ts      # fonts, font sizes and weights, line heights, letter spacings
+│           ├── motion.ts          # durations, easings
+│           └── semantic-tokens.ts # roles, modes, opacity, shadows
 ├── components/          # @webflare/ui-components - Vue 3 UI Components
 └── nuxt/               # @webflare/ui-nuxt - Nuxt Module
     ├── src/runtime/         # Module runtime
@@ -260,7 +264,7 @@ describe('ssr', async () => {
 
 ## Important Notes
 
-1. Token changes: add to both `tokens.ts` and `semantic-tokens.ts`
+1. Token changes: base tokens live in one file per kind under `packages/preset/src/tokens/` (`colors.ts`, `spacing.ts`, `radii.ts`, `typography.ts`, `sizes.ts`, `motion.ts`, `breakpoints.ts`); mode-dependent and alias tokens go in `semantic-tokens.ts`. Register a new category in `packages/preset/src/index.ts`
 2. New packages: register in root `package.json` under `workspaces`
 3. Build order: Nuxt module requires preset built first (automatic)
 4. Peer dependencies: `vue`, `reka-ui`, and `@pandacss/dev` are required. `@pandacss/preset-base` is a published `dependency` (the design-system preset inlines the module; apps on `designSystem` do not install it). `nuxt` and `@nuxt/kit` are optional (only `@webflare/ui/nuxt`). Do not put `@nuxt/kit` in published `dependencies`.
