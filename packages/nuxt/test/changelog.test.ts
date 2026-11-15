@@ -51,41 +51,46 @@ describe('changelog range', () => {
     expect(() => findPreviousReleaseTag(dir, '0.1.0', importedHead)).toThrow(/written by hand/)
   })
 
-  it('refuses to run before v0.1.0 exists', () => {
-    expect(() => findPreviousReleaseTag(dir, '0.1.1', importedHead)).toThrow(/Tag v0\.1\.0 first/)
+  it('refuses to run before 0.1.0 exists', () => {
+    expect(() => findPreviousReleaseTag(dir, '0.1.1', importedHead)).toThrow(/Tag 0\.1\.0 first/)
   })
 
-  it('ignores imported tags older than the first release', () => {
+  it('ignores a v-prefixed tag', () => {
+    git('tag', 'v0.1.0')
+    expect(() => findPreviousReleaseTag(dir, '0.1.1', importedHead)).toThrow(/Tag 0\.1\.0 first/)
+  })
+
+  it('ignores imported tags that are not X.Y.Z release tags', () => {
     git('tag', 'v0.4.0', importedHead)
-    expect(() => findPreviousReleaseTag(dir, '0.1.1', importedHead)).toThrow(/Tag v0\.1\.0 first/)
+    expect(() => findPreviousReleaseTag(dir, '0.1.1', importedHead)).toThrow(/Tag 0\.1\.0 first/)
   })
 
-  it('starts at v0.1.0 for 0.1.1', () => {
-    git('tag', 'v0.1.0')
+  it('starts at 0.1.0 for 0.1.1', () => {
+    git('tag', '0.1.0')
     commit('fix: something')
-    expect(findPreviousReleaseTag(dir, '0.1.1', importedHead)).toBe('v0.1.0')
+    expect(findPreviousReleaseTag(dir, '0.1.1', importedHead)).toBe('0.1.0')
   })
 
-  it('starts at the previous release tag, not at v0.1.0', () => {
-    git('tag', 'v0.1.0')
+  it('starts at the previous release tag, not at 0.1.0', () => {
+    git('tag', '0.1.0')
     commit('fix: something')
-    git('tag', 'v0.1.1')
+    git('tag', '0.1.1')
     commit('feat: more')
-    git('tag', 'v0.2.0')
+    git('tag', '0.2.0')
     commit('fix: later')
-    expect(findPreviousReleaseTag(dir, '0.2.1', importedHead)).toBe('v0.2.0')
-    expect(findPreviousReleaseTag(dir, '0.2.0', importedHead)).toBe('v0.1.1')
+    expect(findPreviousReleaseTag(dir, '0.2.1', importedHead)).toBe('0.2.0')
+    expect(findPreviousReleaseTag(dir, '0.2.0', importedHead)).toBe('0.1.1')
   })
 
   it('refuses a release tag that does not contain the imported history', () => {
     git('checkout', '-q', '--orphan', 'other')
     commit('chore: unrelated root')
-    git('tag', 'v0.1.0')
+    git('tag', '0.1.0')
     expect(() => findPreviousReleaseTag(dir, '0.1.1', importedHead)).toThrow(/does not contain the imported history/)
   })
 
   it('reports a shallow clone as a git error, not as a tag without the imported history', () => {
-    git('tag', 'v0.1.0')
+    git('tag', '0.1.0')
     shallow = mkdtempSync(join(tmpdir(), 'webflare-ui-changelog-shallow-'))
     // A file:// URL, because --depth is ignored for a plain local path.
     execFileSync('git', ['clone', '-q', '--depth', '1', pathToFileURL(dir).href, shallow])
@@ -95,9 +100,9 @@ describe('changelog range', () => {
   })
 
   it('reports an unknown imported head as a git error', () => {
-    git('tag', 'v0.1.0')
+    git('tag', '0.1.0')
     const run = () => findPreviousReleaseTag(dir, '0.1.1', '0'.repeat(40))
-    expect(run).toThrow(/git merge-base --is-ancestor 0{40} v0\.1\.0 failed: .*Not a valid commit name/s)
+    expect(run).toThrow(/git merge-base --is-ancestor 0{40} 0\.1\.0 failed: .*Not a valid commit name/s)
     expect(run).not.toThrow(/does not contain the imported history/)
   })
 })

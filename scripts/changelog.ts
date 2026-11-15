@@ -6,8 +6,9 @@
  *   bun run changelog --dry    # print the entry only
  *
  * The 0.1.0 entry is written by hand. This script refuses to run until a
- * `v0.1.0` tag exists, and the range always starts at a release tag that
+ * `0.1.0` tag exists, and the range always starts at a release tag that
  * already contains the imported history, so that history never shows up.
+ * Release tags are `X.Y.Z` with no `v` prefix.
  *
  * It needs the full history: in a shallow clone the imported commit is
  * missing, and the script stops with git's error.
@@ -27,7 +28,7 @@ export const FIRST_RELEASE = '0.1.0'
 type Semver = [number, number, number]
 
 function parseVersion(version: string): Semver | undefined {
-  const match = /^v?(\d+)\.(\d+)\.(\d+)$/.exec(version)
+  const match = /^(\d+)\.(\d+)\.(\d+)$/.exec(version)
   return match ? [Number(match[1]), Number(match[2]), Number(match[3])] : undefined
 }
 
@@ -59,8 +60,8 @@ function isAncestor(cwd: string, ancestor: string, commit: string): boolean {
 }
 
 /**
- * The newest `vX.Y.Z` tag reachable from HEAD that is older than `version`
- * and not older than the first release.
+ * The newest `X.Y.Z` tag reachable from HEAD that is older than `version`
+ * and not older than the first release. A `v` prefix is not a release tag.
  */
 export function findPreviousReleaseTag(cwd: string, version: string, importedHead = IMPORTED_HEAD): string {
   const current = parseVersion(version)
@@ -72,7 +73,7 @@ export function findPreviousReleaseTag(cwd: string, version: string, importedHea
     throw new Error(`The ${FIRST_RELEASE} changelog entry is written by hand. Bump package.json first.`)
   }
 
-  const tags = git(cwd, 'tag', '--list', 'v*', '--merged', 'HEAD')
+  const tags = git(cwd, 'tag', '--list', '--merged', 'HEAD')
     .split('\n')
     .map(tag => ({ tag, version: parseVersion(tag) }))
     .filter((entry): entry is { tag: string, version: Semver } => entry.version !== undefined)
@@ -81,7 +82,7 @@ export function findPreviousReleaseTag(cwd: string, version: string, importedHea
 
   const previous = tags[0]?.tag
   if (!previous) {
-    throw new Error(`No release tag between v${FIRST_RELEASE} and v${version} is reachable from HEAD. Tag v${FIRST_RELEASE} first.`)
+    throw new Error(`No release tag between ${FIRST_RELEASE} and ${version} is reachable from HEAD. Tag ${FIRST_RELEASE} first.`)
   }
   if (!isAncestor(cwd, importedHead, previous)) {
     throw new Error(`${previous} does not contain the imported history (${importedHead}). Refusing to generate.`)
@@ -95,7 +96,12 @@ async function main() {
   const { version } = JSON.parse(readFileSync(join(rootDir, 'package.json'), 'utf8')) as { version: string }
   const from = findPreviousReleaseTag(rootDir, version)
 
-  const config = await loadChangelogConfig(rootDir, { from, to: 'HEAD', newVersion: version })
+  const config = await loadChangelogConfig(rootDir, {
+    from,
+    to: 'HEAD',
+    newVersion: version,
+    templates: { tagBody: '{{newVersion}}' },
+  })
   const commits = parseCommits(await getGitDiff(from, 'HEAD', rootDir), config)
   const markdown = await generateMarkDown(commits, config)
 
