@@ -206,14 +206,14 @@ Publish the root package only. The GitHub Action uses [npm trusted publishing](h
 
 `prepublishOnly` runs `bun run build`. The Action already builds and tests with Bun, then runs `npm publish --ignore-scripts` so that script does not rebuild. `bun publish` cannot authenticate with OIDC.
 
-The Action runs on a published GitHub Release or a manual start, and only from the tag `v<version>` that matches `package.json`.
+The Action runs on a published GitHub Release or a manual start, and only from the tag `<version>` that matches `package.json`. Tags have no `v` prefix.
 
 ### First publish (0.1.0)
 
 Trusted publishing can only be attached to a package that already exists, so 0.1.0 is published by hand.
 
 1. `npm login` in a browser session (interactive 2FA). Do not create a bypass-2FA granular token.
-2. Tag `v0.1.0` on the release commit, then from a clean checkout of that tag:
+2. Tag `0.1.0` on the release commit, then from a clean checkout of that tag:
 
 ```bash
 bun install --frozen-lockfile
@@ -222,7 +222,7 @@ bun run test
 npm publish --access public --ignore-scripts
 ```
 
-3. Do not create a GitHub Release for 0.1.0. It would start the Action, which fails because the version is already on npm.
+3. The GitHub Release uses tag `0.1.0` on the published commit `8ac428b`. Publishing it runs the workflow stored on that commit, which still expects a `v` prefix and would publish again. Disable **Publish to npm** before publishing the release, then enable it again.
 4. On npmjs.com → `@webflare/ui` → Settings → Trusted Publisher → GitHub Actions:
    - Organization or user: `webflare-sh`
    - Repository: `ui`
@@ -232,4 +232,4 @@ npm publish --access public --ignore-scripts
 
 ### Later publishes
 
-Bump the version in all four `package.json` files and run `bun run changelog`. It adds the entry generated from the previous release tag. Run it from a full clone: in a shallow clone it stops with git's error and asks for `git fetch --unshallow --tags`. After the pull request is merged, tag `v<version>` on `master` and publish a GitHub Release for that tag (or start the **Publish to npm** Action from the tag). After the first OIDC publish succeeds, you can set the package to require 2FA and disallow tokens.
+Bump the version in all four `package.json` files and run `bun run changelog`. It adds the entry generated from the previous `X.Y.Z` release tag. Run it from a full clone: in a shallow clone it stops with git's error and asks for `git fetch --unshallow --tags`. After the pull request is merged, tag `<version>` on `master` and publish a GitHub Release for that tag (or start the **Publish to npm** Action from the tag). After the first OIDC publish succeeds, you can set the package to require 2FA and disallow tokens.

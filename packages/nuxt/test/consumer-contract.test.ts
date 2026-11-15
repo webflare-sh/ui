@@ -503,14 +503,14 @@ void _buttonLabelNotNullOnly
     const step = workflow.slice(check, workflow.indexOf('- name:', check + 1))
     expect(step).not.toMatch(/^\s+if:/m)
     expect(step).toContain('"$GITHUB_REF_TYPE" != "tag"')
-    expect(step).toContain('"$GITHUB_REF_NAME" != "v$version"')
+    expect(step).toContain('"$GITHUB_REF_NAME" != "$version"')
     expect(step).toContain('jq -r .version package.json')
   })
 
   it('generates later changelogs from the previous release tag', () => {
     expect(pkg.scripts.changelog).toBe('bun scripts/changelog.ts')
     const changelog = readFileSync(join(rootDir, 'CHANGELOG.md'), 'utf8')
-    expect(changelog).toMatch(/^## v0\.1\.0$/m)
+    expect(changelog).toMatch(/^## 0\.1\.0$/m)
   })
 
   it('runs lint, build, and test on pull requests', () => {
