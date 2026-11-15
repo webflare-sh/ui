@@ -7,7 +7,7 @@
 ### 🩹 Fixes
 
 - Use release tags without a v prefix ([7e05eb7](https://github.com/webflare-sh/ui/commit/7e05eb7))
-- Accept TypeScript 6 as the optional typescript peer ([24c9a98](https://github.com/webflare-sh/ui/commit/24c9a98))
+- Accept TypeScript 6 as the optional typescript peer ([#22](https://github.com/webflare-sh/ui/pull/22))
 
 ### ❤️ Contributors
 
