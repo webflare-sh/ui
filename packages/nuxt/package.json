@@ -1,6 +1,6 @@
 {
     "name": "@webflare/ui-nuxt",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "private": true,
     "description": "Nuxt module for the Webflare Vue UI components",
     "license": "MIT",

@@ -2,11 +2,10 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "lib": ["ESNext", "DOM"],
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["./src/*"],
       "@webflare/design-preset": ["../preset/src/index.ts"],
-      "styled-system/*": ["styled-system/*"]
+      "styled-system/*": ["./styled-system/*"]
     },
     "declaration": true,
     "declarationMap": false,
