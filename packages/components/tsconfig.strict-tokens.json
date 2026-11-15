@@ -2,9 +2,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["./src/*"],
       "@webflare/design-preset": ["../preset/src/index.ts"],
-      "styled-system/*": [".cache/strict-tokens/styled-system/*"]
+      "styled-system/*": ["./.cache/strict-tokens/styled-system/*"]
     },
     "noEmit": true,
     "emitDeclarationOnly": false,

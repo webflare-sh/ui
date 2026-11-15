@@ -236,7 +236,7 @@ Optional hardening, at any time: require 2FA and a second owner for the npm orga
 | Category | Packages |
 |----------|----------|
 | Runtime | bun, vue ^3.5, nuxt ^4.3, @pandacss/dev, reka-ui ^2.6 |
-| Dev | vitest, @nuxt/test-utils, @nuxt/eslint-config, typescript ^5.9 |
+| Dev | vitest, @nuxt/test-utils, @nuxt/eslint-config, typescript ~6.0 (optional peer: ^5.9.3 \|\| ^6.0.0) |
 | Build | tsup, vite, vue-tsc, @nuxt/module-builder |
 
 ## Design Tokens

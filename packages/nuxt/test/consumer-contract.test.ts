@@ -115,6 +115,11 @@ describe('published package contract', () => {
     expect(pkg.peerDependenciesMeta?.['reka-ui']?.optional).toBeUndefined()
   })
 
+  it('accepts TypeScript 5.9 and 6 as an optional peer', () => {
+    expect(pkg.peerDependencies.typescript).toBe('^5.9.3 || ^6.0.0')
+    expect(pkg.peerDependenciesMeta?.typescript?.optional).toBe(true)
+  })
+
   it('keeps root scripts to orchestration and daily commands', () => {
     expect(Object.keys(pkg.scripts)).toEqual([
       'lint',
