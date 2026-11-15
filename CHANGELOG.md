@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.1
+
+[compare changes](https://github.com/webflare-sh/ui/compare/0.1.0...0.1.1)
+
+### 🩹 Fixes
+
+- Use release tags without a v prefix ([7e05eb7](https://github.com/webflare-sh/ui/commit/7e05eb7))
+- Accept TypeScript 6 as the optional typescript peer ([24c9a98](https://github.com/webflare-sh/ui/commit/24c9a98))
+
+### ❤️ Contributors
+
+- Claude <noreply@anthropic.com>
+- ROBJkE <robert@fyrst.digital>
+
 ## 0.1.0
 
 First release of `@webflare/ui`, the Webflare design system.
