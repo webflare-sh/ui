@@ -9,7 +9,7 @@ Workspace packages (private, not published):
 
 Uses Bun as package manager and build tool, full TypeScript support.
 
-First-party agent skills live in `.agents/skills/<name>/SKILL.md`. A consumer app that is still on Panda CSS 1.x, still lists `panda.buildinfo.json` in `include`, or still adds the preset by hand instead of setting `designSystem: '@webflare/ui'` should follow [`.agents/skills/panda-v2-migration/SKILL.md`](.agents/skills/panda-v2-migration/SKILL.md). Every breaking change to the public API needs a matching section in a migration skill.
+First-party agent skills live in `.agents/skills/<name>/SKILL.md`. A consumer app that is still on Panda CSS 1.x, still lists `panda.buildinfo.json` in `include`, or still adds the preset by hand instead of setting `designSystem: '@webflare/ui'` should follow [`.agents/skills/panda-v2-migration/SKILL.md`](.agents/skills/panda-v2-migration/SKILL.md). A Vue app that calls `app.use(WfUI)` and uses bare tags such as `<CardRoot>`, or registers the components with a `Wf` prefix by hand, should follow [`.agents/skills/wfui-prefix-migration/SKILL.md`](.agents/skills/wfui-prefix-migration/SKILL.md). Every breaking change to the public API needs a matching section in a migration skill.
 
 ## Package Structure
 

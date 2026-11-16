@@ -2,6 +2,7 @@
 import { computed, provide } from 'vue'
 import { cardBorderSizes, cardStyles, type CardBorderSize } from './styles'
 import { withCss } from '../../internal/css'
+import NativeTag from '../../internal/NativeTag'
 import CardHeader, { type CardHeaderProps } from './CardHeader.vue'
 import { CardStylesKey, type CardRootCss } from './types'
 
@@ -48,8 +49,8 @@ provide(CardStylesKey, styles)
 </script>
 
 <template>
-  <component
-    :is="props.as"
+  <NativeTag
+    :as="props.as"
     :class="withCss(styles.root, props.css?.root)"
   >
     <slot name="before" />
@@ -62,5 +63,5 @@ provide(CardStylesKey, styles)
     <slot />
     <slot name="footer" />
     <slot name="after" />
-  </component>
+  </NativeTag>
 </template>

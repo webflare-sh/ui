@@ -2,6 +2,7 @@
 import { inject, computed } from 'vue'
 import { pricingCardStyles } from './styles'
 import { withCss } from '../../internal/css'
+import NativeTag from '../../internal/NativeTag'
 import { PricingCardStylesKey, PricingCardDataKey, type PricingCardData, type PricingCardHeaderCss } from './types'
 
 export interface PricingCardHeaderProps {
@@ -34,13 +35,13 @@ const subtitle = computed(() => props.subtitle ?? data.value.subtitle)
     <slot>
       <div :class="withCss(styles.headerPackage, props.css?.headerPackage)">
         <slot name="title">
-          <component
-            :is="titleTag"
+          <NativeTag
             v-if="title"
+            :as="titleTag"
             :class="withCss(styles.title, props.css?.title)"
           >
             {{ title }}
-          </component>
+          </NativeTag>
         </slot>
         <slot name="subtitle">
           <p

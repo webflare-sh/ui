@@ -71,6 +71,8 @@ const app = createApp({})
 app.use(WfUI)
 ```
 
+`app.use(WfUI)` registers every component globally with the same `Wf` prefix as the Nuxt module (`WfButton`, `WfAlertRoot`, `WfCardRoot`, …). Pass `{ prefix: 'Acme' }` for another prefix, or `{ prefix: '' }` for the bare export names (`Button`, `CardRoot`, …).
+
 ```ts
 import { defineConfig } from '@pandacss/dev'
 

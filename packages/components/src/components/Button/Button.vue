@@ -23,6 +23,7 @@
 import { computed } from 'vue'
 import { buttonStyles } from './styles'
 import { withCss, type CssMap } from '../../internal/css'
+import NativeTag from '../../internal/NativeTag'
 
 export type ButtonCss = CssMap<'root'>
 
@@ -86,8 +87,8 @@ const buttonClass = computed(() => withCss(
 </script>
 
 <template>
-  <component
-    :is="isLink ? 'a' : 'button'"
+  <NativeTag
+    :as="isLink ? 'a' : 'button'"
     :class="['btn', buttonClass]"
     :title="title"
     v-bind="attrs"
@@ -107,5 +108,5 @@ const buttonClass = computed(() => withCss(
       class="btn-label"
       v-html="props.label"
     />
-  </component>
+  </NativeTag>
 </template>

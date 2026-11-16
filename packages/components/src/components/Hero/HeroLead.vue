@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { heroLeadStyles } from './styles'
 import { withCss, type CssMap } from '../../internal/css'
+import NativeTag from '../../internal/NativeTag'
 
 export type HeroLeadCss = CssMap<'root' | 'headline' | 'description'>
 
@@ -36,15 +37,15 @@ const styles = computed(() => heroLeadStyles.raw({
   <div :class="withCss(styles.root, props.css?.root)">
     <slot name="prepend" />
     <slot name="headline">
-      <component
-        :is="headlineTag"
+      <NativeTag
         v-if="headline"
+        :as="headlineTag"
         :class="withCss(styles.headline, props.css?.headline)"
       >
         <span
           v-html="headline"
         />
-      </component>
+      </NativeTag>
     </slot>
     <slot name="description">
       <div
