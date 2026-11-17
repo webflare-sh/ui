@@ -1,6 +1,6 @@
 {
     "name": "@webflare/ui-components",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "private": true,
     "description": "Vue 3 UI components for the Webflare design system",
     "license": "MIT",
