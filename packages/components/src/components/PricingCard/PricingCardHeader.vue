@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { inject, computed } from 'vue'
+import { Primitive } from 'reka-ui'
 import { pricingCardStyles } from './styles'
 import { withCss } from '../../internal/css'
 import { PricingCardStylesKey, PricingCardDataKey, type PricingCardData, type PricingCardHeaderCss } from './types'
@@ -34,13 +35,13 @@ const subtitle = computed(() => props.subtitle ?? data.value.subtitle)
     <slot>
       <div :class="withCss(styles.headerPackage, props.css?.headerPackage)">
         <slot name="title">
-          <component
-            :is="titleTag"
+          <Primitive
             v-if="title"
+            :as="titleTag"
             :class="withCss(styles.title, props.css?.title)"
           >
             {{ title }}
-          </component>
+          </Primitive>
         </slot>
         <slot name="subtitle">
           <p

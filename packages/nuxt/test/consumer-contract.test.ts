@@ -252,6 +252,11 @@ describe('published package contract', () => {
       import: './dist/preset/index.js',
       require: './dist/preset/index.cjs',
     })
+    expect(pkg.exports['./resolver']).toEqual({
+      types: './dist/resolver.d.ts',
+      import: './dist/resolver.js',
+      require: './dist/resolver.cjs',
+    })
     expect(pkg.exports['./panda.buildinfo.json']).toBeUndefined()
     expect(pkg.exports['./panda/*']).toBe('./dist/panda/*')
     expect(pkg.exports['./css']).toBeDefined()
@@ -475,6 +480,9 @@ void _buttonLabelNotNullOnly
     expect(indexDts).not.toMatch(/\bfieldContextKey\b/)
     expect(indexDts).not.toMatch(/export \{ default as Control \}/)
     expect(indexDts).not.toMatch(/\bControlSize\b/)
+    // No global plugin: apps import components or use `@webflare/ui/resolver` (#24).
+    expect(indexDts).not.toMatch(/\bWfUI\b/)
+    expect(indexDts).not.toMatch(/export \{[^}]*\bas default\b/)
   })
 
   it('publishes from GitHub Actions with npm trusted publishing', () => {
@@ -616,6 +624,9 @@ describe('packed install exports', () => {
       expect(packedFiles).toContain('package/dist/vue/useFormData.d.ts')
       expect(packedFiles).toContain('package/dist/index.d.ts')
       expect(packedFiles).toContain('package/dist/nuxt-entries.json')
+      expect(packedFiles).toContain('package/dist/resolver.js')
+      expect(packedFiles).toContain('package/dist/resolver.cjs')
+      expect(packedFiles).toContain('package/dist/resolver.d.ts')
       expect(packedFiles).not.toContain('package/dist/AccordionRoot.d.ts')
       expect(packedFiles.some(file => file.startsWith('package/packages/'))).toBe(false)
       expect(packedFiles).not.toContain('package/dist/ui-components.css')
@@ -651,6 +662,7 @@ describe('packed install exports', () => {
         '@webflare/ui/preset',
         '@webflare/ui/nuxt',
         '@webflare/ui/nuxt-entries.json',
+        '@webflare/ui/resolver',
         '@webflare/ui/vue/Button',
         '@webflare/ui/style.css',
         '@webflare/ui/panda/lib.json',
@@ -680,10 +692,23 @@ describe('packed install exports', () => {
       expect(resolved['@webflare/ui/preset']).toMatch(/index\.(js|cjs)$/)
       expect(resolved['@webflare/ui/nuxt']).toMatch(/module\.mjs$/)
       expect(resolved['@webflare/ui/nuxt-entries.json']).toMatch(/nuxt-entries\.json$/)
+      expect(resolved['@webflare/ui/resolver']).toMatch(/resolver\.js$/)
       expect(resolved['@webflare/ui/vue/Button']).toMatch(/vue\/Button\.js$/)
       expect(resolved['@webflare/ui/style.css']).toMatch(/style\.css$/)
       expect(resolved['@webflare/ui/panda/lib.json']).toMatch(/panda\/lib\.json$/)
       expect(resolved['@webflare/ui/css']).toMatch(/styled-system\/css/)
+
+      // The resolver runs in the app's Vite config: plain Node, ESM and CJS, no Vue.
+      const resolverOutput = execFileSync(process.execPath, ['--input-type=module', '-e', [
+        `import WebflareResolver from '@webflare/ui/resolver'`,
+        `import { createRequire } from 'node:module'`,
+        `const cjs = createRequire(import.meta.url)('@webflare/ui/resolver')`,
+        `console.log(JSON.stringify([WebflareResolver().resolve('WfButton'), cjs.WebflareResolver({ prefix: '' }).resolve('CardRoot')]))`,
+      ].join('\n')], { cwd: consumer, encoding: 'utf8' })
+      expect(JSON.parse(resolverOutput)).toEqual([
+        { name: 'Button', from: '@webflare/ui' },
+        { name: 'CardRoot', from: '@webflare/ui' },
+      ])
     }
     finally {
       rmSync(dir, { recursive: true, force: true })

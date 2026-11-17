@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, provide } from 'vue'
+import { Primitive } from 'reka-ui'
 import { cardBorderSizes, cardStyles, type CardBorderSize } from './styles'
 import { withCss } from '../../internal/css'
 import CardHeader, { type CardHeaderProps } from './CardHeader.vue'
@@ -48,8 +49,8 @@ provide(CardStylesKey, styles)
 </script>
 
 <template>
-  <component
-    :is="props.as"
+  <Primitive
+    :as="props.as"
     :class="withCss(styles.root, props.css?.root)"
   >
     <slot name="before" />
@@ -62,5 +63,5 @@ provide(CardStylesKey, styles)
     <slot />
     <slot name="footer" />
     <slot name="after" />
-  </component>
+  </Primitive>
 </template>

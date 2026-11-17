@@ -1,7 +1,6 @@
 import './styles/icons.css'
 
 export * from './vue-components'
-export { WfUI, WfUI as default } from './plugin'
 
 export { default as Accordion } from './components/Accordion'
 export { default as Alert } from './components/Alert'

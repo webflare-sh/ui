@@ -1,6 +1,6 @@
 {
   "name": "@webflare/ui",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Webflare design system: Panda CSS preset, Vue components, and Nuxt module",
   "license": "MIT",
   "author": "Webflare OÜ",
@@ -67,6 +67,11 @@
       "default": "./dist/nuxt/module.mjs"
     },
     "./nuxt-entries.json": "./dist/nuxt-entries.json",
+    "./resolver": {
+      "types": "./dist/resolver.d.ts",
+      "import": "./dist/resolver.js",
+      "require": "./dist/resolver.cjs"
+    },
     "./vue/*": {
       "types": "./dist/vue/*.d.ts",
       "import": "./dist/vue/*.js",

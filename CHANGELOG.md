@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.2.0
+
+[compare changes](https://github.com/webflare-sh/ui/compare/0.1.1...0.2.0)
+
+### 🚀 Enhancements
+
+- ⚠️  Replace the WfUI plugin with an auto-import resolver ([#25](https://github.com/webflare-sh/ui/pull/25), fixes [#24](https://github.com/webflare-sh/ui/issues/24))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Replace the WfUI plugin with an auto-import resolver ([#25](https://github.com/webflare-sh/ui/pull/25))
+
+  `WfUI` (`app.use(WfUI)`) and the default export of `@webflare/ui` are removed; the package registers nothing globally. Vue apps add `Components({ resolvers: [WebflareResolver()] })` from `unplugin-vue-components` with `@webflare/ui/resolver` to keep `Wf*` tags, or import the components they use. Nuxt apps are not affected. See the README's Vue section and the [migration guide](https://github.com/webflare-sh/ui/blob/master/.agents/skills/wfui-plugin-removal/SKILL.md).
+
+### ❤️ Contributors
+
+- Claude <noreply@anthropic.com>
+
 ## 0.1.1
 
 [compare changes](https://github.com/webflare-sh/ui/compare/0.1.0...0.1.1)
