@@ -42,3 +42,5 @@ styled-system
 
 # generated Nuxt vue entry modules (from vue-entries.ts)
 /packages/components/src/vue
+# generated component names for the resolver (from vue-entries.ts)
+/packages/components/src/generated

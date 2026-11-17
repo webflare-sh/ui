@@ -4,10 +4,9 @@
  * @description Switch built on reka-ui Switch primitives.
  */
 import { computed } from 'vue'
-import { SwitchRoot, SwitchThumb } from 'reka-ui'
+import { Primitive, SwitchRoot, SwitchThumb } from 'reka-ui'
 import { switchStyles } from './switchStyles'
 import { withCss } from '../css'
-import NativeTag from '../NativeTag'
 import { useFieldControl } from './useFieldControl'
 import type { SwitchCss } from '../../components/Switch/types'
 import type { ControlSize } from './types'
@@ -37,7 +36,7 @@ const handleUpdate = (value: boolean) => {
 </script>
 
 <template>
-  <NativeTag
+  <Primitive
     :as="label ? 'label' : 'div'"
     :class="[withCss(styles.root, props.css?.root), props.class]"
     :data-disabled="disabled ? '' : undefined"
@@ -60,5 +59,5 @@ const handleUpdate = (value: boolean) => {
       v-if="label"
       :class="withCss(styles.label, props.css?.label)"
     >{{ label }}</span>
-  </NativeTag>
+  </Primitive>
 </template>

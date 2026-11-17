@@ -46,7 +46,7 @@
         "dev": "vite dev",
         "test": "vitest run",
         "test:watch": "vitest",
-        "clean": "rm -rf dist src/vue",
+        "clean": "rm -rf dist src/vue src/generated",
         "typecheck": "bun run codegen && bun run generate:vue-entries && vue-tsc --noEmit"
     },
     "devDependencies": {

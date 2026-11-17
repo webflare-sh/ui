@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { inject, computed } from 'vue'
+import { Primitive } from 'reka-ui'
 import { pricingCardStyles } from './styles'
 import { withCss } from '../../internal/css'
-import NativeTag from '../../internal/NativeTag'
 import { PricingCardStylesKey, PricingCardDataKey, type PricingCardData, type PricingCardHeaderCss } from './types'
 
 export interface PricingCardHeaderProps {
@@ -35,13 +35,13 @@ const subtitle = computed(() => props.subtitle ?? data.value.subtitle)
     <slot>
       <div :class="withCss(styles.headerPackage, props.css?.headerPackage)">
         <slot name="title">
-          <NativeTag
+          <Primitive
             v-if="title"
             :as="titleTag"
             :class="withCss(styles.title, props.css?.title)"
           >
             {{ title }}
-          </NativeTag>
+          </Primitive>
         </slot>
         <slot name="subtitle">
           <p

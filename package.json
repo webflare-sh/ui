@@ -67,6 +67,11 @@
       "default": "./dist/nuxt/module.mjs"
     },
     "./nuxt-entries.json": "./dist/nuxt-entries.json",
+    "./resolver": {
+      "types": "./dist/resolver.d.ts",
+      "import": "./dist/resolver.js",
+      "require": "./dist/resolver.cjs"
+    },
     "./vue/*": {
       "types": "./dist/vue/*.d.ts",
       "import": "./dist/vue/*.js",

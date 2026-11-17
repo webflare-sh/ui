@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, provide } from 'vue'
+import { Primitive } from 'reka-ui'
 import { cardBorderSizes, cardStyles, type CardBorderSize } from './styles'
 import { withCss } from '../../internal/css'
-import NativeTag from '../../internal/NativeTag'
 import CardHeader, { type CardHeaderProps } from './CardHeader.vue'
 import { CardStylesKey, type CardRootCss } from './types'
 
@@ -49,7 +49,7 @@ provide(CardStylesKey, styles)
 </script>
 
 <template>
-  <NativeTag
+  <Primitive
     :as="props.as"
     :class="withCss(styles.root, props.css?.root)"
   >
@@ -63,5 +63,5 @@ provide(CardStylesKey, styles)
     <slot />
     <slot name="footer" />
     <slot name="after" />
-  </NativeTag>
+  </Primitive>
 </template>

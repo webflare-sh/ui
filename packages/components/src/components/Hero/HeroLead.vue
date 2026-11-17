@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { Primitive } from 'reka-ui'
 import { heroLeadStyles } from './styles'
 import { withCss, type CssMap } from '../../internal/css'
-import NativeTag from '../../internal/NativeTag'
 
 export type HeroLeadCss = CssMap<'root' | 'headline' | 'description'>
 
@@ -37,7 +37,7 @@ const styles = computed(() => heroLeadStyles.raw({
   <div :class="withCss(styles.root, props.css?.root)">
     <slot name="prepend" />
     <slot name="headline">
-      <NativeTag
+      <Primitive
         v-if="headline"
         :as="headlineTag"
         :class="withCss(styles.headline, props.css?.headline)"
@@ -45,7 +45,7 @@ const styles = computed(() => heroLeadStyles.raw({
         <span
           v-html="headline"
         />
-      </NativeTag>
+      </Primitive>
     </slot>
     <slot name="description">
       <div

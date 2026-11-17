@@ -1,6 +1,7 @@
 import { execFileSync } from 'node:child_process'
 import { existsSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { writeVueEntryModules } from '../write-vue-entry-modules.ts'
 
 /**
  * Runs once in the main Vitest process, before any worker starts. Codegen used
@@ -12,4 +13,6 @@ export default function setup() {
   if (!existsSync(resolve(packageRoot, 'styled-system/css/index.js'))) {
     execFileSync('bun', ['run', 'codegen'], { cwd: packageRoot, stdio: 'inherit' })
   }
+  // `src/resolver.ts` imports the generated component names.
+  writeVueEntryModules()
 }

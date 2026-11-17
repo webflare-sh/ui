@@ -63,15 +63,33 @@ bun add @webflare/ui vue reka-ui @pandacss/dev
 ```
 
 ```ts
-import { createApp } from 'vue'
-import WfUI from '@webflare/ui'
+// main.ts
 import '@webflare/ui/style.css'
-
-const app = createApp({})
-app.use(WfUI)
 ```
 
-`app.use(WfUI)` registers every component globally with the same `Wf` prefix as the Nuxt module (`WfButton`, `WfAlertRoot`, `WfCardRoot`, …). Pass `{ prefix: 'Acme' }` for another prefix, or `{ prefix: '' }` for the bare export names (`Button`, `CardRoot`, …).
+`@webflare/ui` registers nothing globally (it has no `app.use()` plugin). Use the components in one of two ways:
+
+- **Auto-import with the `Wf` prefix**, the same tags as in Nuxt (`<WfButton>`, `<WfCardRoot>`, …). Add [`unplugin-vue-components`](https://github.com/unplugin/unplugin-vue-components) with the Webflare resolver. Each tag compiles to a named import from `@webflare/ui`. Pass `WebflareResolver({ prefix: 'Acme' })` for another prefix, or `{ prefix: '' }` for the bare names (`<Button>`, `<CardRoot>`).
+
+  ```ts
+  // vite.config.ts
+  import { defineConfig } from 'vite'
+  import vue from '@vitejs/plugin-vue'
+  import Components from 'unplugin-vue-components/vite'
+  import WebflareResolver from '@webflare/ui/resolver'
+
+  export default defineConfig({
+    plugins: [vue(), Components({ resolvers: [WebflareResolver()] })],
+  })
+  ```
+
+- **Import what you use:**
+
+  ```vue
+  <script setup lang="ts">
+  import { Button, CardRoot } from '@webflare/ui'
+  </script>
+  ```
 
 ```ts
 import { defineConfig } from '@pandacss/dev'

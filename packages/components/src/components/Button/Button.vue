@@ -21,9 +21,9 @@
  * <Button color="primary" size="lg" label="Large Primary Button" />
  */
 import { computed } from 'vue'
+import { Primitive } from 'reka-ui'
 import { buttonStyles } from './styles'
 import { withCss, type CssMap } from '../../internal/css'
-import NativeTag from '../../internal/NativeTag'
 
 export type ButtonCss = CssMap<'root'>
 
@@ -87,7 +87,7 @@ const buttonClass = computed(() => withCss(
 </script>
 
 <template>
-  <NativeTag
+  <Primitive
     :as="isLink ? 'a' : 'button'"
     :class="['btn', buttonClass]"
     :title="title"
@@ -108,5 +108,5 @@ const buttonClass = computed(() => withCss(
       class="btn-label"
       v-html="props.label"
     />
-  </NativeTag>
+  </Primitive>
 </template>
